@@ -1,0 +1,88 @@
+background no
+font Ubuntu:bold:size=11
+use_xft yes
+xftalpha 0.9
+update_interval 3.0
+total_run_times 0
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+#minimum_size 250 250
+#maximum_width 500
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders yes
+default_color cccccc
+default_shade_color black
+default_outline_color green
+alignment top_left
+gap_x 22
+gap_y 35
+no_buffers yes
+uppercase no
+cpu_avg_samples 4
+override_utf8_locale no
+uppercase no
+if_up_strictness address
+
+TEXT
+
+${alignc 35}${font Arial Black:size=26}${time %H:%M}${font}
+${alignc}${time %A %y/%m/%d}
+${alignc}uptime: ${uptime_short}
+
+
+${color 66FF33}CPU: ${color FFFFFF} ${alignr}${freq_g 0} GHz
+
+Cpu total ${alignr}${cpu cpu0}%
+${cpubar 4 cpu0}
+#Cpu 1  ${alignr}${cpu cpu1}%
+#${cpubar 4 cpu1}
+#Cpu 2 ${alignr}${cpu cpu2}%
+#${cpubar 4 cpu2}
+#Cpu 3 ${alignr}${cpu cpu3}%
+#${cpubar 4 cpu3}
+#Cpu 4 ${alignr}${cpu cpu4}%
+#${cpubar 4 cpu 4}
+${top name 1}$alignr${top cpu 1}
+${top name 2}$alignr${top cpu 2}
+${top name 3}$alignr${top cpu 3}
+${top name 4}$alignr${top cpu 4}
+
+${color 66FF33}RAM: ${color FFFFFF} ${alignr}$memmax
+
+In use: ${alignr}$mem ($memperc%)
+${membar 4}
+
+${color 66FF33}Filesystem: ${color FFFFFF}
+
+/dev/root: ${alignr}${fs_used /} / ${fs_size /}
+${fs_bar 4 /}
+
+/home: ${alignr}${fs_used /home/} / ${fs_size /home/}
+${fs_bar 4 /home/}
+
+~/src: ${alignr}${fs_used /usr/local/src/} / ${fs_size /usr/local/src/}
+${fs_bar 4 /usr/local/src/}
+
+${color 66FF33}Network: ${color FFFFFF}
+
+${if_up wlan0}
+wlan0: ${alignr}(${addr wlan0})
+
+Down: ${downspeed wlan0}/s ${alignr}(${totaldown wlan0})
+${downspeedgraph wlan0 000000 775555}
+Up: ${upspeed wlan0}/s ${alignr}(${totalup wlan0})
+${upspeedgraph wlan0 000000 557755}$color
+${endif}
+${if_up eth0}
+eth0: ${alignr}(${addr eth0})
+
+Down: ${downspeed eth0}/s ${alignr}(${totaldown eth0})
+${downspeedgraph eth0 000000 775555}
+Up: ${upspeed eth0}/s ${alignr}(${totalup eth0})
+${upspeedgraph eth0 000000 557755}$color
+${endif}
