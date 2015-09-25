@@ -105,3 +105,8 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/zenburn-theme-20150727.2148")
 (load-theme 'zenburn t)
+
+;;default alchemist-elixir
+(global-company-mode)
+(require 'elixir-mode)
+(require 'alchemist)
