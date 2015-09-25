@@ -4,6 +4,8 @@
 ;;switch the bell off
 (setq visible-bell 1)
 
+;; line numbering please
+(global-linum-mode 1)
 
 ;;start in a good default position
 (setq initial-frame-alist '((left . 350) (top . 150)))
@@ -93,7 +95,6 @@
    '(progn
       (require 'tern-auto-complete)
       (tern-ac-setup)))
-
 
 (require 'package)
 (add-to-list 'package-archives
