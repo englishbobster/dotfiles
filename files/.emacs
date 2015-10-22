@@ -28,6 +28,9 @@
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
+;;trailing white space
+(setq-default show-trailing-whitespace t)
+
 ;;package management
 (require 'package)
 (add-to-list 'package-archives
