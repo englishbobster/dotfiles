@@ -11,6 +11,9 @@
 ;;no toolbar
 (tool-bar-mode -1)
 
+;;helm mode is a must
+(add-hook 'after-init-hook 'helm-mode)
+
 ;;enable company-mode as default
 (add-hook 'after-init-hook 'global-company-mode)
 ;;and we want alchemist
