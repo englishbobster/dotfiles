@@ -1,5 +1,11 @@
 #path
-export PATH=$PATH:/home/stos/src/software/marathon:/opt/eclipse-sdk-bin-4.2:/opt/gradle/bin:/opt/mysql/bin:/opt/groovy-2.3.3/bin:/opt/Sublime
+export PATH=$PATH:~/src/dev/workspace/Elm-Platform/-1.15.1/.cabal-sandbox/bin
+
+#some useful paths
+SRC_HOME=/usr/local/src
+DEV_HOME=$SRC_HOME/dev
+GITDIR=$DEV_HOME/repos
+WORKSPACE=$DEV_HOME/workspace
 
 #more history
 export HISTSIZE=10000
@@ -10,19 +16,16 @@ export ALTERNATE_EDITOR=""
 #set the root prompt to something useful (added ":" to be scp compatible)
 PS1='\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\$\[\033[00m\] '
 
-#some useful paths
-SRC_HOME=/usr/local/src
-DEV_HOME=$SRC_HOME/dev
-GITDIR=$DEV_HOME/git
-WORKSPACE=$DEV_HOME/workspace
-
 #groovyhome
 export GROOVY_HOME="/opt/groovy-2.3.3"
 
+#elm home
+export ELM_HOME="/usr/lib64/node_modules/elm/share"
+
 #workspace shortcuts
-alias tnm="cd $DEV_HOME/git/nm/tnm/"
+alias tnm="cd $GITDIR/nm/tnm"
 alias dev="cd $DEV_HOME"
-alias gitdir="cd $GITDIR"
+alias repos="cd $GITDIR"
 alias workspace="cd $WORKSPACE"
 alias docs_stu="cd $SRC_HOME/Docs/"
 alias docs_files="cd /files/docs/"
@@ -30,10 +33,10 @@ alias docs_files="cd /files/docs/"
 #useful ssh shortcuts (assumes public ssh keys)
 #as root
 alias fozzie='ssh -X root@tnm-load-fozzie'
-alias gonzo='ssh -X root@tnm-load-gonzo'
+alias 1k='ssh -X root@tnm-load-1k'
 alias jenkins='ssh -X root@tnmbuild'
 alias yuffie='ssh -X root@tnm-load-yuffie'
-alias sephiroth='ssh -X root@tnm-load-sephiroth'
+alias reg='ssh -X root@tnm-load-reg'
 alias mimic1_root='ssh -X root@tnm-mimic1'
 alias mimic2_root='ssh -X root@tnm-mimic2'
 alias mimic3_root='ssh -X root@tnm-mimic3'
@@ -77,11 +80,6 @@ updateRepos(){
     done
 }
 
-#give me tmux always <3 tmux love <3
-#if which tmux 2>&1 >/dev/null; then
-     # if no session is started, start a new session
-#     [[ -z ${TMUX} ]] && (tmux attach || tmux new-session)
-#fi
 
 # Git prompt
 source ~/.bash_completion.d/git-prompt

@@ -10,14 +10,16 @@
 (show-paren-mode 1)
 ;;no toolbar
 (tool-bar-mode -1)
-
+;;spaces and not tabs
+(setq-default indent-tabs-mode nil)
 ;;helm mode is a must
 (add-hook 'after-init-hook 'helm-mode)
-
 ;;enable company-mode as default
 (add-hook 'after-init-hook 'global-company-mode)
 ;;and we want alchemist
 (add-hook 'after-init-hook 'alchemist-mode)
+;;yasnippet
+(add-hook 'prog-mode-hook 'yas-minor-mode)
 
 ;; Write backup files to own directory
 (setq backup-directory-alist
@@ -57,3 +59,31 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 143 :width normal)))))
+
+
+;;configure-tomatinho
+(require 'tomatinho)
+(global-set-key (kbd "<f12>") 'tomatinho)
+
+
+;;yang mode
+(add-to-list 'load-path "~/.emacs.d/other_plugins")
+(load "yang-mode.el")
+
+     (autoload 'yang-mode "yang-mode" "Major mode for editing YANG modules."
+               t)
+     (add-to-list 'auto-mode-alist '("\\.yang$" . yang-mode))
+
+     (setq blink-matching-paren-distance nil)
+
+;;   Common YANG layout:
+     (defun my-yang-mode-hook ()
+       "Configuration for YANG Mode. Add this to `yang-mode-hook'."
+       (if window-system
+         (progn
+           (c-set-style "BSD")
+           (setq indent-tabs-mode nil)
+           (setq c-basic-offset 2)
+           (setq font-lock-maximum-decoration t)
+           (font-lock-mode t))))
+     (add-hook 'yang-mode-hook 'my-yang-mode-hook)
