@@ -1,0 +1,3 @@
+XTerm*reverseVideo: on
+xterm*faceName:     LiberationMono:size=14:antialias=false
+xterm*font:	    7x14
