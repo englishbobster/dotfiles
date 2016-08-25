@@ -65,6 +65,10 @@
 (require 'tomatinho)
 (global-set-key (kbd "<f12>") 'tomatinho)
 
+;;ace-jump-mode
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
 
 ;;yang mode
 (add-to-list 'load-path "~/.emacs.d/other_plugins")
