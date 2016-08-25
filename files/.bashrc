@@ -1,5 +1,11 @@
+#options
+shopt -s histappend
+
+#put symbolic links for use with xmonad here
+LINKS=~/.xmonad/links
+
 #path
-export PATH=$PATH:~/src/dev/workspace/Elm-Platform/-1.15.1/.cabal-sandbox/bin
+export PATH=$PATH:~/src/dev/workspace/Elm-Platform/-1.15.1/.cabal-sandbox/bin:$LINKS
 
 #some useful paths
 SRC_HOME=/usr/local/src
@@ -8,7 +14,9 @@ GITDIR=$DEV_HOME/repos
 WORKSPACE=$DEV_HOME/workspace
 
 #more history
-export HISTSIZE=10000
+export HISTTIMEFORMAT="%y%m%d:%T "
+export HISTSIZE=-1
+export HISTFILESIZE=-1
 
 #used for emacs as daemon
 export ALTERNATE_EDITOR=""
