@@ -15,7 +15,7 @@ Config {
 
     , Run Date "%a %b %_d %l:%M:%S %P" "date" 10
 
-    , Run Com "/home/nica/.xmonad/get-volume" [] "myVolume" 10
+    , Run Com "/home/stos/.xmonad/get-volume" [] "myVolume" 10
 
     , Run Battery [
       "-t", "<acstatus>: <left>%",
