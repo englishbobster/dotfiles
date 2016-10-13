@@ -49,16 +49,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(custom-enabled-themes (quote (manoj-dark)))
  '(display-time-mode t)
- )
+ '(elm-format-on-save t)
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 143 :width normal)))))
+ '(default ((t (:family "Noto Sans" :foundry "monotype" :slant normal :weight normal :height 158 :width normal)))))
 
 
 ;;configure-tomatinho
@@ -91,3 +93,6 @@
            (setq font-lock-maximum-decoration t)
            (font-lock-mode t))))
      (add-hook 'yang-mode-hook 'my-yang-mode-hook)
+
+;;elm stuff
+(add-hook 'elm-mode-hook #'elm-oracle-setup-ac)
