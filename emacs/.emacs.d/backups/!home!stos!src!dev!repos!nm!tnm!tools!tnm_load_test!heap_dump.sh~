@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+SCRIPT_LOG="heap_dumps.log"
+
+#Get the managed server process ID
+MS_PID=`jps | grep MainServerAppMain |awk '{print $1}'`
+
+while true; do
+    echo "`date +%x" "%X` Starting Heap Dump $DUMP_COUNT" >> $SCRIPT_LOG
+    jmap -histo  $MS_PID >>$SCRIPT_LOG 2>&1
+    echo "\n\n"
+    sleep 30
+done
+

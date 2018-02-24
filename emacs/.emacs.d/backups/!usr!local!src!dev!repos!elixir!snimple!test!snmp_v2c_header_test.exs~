@@ -1,0 +1,10 @@
+defmodule V2cHeaderTest do
+    use ExUnit.Case, async: true
+
+    import Snimple.SNMP.Header
+
+    test "testili" do
+      assert true == false
+    end
+    
+end

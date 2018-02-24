@@ -1,0 +1,13 @@
+defmodule Alarms.Nodes do
+  use Ecto.Schema
+
+  @primary_key false
+
+  schema "nodes" do
+    field :IpAddress, :string
+    field :NodeFamily, :integer
+    field :Name,  :string
+    field :AlarmsIgnored, :integer
+  end
+
+end

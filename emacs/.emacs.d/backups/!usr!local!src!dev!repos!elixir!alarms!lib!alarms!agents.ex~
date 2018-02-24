@@ -1,0 +1,42 @@
+defmodule Alarms.Snmp.Agents do
+
+  defp snmp_version_type do
+    %{
+      0 => :undefined,
+      2 => :v2,
+      3 => :v3
+     }
+  end
+  def as_snmp_version_atom(id) when is_integer(id) do
+    snmp_version_type[id]
+  end
+
+  def extract_ip(%{IpAddress: addr} = single_node_entry),  do: addr |> ipstr_to_octetlist
+  def extract_community(%{SnmpCommunity: snmp_community} = single_node_entry), do: snmp_community |> String.to_char_list
+  def extract_snmp_version(%{SnmpVersion: snmp_version} = single_node_entry), do: snmp_version |> as_snmp_version_atom
+  def extract_sec_model(single_node_entry), do: :v2c
+  def extract_sec_level(single_node_entry), do: :noAuthNoPriv
+
+  def ipstr_to_octetlist(addr_str) do
+    addr_str
+    |> String.split(".")
+    |> Enum.map(fn char -> String.to_integer(char) end)
+  end
+
+  def ipaddresses_from(node_query_result) do
+    node_query_result
+    |> Enum.map(fn entry -> extract_ip(entry) end)
+  end
+
+  def node_entry_to_agent_conf(single_node_entry) do
+    [{:engine_id, 'default'},
+     {:address, extract_ip(single_node_entry)},
+     {:port, 161},
+     {:community, extract_community(single_node_entry)},
+     {:version, extract_snmp_version(single_node_entry)},
+     {:sec_model, extract_sec_model(single_node_entry)},
+     {:sec_level, extract_sec_level(single_node_entry)}
+     ]
+  end
+
+end

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#TARGET_WS_ADDR="http://172.16.15.122:8080"
+TARGET_WS_ADDR="http://localhost:8080"
+ENTRY_POINT_INV_RET="/soap/mtosi/layered/EquipmentInventoryRetrieval"
+ENTRY_POINT_SNC="/soap/mtosi/layered/ConnectionRetrieval"
+ENTRY_POINT_TPS="/soap/mtosi/layered/TerminationPointRetrieval"
+ENTRY_POINT_PGS="/soap/mtosi/layered/ProtectionRetrieval"
+ENTRY_POINT_ME="/soap/mtosi/layered/ManagedElementRetrieval"
+for i in {1..100}; do
+#    curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getAllEquipment" --data @get_allEquipment.xml "$TARGET_WS_ADDR$ENTRY_POINT_INV_RET" --connect-timeout 10 &
+#    sleep 1
+    curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getAllSubnetworkConnections" --data @get_allSubnetworkConnections.xml "$TARGET_WS_ADDR$ENTRY_POINT_SNC" --connect-timeout 10 &
+    sleep 1
+#    curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getAllFloatingTerminationPoints" --data @get_allFtps.xml "$TARGET_WS_ADDR$ENTRY_POINT_TPS" --connect-timeout 10 &
+#    sleep 1
+#    curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getAllProtectionGroups" --data @get_allPgs.xml "$TARGET_WS_ADDR$ENTRY_POINT_PGS" --connect-timeout 10 &
+#    sleep 1
+#    curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getTerminationPointsIterator" --data @get_PtpIterator.xml "$TARGET_WS_ADDR$ENTRY_POINT_TPS" --connect-timeout 10 &
+#    sleep 1
+#    curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getAllCrossConnections" --data @get_allCcs.xml "$TARGET_WS_ADDR$ENTRY_POINT_SNC" --connect-timeout 10 &
+#    sleep 1
+#    curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getAllManagedElements" --data @get_allMes.xml "$TARGET_WS_ADDR$ENTRY_POINT_ME" --connect-timeout 10 &
+#    sleep 1
+done

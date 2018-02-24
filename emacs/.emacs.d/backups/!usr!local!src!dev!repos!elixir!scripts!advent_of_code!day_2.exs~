@@ -1,0 +1,78 @@
+defmodule NoMath do
+  def read_data() do
+    case File.open("day_2.data", [:read, :write], fn file_pid -> read(file_pid) end) do
+			{:ok, result} ->
+				result
+			{:error, reason} ->
+				IO.puts("Failed to read file because: #{reason}")
+		end
+  end
+
+  def read(file_pid) do
+    contents = IO.read(file_pid, :all)
+		parse_contents(contents)
+  end
+
+  def parse_contents(contents) do
+    contents
+    |> String.strip
+    |> String.split("\n")
+    |> Enum.map(fn dim -> as_triplet(dim) end)
+  end
+
+  def as_triplet(dim) do
+    dim
+    |> String.split("x")
+    |> Enum.map(&(String.to_integer(&1)))
+    |> List.to_tuple
+  end
+
+  def wrapping_paper({l,w,h}) do
+    side_area_list = [l * w, w * h, h * l]
+    [smallest_side|_rest] = Enum.sort(side_area_list)
+    smallest_side + (2 * Enum.reduce(side_area_list, 0, fn x,acc -> x + acc end))
+  end
+
+  def total_wrapping_paper() do
+    read_data
+    |> Enum.reduce(0, fn dim, acc -> acc + wrapping_paper(dim) end)
+  end
+
+  def gimmee_ribbon({l,w,h} = dim) do
+    volume = l * w * h
+    smallest_perim = Tuple.to_list(dim)
+    |> Enum.sort
+    |> Enum.slice(0..1)
+    |> Enum.reduce(0, fn x, acc -> acc + (2 * x) end)
+    volume + smallest_perim
+  end
+
+  def total_gimmee_ribbon() do
+    read_data
+    |> Enum.reduce(0, fn dim, acc -> acc + gimmee_ribbon(dim) end)
+  end
+end
+
+ExUnit.start([trace: true])
+
+defmodule NQLTest do
+  use ExUnit.Case
+
+  test "total area for present" do
+    assert NoMath.wrapping_paper({2,3,4}) == 58
+    assert NoMath.wrapping_paper({1,1,10}) == 43
+  end
+
+  test "dimensions as tuple" do
+    assert NoMath.as_triplet("10x9x8") == {10,9,8}
+  end
+
+  test "ammount of ribbon needed should be x" do
+    assert NoMath.gimmee_ribbon({2,3,4}) == 34
+    assert NoMath.gimmee_ribbon({1,1,10}) == 14
+  end
+
+end
+
+IO.puts "Total wrapping paper: #{NoMath.total_wrapping_paper}"
+IO.puts "Total ribbon: #{NoMath.total_gimmee_ribbon}"

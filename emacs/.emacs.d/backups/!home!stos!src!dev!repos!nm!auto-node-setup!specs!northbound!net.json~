@@ -1,0 +1,13 @@
+{
+    "nodes": {
+        "OTN-PP-A": "specs/northbound/otn-pp-a.json",
+        "OTN-PP-B": "specs/northbound/otn-pp-b.json",
+        "OTN-HANDOFF": "specs/northbound/otn-off.json"
+    },
+
+    "peers": [
+        ["OTN-PP-A:1:15:82", "OTN-PP-B:1:15:81"],
+        ["OTN-PP-B:1:15:82", "OTN-PP-A:1:15:81"]
+    ]
+}
+

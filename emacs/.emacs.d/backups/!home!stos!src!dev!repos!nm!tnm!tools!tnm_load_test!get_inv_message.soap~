@@ -1,0 +1,12 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.tmforum.org/mtop/fmw/xsd/hdr/v1" xmlns:v11="http://www.tmforum.org/mtop/mri/xsd/rir/v1">
+   <soapenv:Header>
+         <v1:header>
+	          <v1:communicationPattern>MultipleBatchResponse</v1:communicationPattern>
+		           <v1:requestedBatchSize>5</v1:requestedBatchSize>
+			            <v1:batchSequenceNumber>1</v1:batchSequenceNumber>
+				          </v1:header>
+					     </soapenv:Header>
+					        <soapenv:Body>
+						      <v11:getInventoryIteratorRequest/>
+						         </soapenv:Body>
+							 </soapenv:Envelope>

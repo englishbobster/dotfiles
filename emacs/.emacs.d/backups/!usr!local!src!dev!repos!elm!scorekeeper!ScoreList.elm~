@@ -1,0 +1,92 @@
+module ScoreList where
+
+import Html exposing (Html, text, table, tr, th, div, h2)
+import Signal exposing (Address)
+import ScoreRow as Row
+
+
+type alias ID = Int
+
+
+type alias ListModel =
+    { scoreList : List ( ID, Row.RowModel )}
+
+
+initialModel : Int ->  ListModel
+initialModel listSize =
+  { scoreList = populateRows listSize }
+
+
+listModel : Signal ListModel
+listModel =
+  Signal.foldp update (initialModel 15) listActionMb.signal
+
+
+listActionMb : Signal.Mailbox Action
+listActionMb =
+  Signal.mailbox NoOp
+
+
+populateRows : Int -> List (ID, Row.RowModel)
+populateRows rows =
+  initializeRows [] rows
+
+
+initializeRows : List (ID, Row.RowModel) -> Int -> List (ID, Row.RowModel)
+initializeRows list listSize =
+  if List.length list == listSize then
+    list
+  else
+    initializeRows (((List.length list), Row.initialModel) :: list) listSize
+
+
+type Action
+  = NoOp
+  | UpdateRow ID Row.Action
+
+
+update : Action -> ListModel -> ListModel
+update action model =
+  case action of
+    NoOp ->
+      model
+    UpdateRow id rowAction ->
+      let updateRow (rowID, rowModel) =
+            if rowID == id
+               then (rowID, Row.update rowAction rowModel)
+               else (rowID, rowModel)
+      in
+        {model | scoreList = List.map updateRow model.scoreList}
+
+
+view : Address Action -> ListModel -> Html
+view address model =
+  div [] [
+          table [] (List.map (viewRow address) model.scoreList)
+         ,div[][
+                h2[][text ("Home Total: " ++ toString(sumHome model.scoreList))]
+               ,h2[][text ("Away Total: " ++ toString(sumAway model.scoreList))]
+               ]
+         ]
+
+
+sumHome : List (ID, Row.RowModel) -> Int
+sumHome list =
+  List.map (\(_,row) -> row.homeTeamScore) list
+  |> List.sum
+
+
+sumAway : List (ID, Row.RowModel) -> Int
+sumAway list =
+  List.map (\(_,row) -> row.awayTeamScore) list
+  |> List.sum
+
+
+viewRow : Address Action -> (ID, Row.RowModel) -> Html
+viewRow address (id, model) =
+  Row.view (Signal.forwardTo address (UpdateRow id)) model
+
+
+main : Signal Html
+main =
+  Signal.map (view listActionMb.address) listModel

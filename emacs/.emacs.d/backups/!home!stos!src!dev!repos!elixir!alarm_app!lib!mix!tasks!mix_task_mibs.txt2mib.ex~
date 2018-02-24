@@ -1,0 +1,7 @@
+defmodule Mix.Tasks.Mibs.Txt2Mib do
+  use Mix.Task
+
+  def run(_) do
+    IO.puts("Doing something with mib files")
+  end
+end

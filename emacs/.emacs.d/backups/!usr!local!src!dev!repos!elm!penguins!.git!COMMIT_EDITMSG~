@@ -1,0 +1,18 @@
+Some refactoring, modularizing the app:
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Tue Oct 18 20:29:23 2016 +0200
+#
+# interactive rebase in progress; onto e4e33ef
+# Last command done (1 command done):
+#    edit 7c21195 Some refactoring, modularizing the app:
+# No commands remaining.
+# You are currently editing a commit while rebasing branch 'master' on 'e4e33ef'.
+#
+# Changes to be committed:
+#	new file:   src/Helpers.elm
+#	new file:   src/Model.elm
+#	modified:   src/Penguins.elm
+#

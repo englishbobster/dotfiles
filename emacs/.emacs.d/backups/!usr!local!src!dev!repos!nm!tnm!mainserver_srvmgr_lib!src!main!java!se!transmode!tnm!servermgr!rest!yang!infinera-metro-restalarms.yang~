@@ -1,0 +1,95 @@
+module infinera-metro-restalarms {
+  namespace "metro:alarms";
+  prefix alarms;
+
+  organization "Infinera Corp.";
+  contact "swm-RnD-platform@infinera.com";
+  description
+    "This module defines the model for a list of exported TM alarms";
+  revision "2016-04-25"{
+    description
+      "Initial experimental trial.";
+  }
+
+  container alarmList {
+    list alarm {
+
+      config "false";
+
+      key "nodeAddress discoveredOid";
+
+      leaf nodeAddress {
+        type string;
+      }
+      leaf discoveredOid {
+        type string;
+      }
+      leaf objectId {
+        type string;
+      }
+      leaf ownerReference {
+        type string;
+      }
+      leaf created {
+        type int64;
+      }
+      leaf changed {
+        type int64;
+      }
+      leaf nativeProbableCause {
+        type string;
+      }
+      leaf osTime {
+        type int64;
+      }
+      leaf discoveredName {
+        type string;
+      }
+      leaf name {
+        type string;
+      }
+      leaf externalNamedAlarmState {
+        type string;
+      }
+      leaf physIndex {
+        type int32;
+      }
+      leaf logicalIndex {
+        type int32;
+      }
+      leaf alarmType {
+        type string;
+      }
+      leaf additionalText {
+        type string;
+      }
+      leaf acknowledgeIndication {
+        type string;
+      }
+      leaf probableCause {
+        type string;
+      }
+      leaf layerRate {
+        type string;
+      }
+      leaf perceivedSeverity {
+        type string;
+      }
+      leaf discoveredSeverity {
+        type string;
+      }
+      leaf objectType {
+        type string;
+      }
+      leaf ackedByUser {
+        type string;
+      }
+      leaf ackedComment {
+        type string;
+      }
+      leaf serviceAffecting {
+        type string;
+      }
+    }
+  }
+}

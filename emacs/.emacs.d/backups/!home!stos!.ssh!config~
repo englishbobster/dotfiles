@@ -1,0 +1,14 @@
+Host github.com
+     User git
+     IdentityFile ~/.ssh/id_rsa_github.pub
+
+Host tnmdocker
+     HostName tnm-docker.transmode.se
+     User docker
+     IdentityFile ~/.ssh/tnmdocker.transmode.se.pub
+
+Host bitbucket
+     HostName atlas.transmode.se
+     User stos
+     IdentityFile ~/.ssh/id_rsa_bitbucket.pub
+     

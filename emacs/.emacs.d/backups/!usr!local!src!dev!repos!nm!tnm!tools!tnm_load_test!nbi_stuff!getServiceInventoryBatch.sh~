@@ -1,0 +1,9 @@
+#!/bin/bash
+
+TARGET_WS_ADDR="http://tnm:8080"
+#TARGET_WS_ADDR="http://localhost:8080"
+ENTRY_POINT="/soap/mtosi/layered/ServiceInventoryRetrieval"
+
+RESPONSE=`curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getServiceInventory" --data @get_serviceInventory_batch_req.xml "$TARGET_WS_ADDR$ENTRY_POINT" --connect-timeout 10 &`
+
+FIELDS=`echo $RESPONSE | xml sel -N ns7="http://www.tmforum.org/mtop/fmw/xsd/hdr/v1" -t -m "//ns7:batchSequenceNumber" -v . -n -m "//ns7:batchSequenceEndOfReply" -v . -n -m "//ns7:iteratorReferenceURI" -v . -n`

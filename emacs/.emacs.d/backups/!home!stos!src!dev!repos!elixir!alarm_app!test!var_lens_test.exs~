@@ -1,0 +1,8 @@
+defmodule VarLensTest do
+  use ExUnit.case
+
+    test "greets the world" do
+    assert AlarmApp.hello() == :world
+  end
+    
+end

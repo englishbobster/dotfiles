@@ -1,0 +1,7 @@
+#!/bin/bash
+
+TARGET_WS_ADDR="http://tnm:8080"
+#TARGET_WS_ADDR="http://localhost:8080"
+ENTRY_POINT="/soap/mtosi/layered/ServiceInventoryRetrieval"
+
+curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getServiceInventory" --data @get_serviceInventory.xml "$TARGET_WS_ADDR$ENTRY_POINT" --connect-timeout 10 &

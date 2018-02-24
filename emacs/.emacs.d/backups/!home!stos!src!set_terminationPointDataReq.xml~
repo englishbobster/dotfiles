@@ -1,0 +1,34 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://www.tmforum.org/mtop/fmw/xsd/hdr/v1" xmlns:v11="http://www.tmforum.org/mtop/rp/xsd/tpc/v1" xmlns:v12="http://www.tmforum.org/mtop/nrf/xsd/tpdata/v1" xmlns:v13="http://www.tmforum.org/mtop/fmw/xsd/nam/v1" xmlns:v14="http://www.tmforum.org/mtop/nrb/xsd/lp/v1" xmlns:v15="http://www.tmforum.org/mtop/fmw/xsd/gen/v1">
+   <soapenv:Header>
+      <v1:header/>
+   </soapenv:Header>
+   <soapenv:Body>
+      <v11:setTerminationPointDataRequest>
+         <v11:tpInfo>
+            <v12:tpRef>
+                <v13:rdn>
+	          <v13:type>MD</v13:type>
+	          <v13:value>gentoo-stos.infinera.com</v13:value>
+	           </v13:rdn>
+	           <v13:rdn>
+	             <v13:type>ME</v13:type>
+	             <v13:value>172.17.0.3</v13:value>
+	           </v13:rdn>
+                   <v13:rdn>
+	             <v13:type>PTP</v13:type>
+	             <v13:value>client:1:2:1-2</v13:value>
+	           </v13:rdn>
+            </v12:tpRef>
+     	      <v14:transmissionParametersList>
+     	      	<v14:transmissionParameters>
+                  <v14:layer>LR_PHYSICAL_OPTICAL</v14:layer>
+                        <v14:parameterList/>
+                        <v14:vendorExtensions>
+                           <v14:provisionedNeighborTP>another label</v14:provisionedNeighborTP>
+                        </v14:vendorExtensions>
+     	      	</v14:transmissionParameters>
+ 	           </v14:transmissionParametersList>
+         </v11:tpInfo>
+      </v11:setTerminationPointDataRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

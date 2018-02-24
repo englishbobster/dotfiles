@@ -1,0 +1,79 @@
+defmodule Alarms.Snmp.AgentsTest do
+  import Alarms.Snmp.Agents
+  use ExUnit.Case
+
+  setup do
+    test_query_result = [%Alarms.Nodes{AlarmsIgnored: 0,
+                                 IpAddress: "172.21.1.24",
+                                 Name: "South",
+                                 NodeFamily: 1,
+                                 PollTime: 60,
+                                 SnmpCommunity: "public",
+                                 SnmpPassword: "168197104041099169211137034231225041250025166208",
+                                 SnmpUseDefaults: 0,
+                                 SnmpUser: "oper",
+                                 SnmpVersion: 3},
+                         %Alarms.Nodes{AlarmsIgnored: 0,
+                                 IpAddress: "172.21.1.25",
+                                 Name: "South",
+                                 NodeFamily: 1,
+                                 PollTime: 60,
+                                 SnmpCommunity: "public",
+                                 SnmpPassword: "168197104041099169211137034231225041250025166208",
+                                 SnmpUseDefaults: 0,
+                                 SnmpUser: "oper",
+                                 SnmpVersion: 3},
+                         %Alarms.Nodes{AlarmsIgnored: 0,
+                                 IpAddress: "172.21.1.26",
+                                 Name: "South",
+                                 NodeFamily: 1,
+                                 PollTime: 60,
+                                 SnmpCommunity: "public",
+                                 SnmpPassword: "168197104041099169211137034231225041250025166208",
+                                 SnmpUseDefaults: 0,
+                                 SnmpUser: "oper",
+                                 SnmpVersion: 3}
+                        ]
+
+    agent_configs = [[{:engine_id, 'default'},
+                      {:address, [172, 21, 1, 24]},
+                      {:port, 161},
+                      {:community, 'public'},
+                      {:version, :v3},
+                      {:sec_model, :v2c},
+                      {:sec_level, :noAuthNoPriv}],
+                     [{:engine_id, 'default'},
+                      {:address, [172, 21, 1, 24]},
+                      {:port, 161},
+                      {:community, 'public'},
+                      {:version, :v3},
+                      {:sec_model, :v2c},
+                      {:sec_level, :noAuthNoPriv}],
+                     [{:engine_id, 'default'},
+                      {:address, [172, 21, 1, 24]},
+                      {:port, 161},
+                      {:community, 'public'},
+                      {:version, :v3},
+                      {:sec_model, :v2c},
+                      {:sec_level, :noAuthNoPriv}]
+                     ]
+    {:ok, %{test_query_result: test_query_result, agent_configs: agent_configs}}
+
+  end
+
+  test "should extract the node ip addresses from the resulting query struct", context do
+    single_entry = List.first(context[:test_query_result])
+    assert extract_ip(single_entry) == [172, 21, 1, 24]
+  end
+
+  test "should produce a list of strings from a node table query", context do
+    assert ipaddresses_from(context[:test_query_result]) == [[172, 21, 1, 24], [172, 21, 1, 25], [172, 21, 1, 26]]
+  end
+
+  test "should convert a node table query entry to an snmp agent configuration", context do
+    single_entry = List.first(context[:test_query_result])
+    expected_config = List.first(context[:agent_configs])
+    assert node_entry_to_agent_conf(single_entry) == expected_config
+  end
+
+end

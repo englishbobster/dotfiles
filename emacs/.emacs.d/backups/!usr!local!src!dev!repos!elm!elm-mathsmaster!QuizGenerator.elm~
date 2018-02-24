@@ -1,0 +1,16 @@
+import Time exposing (inSeconds)
+import Random exposing (step, initialSeed)
+import List exposing (indexedMap)
+
+quizGenerator : Int -> Int -> List Multiplication
+quizGenerator size seed =
+    let
+       (list, _) = Random.step (Random.list size intPairGen) (Random.initialSeed seed)
+
+    in
+       List.indexedMap (\i (a,b) ->  {left = a, right = b, result = 0, index = i}) list
+
+
+timeInSeconds : Time  -> Int
+timeInSeconds time =
+    round (inSeconds time)

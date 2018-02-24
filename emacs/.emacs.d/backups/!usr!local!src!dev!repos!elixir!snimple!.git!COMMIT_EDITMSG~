@@ -1,0 +1,49 @@
+# This is a combination of 9 commits.
+# The first commit's message is:
+Fixed Bitwise to only_operators, refactored and generally tidied up.
+
+# This is the 2nd commit message:
+
+Code formatting.
+
+# This is the 3rd commit message:
+
+Code formatting.
+
+# This is the 4th commit message:
+
+Refactoring work.
+
+# This is the 5th commit message:
+
+Refactoring work.
+
+# This is the 6th commit message:
+
+Refactoring work.
+
+# This is the 7th commit message:
+
+Bitwise refactoring to only operators.
+
+# This is the 8th commit message:
+
+Small refactoring.
+
+# This is the 9th commit message:
+
+Small refactoring.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Thu Nov 19 12:48:11 2015 +0100
+#
+# rebase in progress; onto a032dd1
+# You are currently editing a commit while rebasing branch 'master' on 'a032dd1'.
+#
+# Changes to be committed:
+#	modified:   lib/snimple/snmp_pdus.ex
+#	modified:   lib/snimple/snmp_types.ex
+#	modified:   test/asn1_types_test.exs
+#

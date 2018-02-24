@@ -1,0 +1,8 @@
+defmodule AlarmsTest do
+  use ExUnit.Case
+  doctest Alarms
+
+  test "the truth" do
+    assert 1 + 1 == 2
+  end
+end

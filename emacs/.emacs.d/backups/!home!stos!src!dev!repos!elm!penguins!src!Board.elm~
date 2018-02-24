@@ -1,0 +1,10 @@
+module Board exposing ()
+
+
+
+type alias Board =
+    Dict AxialCoord HexModel
+
+
+type alias Route =
+    Dict AxialCoord HexModel

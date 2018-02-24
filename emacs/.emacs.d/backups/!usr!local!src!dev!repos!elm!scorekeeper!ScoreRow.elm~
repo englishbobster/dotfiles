@@ -1,0 +1,46 @@
+module ScoreRow where
+
+import Html exposing (Html, text, tr, td, input)
+import Html.Attributes exposing (value, size, maxlength)
+import Html.Events exposing (on, targetValue)
+import Signal exposing (Signal)
+
+type alias Model =
+                 { homeTeam : String
+                 , homeTeamScore : Int
+                 , awayTeam : String
+                 , awayTeamScore : Int }
+
+
+initialModel : Model
+initialModel =
+  { homeTeam = "Home"
+  , homeTeamScore = 0
+  , awayTeam = "Away"
+  , awayTeamScore = 0 }
+
+
+scoreInput : Int -> Html
+scoreInput score =
+  input [ value (toString score)
+         ,size 2
+         ,maxlength 2
+        ] []
+
+
+view : Model -> Html
+view scoreRow =
+   tr[] [td [ ]
+            [ text scoreRow.homeTeam ]
+        ,td [ ]
+            [ scoreInput scoreRow.homeTeamScore ]
+        ,td [ ]
+            [ scoreInput scoreRow.awayTeamScore ]
+        ,td [ ]
+            [ text scoreRow.awayTeam ]
+        ]
+
+
+main : Signal Html
+main =
+  Signal.map view (Signal.constant initialModel)
