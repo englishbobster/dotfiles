@@ -1,4 +1,0 @@
-module UserCtl exposing (..)
-
-main =
-    Html.text "Start of project"

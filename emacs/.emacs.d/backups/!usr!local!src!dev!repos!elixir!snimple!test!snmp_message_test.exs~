@@ -1,9 +1,0 @@
-defmodule SNMPMessageTest do
-  use ExUnit.Case, async: true
-
-  test "should be able to make an snmp get message" do
-  end
-
-  
-
-end

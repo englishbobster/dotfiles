@@ -1,8 +1,0 @@
-defmodule Blackjack.DeckTest do
-	Use ExUnit.Case
-
-	test "that a new deck should have 52 cards" do
-		
-	end
-
-end

@@ -1,5 +1,0 @@
-defmodule Chop do
-  def guess(actual, a..a), do: a
-  def guess (actual, range) do
-  end
-end

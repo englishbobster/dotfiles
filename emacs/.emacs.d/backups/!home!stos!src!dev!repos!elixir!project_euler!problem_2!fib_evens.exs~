@@ -1,8 +1,0 @@
-def module FibEvens do
-
-  def fibtuple((x, y)) do
-    z = x + y
-    (z, z + y)
-  end
-
-end

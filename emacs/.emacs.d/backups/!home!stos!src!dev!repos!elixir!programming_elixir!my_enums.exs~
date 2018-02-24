@@ -1,7 +1,0 @@
-defmodule MyEnums do
-  def all?(enum, fun \\ fn x -> x) do
-  end
-
-
-
-end

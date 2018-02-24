@@ -1,6 +1,0 @@
-#!/bin/bash
-
-TARGET_WS_ADDR="http://172.16.15.122:8080"
-ENTRY_POINT="/soap/mtosi/layered/EquipmentInventoryRetrieval"
-
-curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getAllEquipment" --data @get_allEquipment.xml "$TARGET_WS_ADDR$ENTRY_POINT"
