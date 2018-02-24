@@ -1,0 +1,6 @@
+import Html exposing (Html, text)
+
+
+main : Signal Html
+main =
+  Signal.map text (Signal.constant "42")

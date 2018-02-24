@@ -1,0 +1,20 @@
+defmodule BowlingKataTest do
+	use ExUnit.Case
+
+	import BowlingKata
+
+	setup context do
+		{:ok, %{guttergame: [{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0,0}],
+					  goldengame: [{10,0},{10,0},{10,0},{10,0},{10,0},{10,0},{10,0},{10,0},{10,0},{10,10,10}]}
+		}
+	end
+
+	test "should score zero for gutter game", context do
+		assert score(context[:guttergame]) == 0
+	end
+
+	test "should score max for golden game", context do
+		assert score(context[:goldengame]) == 300
+	end
+
+end

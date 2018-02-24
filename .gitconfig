@@ -1,0 +1,21 @@
+[alias]
+lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --graph --decorate --date=relative
+st = status
+br = branch
+cm = commit -m
+acm = commit -a -m
+stage = ad
+co = checkout
+unstage = reset HEAD
+
+
+[user]
+	name = Stuart Osborne
+	email = stuart.osborne@infinera.com
+[core]
+	editor = emacs
+	excludesfile = /home/stos/.gitignore
+[diff]
+	tool = meld
+[push]
+	default = simple

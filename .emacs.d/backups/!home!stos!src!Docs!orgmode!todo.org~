@@ -1,0 +1,259 @@
+* Tasks
+** Work Stuff
+Stuff that needs doing at work and work related projects
+*** SNMP simulation
+Snmp simulation tools that could replace MIMIC
+**** TODO take a look at [[https://github.com/kaitoy/sneo][SNeo]]
+**** TODO prototype own simulator (JAVA/ERLANG based)
+**** TODO snmp in erlang [[https://ernie.io/2014/07/10/snmp-in-elixir/][How-to-in-elang]]
+**** TODO suggestions for continuing with [[http://snmpsim.sourceforge.net/simulation-with-variation-modules.html][snmpsim]]
+
+*** DNA-M
+Fixes and improvements to DNA-M
+**** DONE fix L1 service details panel on connectivity map to update oper status in sync with status on the map.
+**** TODO Refactor LocalMibImpl
+**** TODO investigate Reactive java. Is this usefull for processing the change in MIB's?
+*** Cold standby redundancy solution
+**** TODO hot stand-by in user documentation. Get rid of this?
+**** DONE MariaDb Galera cluster. [[https://mariadb.com/kb/en/the-mariadb-library/getting-started-with-mariadb-galera-cluster/][How-to]] [[https://www.slideshare.net/Codership/using-galera-replication-to-create-geo-distributed-clusters-on-the-wan-71135059][slidedeck]] [[Galera]]
+**** TODO Set up galera arbitrator.
+**** TODO Failover scenarios documented in replication manual.
+*** Other responsibilities
+Other stuff that needs to be done cos you were too stupid to keep your mouth shut
+**** TODO update confluence side for DNA-M forum
+**** TODO create agenda for the next DNA-M forum
+
+     DEADLINE:<2017-09-06 Wed +2w>
+     - State "DONE"       from "TODO"       [2017-08-29 Tue 21:07]
+     :PROPERTIES:
+     :LAST_REPEAT: [2017-08-29 Tue 21:07]
+     :END:
+**** TODO create list of code areas for knowledge sharing workshops.
+**** TODO research other forms of knowledge sharing, meetings, workshops etc.
+
+** YAKS of all kinds
+*** Data care
+**** TODO clean up bash history, saving only useful commands.
+**** TODO take care of all [[dot-files]] and global files (GNU stow?)
+
+----------
+** Project scorekeeper
+Todo list for development of "Scorekeeper". Would like to get done before WC 2018
+*** Server:
+**** DONE JSON renderer should convert MatchType to its printable string.
+**** DONE Do I add Score object to FootballMatch builder? No
+**** DONE One enum for group and matchtype. It will match frontend.
+**** TODO Design transaction for add/update/delete match and score if in seperated tables.
+**** DONE REST for update score and set fulltime for planned matches.
+**** TODO Error handing of faulty requests.
+**** DONE Authentication and authorization.
+**** DONE Score should be encapsulated more by Footballmatch.
+**** DONE Should be able to set the fulltime flag from Footballmatch builder or from setter.
+**** DONE Should be able to set the score from the Footballmatch builder as well.
+**** DONE User model.
+**** DONE Add user db CRUD methods.
+**** TODO User guessing model
+*** DB:
+**** TODO Breakout score and final flag to own db table.
+**** DONE Merge "matchtype" and group columns.
+**** DONE Usertable with "matchid", "scores" and "paid" columns.
+*** Frontend:
+**** DONE matchtype needs to be read, converted and rendered properly.
+**** DONE Decide on some css.
+**** DONE Update model to use a dict or array for plannedMatches instead of list.
+**** DONE Score input for planned matches.
+**** DONE Mark as full time. Checkbox
+**** TODO updateScoreById String.toInt conversion using result gives code-smell, defaults to zero :-(
+**** DONE Post Scores to server on fullTime toggle.
+**** TODO Refactor put methods and url builders.
+**** TODO Refactor to modules.
+**** TODO Disable input if match is set to fulltime, both on fetch data and toggling fulltime.
+**** TODO User pages for guess submission.
+**** TODO Add register and login pages.
+**** TODO Manage users page for admin.
+** READING LIST FOR CODING
++ Head First Design Patterns
++ Domain Driven Design
++ Working Effectively With Legacy Code
++ Professor Frisby's most adequate guide to functional programming
++ Learn You Some Erlang
++ Elixir in action
++ Metaprogramming Elixir
++ Programming Phoenix
++ Mikado Method (yes again)
+----------
+
+** <<dot-files>> TO TAKE CARE OF
++ .bashrc
++ .emacs
++ xmonad files
++ .xsession and related
++ gitconfig files
++ tidied bash history
+----------
+
+
+
+** <<Galera>> Galera Cluster Setup notes
+Recommended deployment is a cluster of 3 servers (odd number of servers), to balance "voting" and avoid splitbrain scenarios.
+ If 2 nodes are required then [[http://galeracluster.com/documentation-webpages/arbitrator.html][Galera arbitrator]] can be used. It will act as a 3rd member but store no data.
+
+*** Manual install
+1. On gentoo at least it must be re-emerged with galera use flag "dev-db/mariadb galera".
+   + > sudo emerge --unmerge dev-db/mariadb
+   + Make file in  /etc/portage/package.use with use-flag
+   + > sudo emerge dev-db/mariadb
+2. On centos
+   + > yum erase MariaDB-client-10.0.31-1.el6.x86_64
+   + > yum erase MariaDB-common-10.0.31-1.el6.x86_64
+   + > yum erase mariadb-1:5.5.52-1.el7.x86_64
+   + Then create the repo file MariaDb.repo in /etc/yum.repos.d
+
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.1/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+
+ + and then
+ + > yum install MariaDB-server MariaDB-client
+
+3. Make the configuration:
+   + Needs manual settings ("my.cnf" or in "my.cnf.d")  to get the cluster running:
+
+Config for initial node (Centos)
+[galera]
+# Mandatory settings
+wsrep_on=ON
+wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+wsrep_cluster_address=gcomm://10.210.72.67
+wsrep_node_address="172.16.15.177"
+binlog_format=row
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+bind-address=0.0.0.0
+
+config for 2nd node on Gentoo
+[galera]
+# Mandatory settings
+wsrep_on=ON
+wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+wsrep_cluster_address=gcomm://172.16.15.177
+wsrep_node_address="10.210.72.67"
+binlog_format=row
+default_storage_engine=InnoDB
+innodb_autoinc_lock_mode=2
+bind-address=0.0.0.0
+
+4. Start the node on centos with the command:
+   + > galera_new_cluster
+   + and ps should show something like:
+   + > ps -eaf|grep mysql
+
+mysql    14203     1  0 12:44 ?        00:00:12 /usr/sbin/mysqld --wsrep-new-cluster --wsrep_start_position=00000000-0000-0000-0000-000000000000:-1
+root     14552 13865  0 14:19 pts/0    00:00:00 grep --color=auto mysql
+
+5. Start on Gentoo with the usual:
+   + >sudo /etc/init.d/mysql start
+
+6. Useful command to check cluster size:
+   + > SHOW GLOBAL STATUS LIKE 'wsrep_cluster_size';
+   + > SHOW GLOBAL VARIABLES LIKE 'wsrep_%';
+
+
+
+*** Docker
+using the docker image:
+> docker pull panubo/mariadb-galera
+seems useful since it comes with galera arbitrator image.
+
+** Mariadb Master-Master setup
+Will try this using mariadb in docker containers started locally.
+This seems to be very similar to the master-slave setup explained in our replication manual.
+Using docker:
+> docker pull mariadb
+
+Running the container:
+> docker run --name master_1 -e MYSQL_ROOT_PASSWORD=root -d mariadb:latest
+
+Reaching the newly started container bash-shell:
+> docker exec -it master_1 bash
+
+Or you just want to read the logs:
+> docker logs master_1
+
+To grant root access from remote cmdline for test purposes(ie local host bash shell and not from within container):
+In mariadb cmdline
+% GRANT ALL PRIVILEGES ON *.* TO root@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
+% FLUSH PRIVILEGES;
+It should be then possible to reach the database instance via localhost cmdline using:
+
+> mysql -h<ip> -uroot -proot
+
+To configure the containers, mount my.conf files on the local file system:
+> docker run --name master_1 -v ~/src/dev/docker_stuff/mariadb_volumes/master_1:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=root -d mariadb:latest
+
+*** Configuration files for master-master
+Server 1:
+# Unique Server Id
+server-id = 10
+#================================================================
+# MASTER SERVER SETTINGS
+binlog-do-db = tnmdb
+log-bin = mysql-bin
+log-bin-index = mysql-bin.index
+expire_logs_days = 7
+log-error = mysql.err
+
+auto_increment_increment=1
+auto_increment_offset=1
+relay-log=server-10-relay-bin
+slave_skip_errors=all
+#================================================================
+
+Server 2:
+# Unique Server Id
+server-id = 20
+#================================================================
+# Uncomment these commands and comment the commands above to
+# switch to Master Server Settings.
+binlog-do-db = tnmdb
+log-bin = mysql-bin
+log-bin-index = mysql-bin.index
+expire_logs_days = 7
+log-error = mysql.err
+
+auto_increment_increment=2
+auto_increment_offset=1
+relay-log=server-20-relay-bin
+slave_skip_errors=all
+#================================================================
+
+OK with the containers up and running, time to enable replication. From the mysql
+cmdline run the following...
+On the Slave (master_2)
+% CHANGE MASTER TO MASTER_HOST='<ip_master_1>', MASTER_USER='root', MASTER_PASSWORD='root', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=312;
+
+On the Master (master_1):
+% RESET MASTER;
+% FLUSH TABLES WITH READ LOCK;
+% SHOW MASTER STATUS;
+Copy value of the result <XYZ>
+
+Now is the time to take a dump of the master (if resyncing)
+> mysqldump -u root -p tnmdb > /tmp/dump.sql
+
+% UNLOCK TABLES;
+
+On the Slave (master_2):
+% STOP SLAVE;
+
+source in the dump from the master
+> mysql -u root -p < /tmp/dump.sql
+
+% RESET SLAVE;
+% CHANGE MASTER TO MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=<XYZ>;
+% START SLAVE;
+
+Then repeat the above commands so that replication works the other way as well.
+

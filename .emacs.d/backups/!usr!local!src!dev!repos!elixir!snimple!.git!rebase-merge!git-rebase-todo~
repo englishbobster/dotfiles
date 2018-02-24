@@ -1,0 +1,27 @@
+pick f67ec42 Fixed Bitwise to only_operators.
+pick 27a36c5 Code formatting.
+pick 86c8f1c Code formatting.
+pick ba9bad2 Refactoring work.
+pick 6f92d51 Refactoring work.
+pick 897c701 Refactoring work.
+pick 4028932 Bitwise refactoring to only operators.
+pick babfa8d Small refactoring.
+pick 9ba4164 Small refactoring.
+
+# Rebase a032dd1..9ba4164 onto a032dd1 (9 command(s))
+#
+# Commands:
+# p, pick = use commit
+# r, reword = use commit, but edit the commit message
+# e, edit = use commit, but stop for amending
+# s, squash = use commit, but meld into previous commit
+# f, fixup = like "squash", but discard this commit's log message
+# x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+# Note that empty commits are commented out

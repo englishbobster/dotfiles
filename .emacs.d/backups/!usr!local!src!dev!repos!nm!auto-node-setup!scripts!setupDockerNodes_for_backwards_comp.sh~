@@ -1,0 +1,79 @@
+#!/bin/bash -e
+#set -x
+REGDIR="specs/regression-backward-compatibility"
+BINDIR="bin"
+LATESTVER=0
+NR_BACKWARDS=5
+
+clean_up () {
+    RUNNING=`docker ps -q`
+    echo $RUNNING
+    if [ ! -z "$RUNNING" ]; then
+        #Kill all running docker images
+        docker ps | grep Up | cut -d " " -f 1 | xargs docker kill
+    fi
+
+    if [[ -e "$REGDIR/net.json"  ]]; then
+        rm -rf "$REGDIR/net.json"
+    fi
+    touch "$REGDIR/net.json"
+}
+
+show_help () {
+    echo -e "Script to deploy docker containers of the latest 5 releases of the XTM software for backwards compatibility testing."
+    echo -e "-h:\t\t\tThis message."
+    echo -e "-v <major_ver>:\t\tLatest version of the node software, just an integer please."
+}
+
+handle_missing_args () {
+    if   [[  $((LATESTVER)) -eq 0  ]]; then
+        echo "No Version is given. I has a sad  :-("
+        exit 0
+    fi
+}
+
+# Create net.json from given version
+create_net () {
+    let x=$((LATESTVER))-$((NR_BACKWARDS))
+    echo -e "{\n" >> $1
+    echo -e "\t\"nodes\": {" >> $1
+    for ((i=x; i<=LATESTVER;i++)); do
+        if [ $i == $LATESTVER ]; then
+            echo -e "\t\t\"NODE_R$i\": \"$REGDIR/R$i.json\"" >> $1
+        else
+            echo -e "\t\t\"NODE_R$i\": \"$REGDIR/R$i.json\"," >> $1
+        fi
+    done
+    echo -e "\t},\n\n" >> $1
+    echo -e "\t\"peers\": []\n" >> $1
+    echo -e "}\n" >> $1
+}
+
+get_args ()  {
+    while getopts "hv:" opt; do
+    case "$opt" in
+        h)
+            show_help
+            exit 0
+            ;;
+        v)
+            LATESTVER=$OPTARG
+            ;;
+    esac
+    done
+    shift $((OPTIND-1))
+#    [ "$1" = "--" ] && shift
+}
+
+#####MAIN STUFF#####
+npm install q
+clean_up
+get_args $@
+handle_missing_args
+create_net $REGDIR/net.json
+
+# Execute the node setup
+echo -e "Setup nodes for backwards compatibility\n"
+node --harmony $BINDIR/auto-node-setup $REGDIR/net.json
+
+echo -e "\n\n"

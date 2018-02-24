@@ -1,0 +1,21 @@
+#!/bin/bash -e
+
+
+pwd
+
+npm install q
+
+RUNNING=`docker ps -q`
+echo $RUNNING
+if [ ! -z "$RUNNING" ]; then
+    #Kill all running docker images
+    docker ps | grep Up | cut -d " " -f 1 | xargs docker kill
+fi
+
+echo -e "Setup nodes containing boards that are kept on R27.0\n\n"
+node --harmony bin/auto-node-setup specs/killed-boards/net.json
+
+echo -e "Setup nodes containing boards to test northbound (REST) interface\n\n"
+node --harmony bin/auto-node-setup specs/northbound/net.json
+
+echo -e "\n\n"

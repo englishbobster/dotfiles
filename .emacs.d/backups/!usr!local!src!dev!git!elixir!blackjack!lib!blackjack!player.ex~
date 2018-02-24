@@ -1,0 +1,39 @@
+defmodule Blackjack.Player do
+  import Blackjack.Points
+  import Blackjack.Deck
+
+  def player_loop(hand, deck) do
+    points = get_points_in_hand(hand)
+    points = check_score(hand, points)
+    show_status(hand, points)
+    case IO.gets("Enter to twist, h enter to stick: ") do
+      "h\n" -> {points, deck}
+      "\n"  -> {card, remaining_deck} = deal_card(deck)
+                player_loop(hand ++ card, remaining_deck)
+       _    -> IO.puts("Whatchoo sayin' foool? I don't understand.")
+               player_loop(hand, deck)
+    end
+  end
+
+  def check_score(hand, points) do
+    case check_limit(points) do
+      {:BUST, _} -> lose(hand, points)
+      {low, :BUST} -> {low, 0}
+      _ -> points
+    end
+  end
+
+  def show_status(hand, points) do
+    IO.puts("You have...")
+    show(hand)
+    display_points (points)
+  end
+
+  def lose(hand, {low, high})do
+    show_status(hand, {low, 0})
+    IO.puts ("You exceeded 21, You Are Bust!")
+    Process.exit(self, "BUSTED!")
+  end
+
+
+end

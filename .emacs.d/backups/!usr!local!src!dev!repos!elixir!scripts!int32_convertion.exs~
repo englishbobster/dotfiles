@@ -1,0 +1,43 @@
+defmodule Int32Convertion do
+	require Bitwise
+
+	def bin_to_int(bin) when is_binary(bin) do
+		<< value::signed-32 >> =  bin
+		value
+	end
+
+	def int_to_bin(int) when is_integer(int) do
+		<<int::signed-32>>
+	end
+
+end
+
+ExUnit.start
+
+defmodule Tests do
+	use ExUnit.Case
+	alias Int32Convertion, as: Ic
+
+	test "should convert zero bin to zero" do
+		assert Ic.bin_to_int(<< 0x00, 0x00, 0x00, 0x00 >>) == 0
+	end
+
+	test "should convert min bin to min int" do
+		assert  Ic.bin_to_int(<< 0x80, 0x00, 0x00, 0x00 >>) == -2147483648
+	end
+
+	test "should convert min int to bin" do
+		assert Ic.int_to_bin(-2147483648) == <<0x80, 0x00, 0x00, 0x00>>
+	end
+
+	test "should convert max int to bin" do
+		assert Ic.int_to_bin(2147483647) == <<0x7F, 0xFF, 0xFF, 0xFF>>
+	end
+
+	test "should convert max bin to max int" do
+		assert  Ic.bin_to_int(<< 0x7F, 0xFF, 0xFF, 0xFF >>) == 2147483647
+	end
+
+end
+
+

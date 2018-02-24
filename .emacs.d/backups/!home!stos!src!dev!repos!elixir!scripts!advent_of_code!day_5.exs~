@@ -1,0 +1,147 @@
+#!/usr/bin/elixir
+
+defmodule Intern do
+
+  def checkfile() do
+    {:ok, pid} = File.open("day_5.data", [:read])
+    IO.read(pid, :all)
+    |> String.split("\n")
+    |> Enum.map(fn line -> String.strip line end)
+    |> Enum.filter(fn line -> nice?(line) end)
+    |> Enum.count
+  end
+
+  def nice?(str) do
+    at_least_three_vowels?(str) and at_least_one_doublet?(str) and not disallowed_strings?(str)
+  end
+
+  def at_least_three_vowels?(str) do
+    String.codepoints(str)
+    |> Enum.filter(fn char -> String.contains?("aeiou", char) end)
+    |> Enum.count
+    |> at_least_three?
+  end
+  defp at_least_three?(count) do
+    cond do
+      count >= 3 -> true
+      count < 3 -> false
+    end
+  end
+
+  def at_least_one_doublet?(str) do
+    [head|remainder] = String.codepoints(str)
+    has_consecutive_values?(remainder, head, false)
+  end
+  defp has_consecutive_values?([], head, value) do
+    false
+  end
+  defp has_consecutive_values?(list, head, value) do
+    [h|t] = list
+    cond do
+      h == head -> true
+      h != head -> has_consecutive_values?(t, h, value)
+    end
+  end
+
+  def disallowed_strings?(str) do
+     String.contains?(str, ["ab", "cd", "pq", "xy"])
+  end
+
+  def another_nice?(str) do
+    nil
+  end
+
+  def non_overlapping_pair?(str) do
+    String.codepoints(str)
+    |> Enum.chunk(2, 1, [""]) #break the string down into overlapping pairs of letters
+    |> Enum.map(fn pair_list -> Enum.join(pair_list) end) #turn pairs back to strings
+    |> find_non_overlapping_pairs?
+  end
+  defp find_non_overlapping_pairs?([]) do
+    false
+  end
+  defp find_non_overlapping_pairs?(str_list) do
+    cond do
+      search_overlapping_pairs?(str_list) == true -> true
+      search_overlapping_pairs?(str_list) == false -> search_overlapping_pairs?() #this is shit!!!!!
+    end
+  end
+
+  defp search_overlapping_pairs?([head|tail]) do
+    [ignored_pair|tail] = tail #skip the first overlapping pair
+    tail
+    |> Enum.filter(fn pair -> String.length(pair) == 2 end) #get rid of single letter if string was odd in length
+    |> Enum.member?(tail, head) #find out if the head pair is a member in the new tail
+  end
+
+  def repeater?(str) do
+    nil
+  end
+end
+
+ExUnit.start([trace: true])
+
+defmodule InternTest do
+  use ExUnit.Case
+  import Intern
+
+  test "should be nice" do
+    assert nice?("ugknbfddgicrmopn") == true
+    assert nice?("aaa") == true
+  end
+
+  test "should be naughty" do
+    assert nice?("jchzalrnumimnmhp") == false
+    assert nice?("haegwjzuvuyypxyu") == false
+    assert nice?("dvszwmarrgswjxmb") == false
+  end
+
+  test "check for at least 3 vowels" do
+    assert at_least_three_vowels?("aei") == true
+    assert at_least_three_vowels?("xazegov") == true
+    assert at_least_three_vowels?("aeiouaeiouaeiou") == true
+    assert at_least_three_vowels?("dfdfkesdf") == false
+  end
+
+  test "check for doubles" do
+    assert at_least_one_doublet?("xx") == true
+    assert at_least_one_doublet?("abcdde") == true
+    assert at_least_one_doublet?("aabbccdd") == true
+    assert at_least_one_doublet?("abcdefgha") == false
+  end
+
+  test "check for disallowed strings" do
+    assert disallowed_strings?("aabce") == true
+    assert disallowed_strings?("fedcdes") == true
+    assert disallowed_strings?("feglpqaxcx") == true
+    assert disallowed_strings?("aeffexyghgdk") == true
+    assert disallowed_strings?("bnmvceepl") == false
+  end
+
+  test "check for non overlapping pairs" do
+    assert non_overlapping_pair?("xyxy") == true
+    assert non_overlapping_pair?("aabcdefgaa") == true
+    assert non_overlapping_pair?("aaa")  == false
+    assert non_overlapping_pair?("abbcdebbed") == true
+    assert non_overlapping_pair?("abcddfghedd") == true
+  end
+
+  test "check for repeater spaced by one letter" do
+    assert repeater?("xyx") == true
+    assert repeater?("abcdefeghi") == true
+    assert repeater?("efe") == true
+    assert repeater?("aaa") == true
+  end
+
+  test "should be another nice" do
+    assert another_nice?("xxyxx") == true
+    assert another_nice?("qjhvhtzxzqqjkmpb") == true
+  end
+
+  test "should be another naughty" do
+    assert another_nice?("uurcxstgmygtbstg") == false
+    assert another_nice?("ieodomkazucvgmuy") == false
+  end
+end
+
+IO.puts("Nr of nice strings: #{Intern.checkfile}")

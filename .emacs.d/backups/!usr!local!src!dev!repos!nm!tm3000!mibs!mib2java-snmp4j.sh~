@@ -1,0 +1,140 @@
+#!/bin/bash -e
+
+# Download mib2java (in the package mib2h)
+(
+rm -rf temp
+mkdir -p temp
+cd temp
+../../version.py -c mib2h
+)
+
+REPO_ROOT=$(dirname $(pwd))
+
+export SMIPATH=$(pwd)
+MIB2JAVA=/usr/local/src/dev/work/mib2h/mib2java-snmp4j
+
+MIBDEFSDIR=src/com/infinera/dnam/snmp/mibdefs/
+#MIBDEFSDIR=src/se/lumentis/mms/server/localmib/mibdefs/
+
+# Java headers...
+#
+# Standard MIBs
+#
+mkdir -p ${MIBDEFSDIR}
+$MIB2JAVA -m SNMPv2-MIB.txt -o snmpMIBObjects -f ${MIBDEFSDIR}SNMPv2_MIB.java
+$MIB2JAVA -m SNMPv2-MIB.txt -o mib-2 -f ${MIBDEFSDIR}SNMPv2_SMI.java
+$MIB2JAVA -m IF-MIB.txt -o ifMIBObjects -f ${MIBDEFSDIR}IF_MIB.java
+
+#
+# Lumentis/Transmode MIB specs
+#
+$MIB2JAVA -m LUM-REG.txt -o lumentis -f${MIBDEFSDIR}LUM_REG.java
+$MIB2JAVA -v -m LUM-TC -o lumTcModule -f${MIBDEFSDIR}LUM_TC.java
+$MIB2JAVA -m LUM-ALARM-MIB -o lumAlarmMIBObjects -f${MIBDEFSDIR}LUM_ALARM_MIB.java
+$MIB2JAVA -m LUM-AUX-MIB  -o lumAuxMIBObjects -f${MIBDEFSDIR}LUM_AUX_MIB.java
+$MIB2JAVA -m LUM-BACKUP-MIB -o lumBackupMIBObjects -f${MIBDEFSDIR}LUM_BACKUP_MIB.java
+$MIB2JAVA -m LUM-CLIENT-MIB -o lumClientMIBObjects -f${MIBDEFSDIR}LUM_CLIENT_MIB.java
+$MIB2JAVA -m LUM-DCN-MIB -o lumDcnMIBObjects -f${MIBDEFSDIR}LUM_DCN_MIB.java
+$MIB2JAVA -m LUM-EQUIPMENT-MIB -o lumEquipmentMIBObjects -f${MIBDEFSDIR}LUM_EQUIPMENT_MIB.java
+$MIB2JAVA -m LUM-ETH-MIB -o lumEthMIBObjects -f${MIBDEFSDIR}LUM_ETH_MIB.java
+$MIB2JAVA -m LUM-FC-MIB -o lumFcMIBObjects -f${MIBDEFSDIR}LUM_FC_MIB.java
+$MIB2JAVA -m LUM-GMPLS-MIB  -o lumGmplsMIBObjects -f${MIBDEFSDIR}LUM_GMPLS_MIB.java
+$MIB2JAVA -m LUM-INVENTORY-MIB -o lumInventoryMIBObjects -f${MIBDEFSDIR}LUM_INVENTORY_MIB.java
+$MIB2JAVA -m LUM-IP-MIB -o lumIpMIBObjects -f${MIBDEFSDIR}LUM_IP_MIB.java
+$MIB2JAVA -m LUM-MEM-MIB -o lumMemMIBObjects -f${MIBDEFSDIR}LUM_MEM_MIB.java
+$MIB2JAVA -m LUM-MES-MIB  -o lumMesMIBObjects -f${MIBDEFSDIR}LUM_MES_MIB.java
+$MIB2JAVA -m LUM-MPLS-MIB  -o lumMplsMIBObjects -f${MIBDEFSDIR}LUM_MPLS_MIB.java
+$MIB2JAVA -m LUM-MPLSOAM-MIB.txt -o lumMplsOamMIBObjects -f ${MIBDEFSDIR}LUM_MPLSOAM_MIB.java
+$MIB2JAVA -m LUM-MULTIRATE-MIB -o lumMultirateMIBObjects -f${MIBDEFSDIR}LUM_MULTIRATE_MIB.java
+$MIB2JAVA -m LUM-MUX-MIB -o lumMuxMIBObjects -f${MIBDEFSDIR}LUM_MUX_MIB.java
+$MIB2JAVA -m LUM-OA-MIB -o lumOaMIBObjects -f${MIBDEFSDIR}LUM_OA_MIB.java
+$MIB2JAVA -m LUM-OXC-MIB -o lumOxcMIBObjects -f${MIBDEFSDIR}LUM_OXC_MIB.java
+$MIB2JAVA -m LUM-PM-MIB -o lumPmMIBObjects -f${MIBDEFSDIR}LUM_PM_MIB.java
+$MIB2JAVA -m LUM-SNMP-MIB -o lumSnmpMIBObjects -f${MIBDEFSDIR}LUM_SNMP_MIB.java
+$MIB2JAVA -m LUM-SYNC-MIB -o lumSyncMIBObjects -f${MIBDEFSDIR}LUM_SYNC_MIB.java
+$MIB2JAVA -m LUM-SYSTEM-MIB -o lumSystemMIBObjects -f${MIBDEFSDIR}LUM_SYSTEM_MIB.java
+$MIB2JAVA -m LUM-SOFTWARE-MIB -o lumSoftwareMIBObjects -f${MIBDEFSDIR}LUM_SOFTWARE_MIB.java
+$MIB2JAVA -m LUM-TOPOLOGY-MIB.txt -o lumTopologyMIBObjects -f${MIBDEFSDIR}LUM_TOPOLOGY_MIB.java
+$MIB2JAVA -m LUM-WDM-MIB  -o lumWdmMIBObjects -f${MIBDEFSDIR}LUM_WDM_MIB.java
+$MIB2JAVA -m LUM-OTN-MIB  -o lumOtnMIBObjects -f${MIBDEFSDIR}LUM_OTN_MIB.java
+$MIB2JAVA -m LUM-SDHPDH-MIB  -o lumSdhpdhMIBObjects -f${MIBDEFSDIR}LUM_SDHPDH_MIB.java
+$MIB2JAVA -m LUM-SATELLITE-MIB  -o lumSatelliteMIBObjects -f${MIBDEFSDIR}LUM_SATELLITE_MIB.java
+$MIB2JAVA -m LUM-PW-MIB.txt -o lumPwMIBObjects -f ${MIBDEFSDIR}LUM_PW_MIB.java
+$MIB2JAVA -m LUM-SITE-MIB.txt -o lumSiteMIBObjects -f ${MIBDEFSDIR}LUM_SITE_MIB.java
+$MIB2JAVA -m LUM-ROADM-MIB.txt -o lumRoadmMIBObjects -f ${MIBDEFSDIR}LUM_ROADM_MIB.java
+$MIB2JAVA -m LUM-PSR-MIB.txt -o lumPsrMIBObjects -f ${MIBDEFSDIR}LUM_PSR_MIB.java
+$MIB2JAVA -m LUM-OCM-MIB.txt -o lumOcmMIBObjects -f ${MIBDEFSDIR}LUM_OCM_MIB.java
+
+
+$MIB2JAVA -m LUM-IFBASIC-MIB.txt -o lumIfBasicMIBObjects -f ${MIBDEFSDIR}LUM_IFBASIC_MIB.java
+$MIB2JAVA -m LUM-IFPHYSICAL-MIB.txt -o lumIfPhysicalMIBObjects -f ${MIBDEFSDIR}LUM_IFPHYSICAL_MIB.java
+$MIB2JAVA -m LUM-IFOPTICAL-MIB.txt -o lumIfOpticalMIBObjects -f ${MIBDEFSDIR}LUM_IFOPTICAL_MIB.java
+$MIB2JAVA -m LUM-IFOTN-MIB.txt -o lumIfOtnMIBObjects -f ${MIBDEFSDIR}LUM_IFOTN_MIB.java
+$MIB2JAVA -m LUM-IFOTNMON-MIB.txt -o lumIfOtnMonMIBObjects -f ${MIBDEFSDIR}LUM_IFOTNMON_MIB.java
+$MIB2JAVA -m LUM-IFSDH-MIB.txt -o lumIfSdhMIBObjects -f ${MIBDEFSDIR}LUM_IFSDH_MIB.java
+$MIB2JAVA -m LUM-IFSONET-MIB.txt -o lumIfSonetMIBObjects -f ${MIBDEFSDIR}LUM_IFSONET_MIB.java
+$MIB2JAVA -m LUM-IFETH-MIB.txt -o lumIfEthMIBObjects -f ${MIBDEFSDIR}LUM_IFETH_MIB.java
+$MIB2JAVA -m LUM-IFFH-MIB.txt -o lumIfFhMIBObjects -f ${MIBDEFSDIR}LUM_IFFH_MIB.java
+$MIB2JAVA -m LUM-IFXC-MIB.txt -o lumIfXcMIBObjects -f ${MIBDEFSDIR}LUM_IFXC_MIB.java
+$MIB2JAVA -m LUM-IFXCFLEX-MIB.txt -o lumIfXcFlexMIBObjects -f ${MIBDEFSDIR}LUM_IFXCFLEX_MIB.java
+$MIB2JAVA -m LUM-IFPERF-MIB.txt -o lumIfPerfMIBObjects -f ${MIBDEFSDIR}LUM_IFPERF_MIB.java
+$MIB2JAVA -m LUM-IFAMPLIFIER-MIB.txt -o lumIfAmplifierMIBObjects -f ${MIBDEFSDIR}LUM_IFAMPLIFIER_MIB.java
+$MIB2JAVA -m LUM-IFIWDM-MIB.txt -o lumIfIwdmMIBObjects -f ${MIBDEFSDIR}LUM_IFIWDM_MIB.java
+
+$MIB2JAVA -m TS-1100.MIB  -o system1100 -f${MIBDEFSDIR}TRANSMODE1100.java
+$MIB2JAVA -m LUM-CIRCUIT-MIB.txt -o lumCircuitMIBObjects -f${MIBDEFSDIR}LUM_CIRCUIT_MIB.java
+$MIB2JAVA -m LUM-TRAIL-MIB.txt -o lumTrailMIBObjects -f${MIBDEFSDIR}LUM_TRAIL_MIB.java
+$MIB2JAVA -m LUM-NC-MIB.txt -o lumNcMIBObjects -f ${MIBDEFSDIR}LUM_NC_MIB.java
+$MIB2JAVA -m LUM-LINKLOSS-MIB.txt -o lumLinkLossMIBObjects -f${MIBDEFSDIR}LUM_LINKLOSS_MIB.java
+$MIB2JAVA -m LUM-PMSERVER-MIB.txt -o lumPmServerMIBObjects -f${MIBDEFSDIR}LUM_PMSERVER_MIB.java
+
+$MIB2JAVA -m LUM-PORTDEVICE-MIB.txt -o lumPortdeviceMIBObjects -f ${MIBDEFSDIR}LUM_PORTDEVICE_MIB.java
+$MIB2JAVA -m LUM-PORTDEVICEIF-MIB.txt -o lumPortdeviceIfMIBObjects -f ${MIBDEFSDIR}LUM_PORTDEVICEIF_MIB.java
+$MIB2JAVA -m LUM-IFFC-MIB.txt -o lumIfFcMIBObjects -f ${MIBDEFSDIR}LUM_IFFC_MIB.java
+$MIB2JAVA -m LUM-SOAM-PM-MIB.txt -o lumSoamPmMIBObjects -f ${MIBDEFSDIR}LUM_SOAM_PM_MIB.java
+$MIB2JAVA -m LUM-ICCP-MIB.txt -o lumIccpMIBObjects -f ${MIBDEFSDIR}LUM_ICCP_MIB.java
+$MIB2JAVA -m LUM-IFMC-MIB.txt -o lumIfMcMIBObjects -f ${MIBDEFSDIR}LUM_IFMC_MIB.java
+$MIB2JAVA -m LUM-MCLAG-MIB.txt -o lumMclagMIBObjects -f ${MIBDEFSDIR}LUM_MCLAG_MIB.java
+$MIB2JAVA -m LUM-FPU-MIB.txt -o lumFpuMIBObjects -f ${MIBDEFSDIR}LUM_FPU_MIB.java
+
+$MIB2JAVA -m LUM-LLDP-V2-MIB.txt -o lumLldpV2MIBObjects -f ${MIBDEFSDIR}LUM_LLDP_V2_MIB.java
+
+#
+# Fiber switches, amplifiers etc.
+#
+#$MIB2JAVA -m Oas2800.mib -o ttc-group -f${MIBDEFSDIR}OAS2800.java
+#$MIB2JAVA -m YANGMEI-YM235US-MIB.mib -o yangmei -f${MIBDEFSDIR}YANGMEI_YM235US_MIB.java
+#$MIB2JAVA -m REDC-RAMAN.txt -o redC -f${MIBDEFSDIR}REDC_RAMAN.java
+#$MIB2JAVA -m REDC-EDFA.txt -o redC -f${MIBDEFSDIR}REDC_EDFA.java
+#
+# Accedian
+#
+# $MIB2JAVA -m ACCEDIAN-SMI.mib -f${MIBDEFSDIR}ACCEDIAN_SMI.java
+$MIB2JAVA -m ACD-ALARM-MIB.mib -o acdAlarm -f${MIBDEFSDIR}ACD_ALARM_MIB.java
+$MIB2JAVA -m ACD-CFM-MIB.mib -o acdCfm -f${MIBDEFSDIR}ACD_CFM_MIB.java
+$MIB2JAVA -m ACD-DESC-MIB.mib -o acdDesc -f${MIBDEFSDIR}ACD_DESC_MIB.java
+$MIB2JAVA -m ACD-FILTER-MIB.mib -o acdFilter -f${MIBDEFSDIR}ACD_FILTER_MIB.java
+$MIB2JAVA -m ACD-PAA-MIB.mib -o acdPaa -f${MIBDEFSDIR}ACD_PAA_MIB.java
+$MIB2JAVA -m ACD-POLICY-MIB.mib -o acdPolicy -f${MIBDEFSDIR}ACD_POLICY_MIB.java
+$MIB2JAVA -m ACD-PORT-MIB.mib -o acdPort -f${MIBDEFSDIR}ACD_PORT_MIB.java
+$MIB2JAVA -m ACD-REGULATOR-MIB.mib -o acdRegulator -f${MIBDEFSDIR}ACD_REGULATOR_MIB.java
+$MIB2JAVA -m ACD-SFP-MIB.mib -o acdSfp -f${MIBDEFSDIR}ACD_SFP_MIB.java
+$MIB2JAVA -m ACD-TID-MIB.mib -o acdTid -f${MIBDEFSDIR}ACD_TID_MIB.java
+$MIB2JAVA -m ACD-SA-MIB.mib -o acdSa -f${MIBDEFSDIR}ACD_SA_MIB.java
+
+# This is actually a standard MIB but implemented in accedian
+$MIB2JAVA -m IEEE8021-CFM-MIB.mib -o ieee8021CfmMib -f${MIBDEFSDIR}IEEE8021_CFM_MIB.java
+
+#
+# Opnext/stratalight
+#
+$MIB2JAVA -m STRATALIGHT-ALARMS.mib -o stratalight -f${MIBDEFSDIR}STRATALIGHT_ALARMS.java
+
+# Chronos/SyncGEM
+$MIB2JAVA -m SYNCGEM-MANAGER-MIB.mib -o chronosProducts -f${MIBDEFSDIR}CHRONOS_ENTERPRISE_MIB.java
+$MIB2JAVA -m SYNCGEM-TOPSYNC-DEVICE-MIB.mib -o topsyncDevice -f${MIBDEFSDIR}SYNCGEM_DEVICES_MIB.java
+
+
+#rm -rf temp
+
+echo "mib2h finished successfully"

@@ -1,0 +1,248 @@
+<table>
+<title>Alarm Change Notification Attributes</title>
+<tgroup cols="3">
+<colspec colname="1" colwidth="20.96*"/>
+<colspec colname="2" colwidth="14.27*"/>
+<colspec colname="COLSPEC1" colwidth="52.85*"/>
+<thead>
+<row><entry colname="1" morerows="0" nameend="1" namest="1">
+<?PubTbl cell border-bottom-width="0.30pt"?>
+<p>Attribute</p></entry>
+<entry colname="2" morerows="0" nameend="2" namest="2">
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>Type</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"
+border-top-width="0.30pt"?>
+<p>Description</p></entry>
+</row>
+</thead>
+<tbody>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">sysUptime.0</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>TimeTicks</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The value of sysUpTime at the time when the notification is sent. </p>
+<p>For v1 traps the Time stamp field is used.</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">snmpTrapOID.0</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>OBJECT IDENTIFIER</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The notification objects identifier.</p>
+<p>For v1 traps the Enterprise field is set to the object identifier
+with the last 2 sub-identifiers removed and the specific trap code
+field is set to the last sub-identifier.</p>
+<p>Refer to <termref linkend="term_3"/>  for details.</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">snmpTrapAddress.0</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>IpAddress</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>Optional. </p>
+<p>Set to the IP address of the original network element. </p>
+<p>Included if the “Set agent-addr to original address”-feature is
+enabled. </p>
+<p>For v1 traps the “agent-addr”-field is also set. </p>
+<p>Note that this increases the ordinal number for the succeeding
+attributes in the trap.</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmIndex.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>Unsigned32</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The index for the alarm in the alarm list. Denoted with i below.</p>
+</entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmObject.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>RowPointer</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>A pointer to the object that the alarm originates from.  Points
+to the index column of the table in question. Typically this is the
+first column in the table for a tabular object. For scalar objects </p>
+</entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmFaultStatus.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>VariablePointer</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>A pointer to the specific fault status variable in the object that
+the alarm originates from</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmMgmtName.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>DisplayString</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The name of the object that the alarm originates from. Typically
+this is the second column in the table for a tabular object. Scalar
+objects </p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmInvPhysIndexOrZero.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>Unsigned32</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>Not used, set to 0.</p>
+<p>Index for the object that the alarm originates from in the physical
+inventory table.</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmInvLogicalIndexOrZero.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>Unsigned32</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>Not used, set to 0.</p>
+<p>Index for the object that the alarm originates from in the physical
+inventory table. </p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmType.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>INTEGER</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The alarm type (as defined in reference <termref linkend="term_10"
+/>).</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmCause.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>INTEGER</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The probable cause (as defined in reference <termref
+linkend="term_10"/>).</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmText.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>DisplayString</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The alarm text.</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmSeverity.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>INTEGER</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The alarm perceived severity (as defined in reference <termref
+linkend="term_10"/>).</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmCreatedTime.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>DateAndTime</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The time when the alarm was created (raised).</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmLastChangeTime.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>DateAndTime</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The time when the alarm was last changed (cleared).Initially set
+to the same value as alarmCreatedTime.</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmSeqNumber.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>Unsigned32</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>A sequence number increasing for each notification sent.</p></entry>
+</row>
+<row><entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-left-width="0.30pt"
+border-right-width="0.30pt"?>
+<p><label type="mmo">alarmNeName.i</label></p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>DisplayString</p></entry>
+<entry>
+<?PubTbl cell border-bottom-width="0.30pt" border-right-width="0.30pt"?>
+<p>The name of the original network element (as shown in the TNM).</p>
+</entry>
+</row>
+<row><entry>
+<?PubTbl cell border-left-width="0.30pt" border-right-width="0.30pt"?>
+<p><label type="mmo">alarmNeIpAddress.i</label></p></entry>
+<entry>
+<?PubTbl cell border-right-width="0.30pt"?>
+<p>IpAddress</p></entry>
+<entry>
+<?PubTbl cell border-right-width="0.30pt"?>
+<p>The IP address of the original network element.</p></entry>
+</row>
+</tbody>
+</tgroup>
+</table>
+<table>
