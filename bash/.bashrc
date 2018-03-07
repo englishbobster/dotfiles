@@ -37,7 +37,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 if [ "$os" == "Ubuntu" ]; then
     [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 elif [ "$os" == "Gentoo" ]; then
-    [ -x /usr/bin/lesspipe ] && export LESSOPEN="|lesspipe $s"
+    [ -x /usr/bin/lesspipe ] && export LESSOPEN="|lesspipe %s"
 fi
 
 if [ "$os" == "Ubuntu" ]; then
