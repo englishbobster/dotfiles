@@ -1,6 +1,6 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/stos/src/dev/repos/bash/get_linux_os.sh" . 290)
- ("/home/stos/src/dev/repos/dotfiles/bash/.bashrc" . 1300)
+(("/home/stos/src/dev/repos/dotfiles/bash/.bashrc" . 2384)
+ ("/home/stos/src/dev/repos/bash/get_linux_os.sh" . 290)
  ("/home/stos/.emacs.d/elpa/yasnippet-20180218.459/yasnippet-autoloads.el" . 1513)
  ("/home/stos/.emacs.d/elpa/async-20180119.533/async-autoloads.el" . 4615)
  ("/home/stos/.emacs.d/elpa/avy-20171230.220/avy-autoloads.el" . 7505)
@@ -27,7 +27,6 @@
  ("/home/stos/.emacs.d/elpa/yaml-mode-20180212.1556/yaml-mode-autoloads.el" . 590)
  ("/usr/local/src/dev/repos/java/scorekeeper/build.gradle" . 101)
  ("/usr/local/src/dev/repos/java/scorekeeper/.gitignore" . 14)
- ("/home/stos/.bashrc" . 228)
  ("/home/stos/.emacs.d/elpa/restclient-helm-20170314.854/restclient-helm-autoloads.el" . 397)
  ("/home/stos/.emacs.d/elpa/auto-complete-20170124.1845/auto-complete-autoloads.el" . 1711)
  ("/home/stos/.emacs.d/elpa/let-alist-1.0.5/let-alist-autoloads.el" . 1267)

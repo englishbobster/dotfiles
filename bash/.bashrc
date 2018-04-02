@@ -75,7 +75,7 @@ LOCAL_GRADLE=~/src/local_apps/local_gradle/gradle/bin
 SPRING_HOME=~/src/local_apps/spring
 
 #path
-export PATH=$PATH:$LINKS:$LOCALAPPS:$MIBBROWSER:$LOCAL_GRADLE:$SPRING_HOME/bin
+export PATH=$PATH:$LINKS:$LOCALAPPS:$MIBBROWSER:$LOCAL_GRADLE:$SPRING_HOME/bin:$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin
 
 #some useful paths
 SRC_HOME=/usr/local/src
