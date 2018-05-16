@@ -1,5 +1,11 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/stos/src/dev/repos/dotfiles/bash/.bashrc" . 2384)
+(("/home/stos/src/dev/repos/dotfiles/bash/.bashrc" . 3380)
+ ("/etc/fstab" . 912)
+ ("/home/stos/src/dev/repos/dotfiles/xmonad/.xmonad/get-volume" . 268)
+ ("/home/stos/src/dev/repos/dotfiles/X/.xsession" . 213)
+ ("/home/stos/.stalonetrayrc" . 286)
+ ("/home/stos/src/dev/repos/dotfiles/xmonad/.xmonad/xmobarrc" . 78)
+ ("/home/stos/src/dev/repos/dotfiles/xmonad/.xmonad/xmonad.hs" . 672)
  ("/home/stos/src/dev/repos/bash/get_linux_os.sh" . 290)
  ("/home/stos/.emacs.d/elpa/yasnippet-20180218.459/yasnippet-autoloads.el" . 1513)
  ("/home/stos/.emacs.d/elpa/async-20180119.533/async-autoloads.el" . 4615)

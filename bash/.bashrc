@@ -108,6 +108,7 @@ alias lls="ls -altr"
 alias emax="emacs -nw"
 alias gradle='gradle-wrapper-wrapper'
 alias mysqlprompt="mysql -uroot -proot"
+alias shuttle="sshuttle --dns -r stos@nx.transmode.se 0.0.0.0/0"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

@@ -22,7 +22,7 @@ import XMonad.Util.Run (spawnPipe)
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "mate-terminal --hide-menubar"
+myTerminal      = "gnome-terminal --hide-menubar"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
