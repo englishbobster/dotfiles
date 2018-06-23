@@ -108,7 +108,17 @@ alias lls="ls -altr"
 alias emax="emacs -nw"
 alias gradle='gradle-wrapper-wrapper'
 alias mysqlprompt="mysql -uroot -proot"
-alias shuttle="sshuttle --dns -r stos@nx.transmode.se 0.0.0.0/0"
+alias shuttle="sshuttle --dns -r stos@nx.transmode.se 0.0.0.0/0 > /dev/null 2>&1 "
+
+function add_ssh_keys {
+    eval "$(ssh-agent -s)"
+    for file in `find ~/.ssh -type f -name "id*" -not \( -name "*.pub" \)`
+    do
+        ssh-add $file
+    done
+}
+
+alias keyme="add_ssh_keys"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
