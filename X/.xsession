@@ -31,4 +31,11 @@ if [ -x /usr/bin/mate-power-manager ] ; then
    mate-power-manager &
 fi
 
+if [ -x /usr/bin/blueman-applet ] ; then
+   sleep 3
+   blueman-applet &
+fi
+
+vncserver :1 &
+
 xmonad
