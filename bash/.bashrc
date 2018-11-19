@@ -76,6 +76,7 @@ SPRING_HOME=~/src/local_apps/spring
 
 #path
 export PATH=$PATH:$LINKS:$LOCALAPPS:$MIBBROWSER:$LOCAL_GRADLE:$SPRING_HOME/bin:$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin
+export PATH=~/npm-global/bin:$PATH
 
 #some useful paths
 SRC_HOME=/usr/local/src
@@ -83,7 +84,7 @@ DEV_HOME=$SRC_HOME/dev
 REPOS=$DEV_HOME/repos
 
 #workspace shortcuts
-alias tnm="cd $REPOS/nm/tnm/"
+alias dnam="cd $REPOS/nm/dnam/"
 alias dev="cd $DEV_HOME"
 alias repos="cd $REPOS"
 
@@ -120,7 +121,7 @@ function add_ssh_keys {
 
 alias keyme="add_ssh_keys"
 
-alias mcis='mvn clean install -DskipTests -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dpmd.skip=true -Dfindbugs.skip=true -D $@'
+alias mcis='mvn clean install -DskipTests -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dpmd.skip=true -Dfindbugs.skip=true $@'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

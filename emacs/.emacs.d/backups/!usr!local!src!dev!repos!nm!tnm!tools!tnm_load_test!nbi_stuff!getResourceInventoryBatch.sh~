@@ -5,7 +5,8 @@ set -e
 #check if xmlstarletinstalled
 which xmlstarlet
 
-TARGET_WS_ADDR="http://tnm-load-1k:8080"
+TARGET_WS_ADDR="http://10.0.0.2:8080"
+#TARGET_WS_ADDR="http://tnm-load-1k.transmode.se:8080"
 #TARGET_WS_ADDR="http://localhost:8080"
 ENTRY_POINT="/soap/mtosi/layered/ResourceInventoryRetrieval"
 
@@ -18,7 +19,7 @@ xmlstarlet ed -O -u "//v1:iteratorReferenceURI" -v $REF get_resource_inv_iterato
 
 while [ "$END" != "true" ]; do
     RESPONSE=`curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: getInventoryIterator" --data @tmp.xml "$TARGET_WS_ADDR$ENTRY_POINT" --connect-timeout 10 &`
-#    echo $RESPONSE
+    echo $RESPONSE
 #    REF=`xmlstarlet sel -N ns7="http://www.tmforum.org/mtop/fmw/xsd/hdr/v1" -t -m "//ns7:iteratorReferenceURI" -v . <(echo $RESPONSE)`
     END=`xmlstarlet sel -N ns7="http://www.tmforum.org/mtop/fmw/xsd/hdr/v1" -t -m "//ns7:batchSequenceEndOfReply" -v . <(echo $RESPONSE)`
 

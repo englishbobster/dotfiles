@@ -36,6 +36,11 @@ if [ -x /usr/bin/blueman-applet ] ; then
    blueman-applet &
 fi
 
+if [ -x /usr/bin/xscreensaver ]; then
+    sleep 3
+    xscreensaver -no-splash &
+fi
+
 vncserver :1 &
 
 xmonad

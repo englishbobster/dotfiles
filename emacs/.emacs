@@ -36,6 +36,9 @@
 ;;trailing white space
 (setq-default show-trailing-whitespace t)
 
+;;orgmode settings
+(setq-default org-list-indent-offset 4)
+
 ;;package management
 (require 'package)
 (add-to-list 'package-archives
@@ -101,4 +104,5 @@
 ;;elm stuff
 (add-hook 'elm-mode-hook #'elm-oracle-setup-ac)
 
-(find-file "~/src/Docs/orgmode/todo.org")
+(find-file "~/src/Docs/orgmode/personal_notes.org")
+
