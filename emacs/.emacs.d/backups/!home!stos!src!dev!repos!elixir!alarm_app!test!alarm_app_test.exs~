@@ -1,8 +1,0 @@
-defmodule AlarmAppTest do
-  use ExUnit.Case
-  doctest AlarmApp
-
-  test "greets the world" do
-    assert AlarmApp.hello() == :world
-  end
-end

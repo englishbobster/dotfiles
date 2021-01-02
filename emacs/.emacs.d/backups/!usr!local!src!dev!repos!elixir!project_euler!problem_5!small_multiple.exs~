@@ -1,8 +1,0 @@
-defmodule SmallMultiple do
-
-  def smallest_multiple(value) do
-    1..20
-    |> Enum.reduce(1, fn(x, acc) -> x*acc end)
-  end
-
-end

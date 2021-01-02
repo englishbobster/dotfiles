@@ -1,8 +1,0 @@
-module Main exposing (..)
-
-import Hexagon exposing (drawHexagon)
-
-
-
-main =
-    drawHexagon (60,60) 60 "cyan" "yellow"

@@ -1,2 +1,0 @@
-defmodule BowlingKata do
-	def score(frames), do: 0

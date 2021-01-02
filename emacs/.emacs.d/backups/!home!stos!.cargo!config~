@@ -1,2 +1,0 @@
-[target.powerpc-unkown-linux-gnu]
-linker = "powerpc-softfloat_4.9.3-linux-gnu-gcc"

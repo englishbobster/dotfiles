@@ -1,9 +1,0 @@
-defmodule TableTransform.XmlTextTest do
-  use ExUnit.Case
-  alias TableTransform.XmlText, as: XmlT
-
-  test "should find table title" do
-    xml = XmlT.read_file("./test_table.data")
-  end
-
-end

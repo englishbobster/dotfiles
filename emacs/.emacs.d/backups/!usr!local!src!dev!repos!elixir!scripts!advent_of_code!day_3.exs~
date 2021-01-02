@@ -1,9 +1,0 @@
-defmodule PSH do
-end
-
-
-ExUnit.start([trace: true])
-
-defmodule PSHTest do
-  use ExUnit.Case
-end
