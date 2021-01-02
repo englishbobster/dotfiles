@@ -70,7 +70,6 @@ fi
 #put symbolic links for use with xmonad here
 LINKS=~/.xmonad/links
 LOCALAPPS=~/src/local_apps/bin
-MIBBROWSER=~/src/local_apps/ireasoning/mibbrowser
 LOCAL_GRADLE=~/src/local_apps/local_gradle/gradle/bin
 SPRING_HOME=~/src/local_apps/spring
 
@@ -79,37 +78,14 @@ export PATH=$PATH:$LINKS:$LOCALAPPS:$MIBBROWSER:$LOCAL_GRADLE:$SPRING_HOME/bin:$
 export PATH=~/npm-global/bin:$PATH
 
 #some useful paths
-SRC_HOME=/usr/local/src
-DEV_HOME=$SRC_HOME/dev
-REPOS=$DEV_HOME/repos
+SRC_HOME=/home/stos/src
+REPOS=$SRC_HOME/repos
 
 #workspace shortcuts
-alias dnam="cd $REPOS/nm/dnam/"
-alias dev="cd $DEV_HOME"
 alias repos="cd $REPOS"
-
-#useful ssh shortcuts (assumes public ssh keys)
-#as root
-alias 1k='ssh -X root@tnm-load-1k'
-alias 5k='ssh -X root@tnm-load-5k'
-alias 10k='ssh -X root@tnm-load-10k'
-alias reg='ssh -X root@tnm-load-reg'
-alias mimic1_root='ssh -X root@tnm-mimic1'
-alias mimic2_root='ssh -X root@tnm-mimic2'
-alias mimic3_root='ssh -X root@tnm-mimic3'
-#as mimic
-alias mimic1='ssh -X mimic@tnm-mimic1'
-alias mimic2='ssh -X mimic@tnm-mimic2'
-alias mimic3='ssh -X mimic@tnm-mimic3'
-#other
-alias radius='ssh -X tnmuser@172.16.12.13'
 
 #other useful commands
 alias lls="ls -altr"
-alias emax="emacs -nw"
-alias gradle='gradle-wrapper-wrapper'
-alias mysqlprompt="mysql -uroot -proot"
-alias shuttle="sshuttle --dns -r stos@nx.transmode.se 0.0.0.0/0 > /dev/null 2>&1 "
 
 function add_ssh_keys {
     eval "$(ssh-agent -s)"
@@ -160,5 +136,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "~/.gvm/bin/gvm-init.sh" ]] && source "~/.gvm/bin/gvm-init.sh"
