@@ -1,4 +1,3 @@
-#oki...need to cater for multiple linux environments
 #find the linux OS and then use this to activate particulars for the correct os
 os="unknown"
 if type lsb_release > /dev/null 2>&1; then
@@ -18,7 +17,6 @@ esac
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
@@ -33,7 +31,7 @@ export HISTFILESIZE=-1
 #history for erlang and elixir shells
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# make less more friendly for non-text input files, see lesspipe(1)
+# make less friendly for non-text input files, see lesspipe(1)
 if [ "$os" == "Ubuntu" ]; then
     [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 elif [ "$os" == "Gentoo" ]; then
@@ -74,8 +72,7 @@ LOCAL_GRADLE=~/src/local_apps/local_gradle/gradle/bin
 SPRING_HOME=~/src/local_apps/spring
 
 #path
-export PATH=$PATH:$LINKS:$LOCALAPPS:$MIBBROWSER:$LOCAL_GRADLE:$SPRING_HOME/bin:$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin
-export PATH=~/npm-global/bin:$PATH
+export PATH=$PATH:$LINKS:$LOCALAPPS
 
 #some useful paths
 SRC_HOME=/home/stos/src
