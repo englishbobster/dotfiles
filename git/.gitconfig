@@ -11,7 +11,7 @@ unstage = reset HEAD
 
 [user]
 	name = Stuart Osborne
-	email = stuart.osborne@infinera.com
+	email = stuart.osborne@pricer.com
 [core]
 	editor = emacs
 	excludesfile = /home/stos/.gitignore
