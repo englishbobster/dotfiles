@@ -7,13 +7,14 @@ acm = commit -a -m
 stage = ad
 co = checkout
 unstage = reset HEAD
-
+po = remote prune origin
+	
 
 [user]
 	name = Stuart Osborne
 	email = stuart.osborne@pricer.com
 [core]
-	editor = emacs
+	editor = vi
 	excludesfile = /home/stos/.gitignore
 [diff]
 	tool = meld
