@@ -28,6 +28,8 @@ export HISTTIMEFORMAT="%y%m%d:%T "
 export HISTSIZE=-1
 export HISTFILESIZE=-1
 
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
 #history for erlang and elixir shells
 export ERL_AFLAGS="-kernel shell_history enabled"
 
@@ -81,9 +83,6 @@ REPOS=$SRC_HOME/repos
 #workspace shortcuts
 alias repos="cd $REPOS"
 
-#other useful commands
-alias lls="ls -altr"
-
 function add_ssh_keys {
     eval "$(ssh-agent -s)"
     for file in `find ~/.ssh -type f -name "id*" -not \( -name "*.pub" \)`
@@ -93,8 +92,6 @@ function add_ssh_keys {
 }
 
 alias keyme="add_ssh_keys"
-
-alias mcis='mvn clean install -DskipTests -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true -Dpmd.skip=true -Dfindbugs.skip=true $@'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
