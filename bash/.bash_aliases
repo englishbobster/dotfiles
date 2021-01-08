@@ -1,8 +1,13 @@
+#shortcuts
+alias repos="cd $REPOS"
+alias PSR3="cd $REPOS/pricer/pricer-server-r3server"
+
 #cmdline
 alias lls="ls -altr"
+alias ls_jar="jar -tf"
 
 #docker
-alias mysql_start="docker run --name pricer_mysql -e MYSQL_ROOT_PASSWORD=pricer -e MYSQL_PASSWORD=pricer -e MYSQL_USER=pricer -p 3306:7799 -d mysql:latest"
+alias mysql_start="docker run --name pricer_mysql -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=v1ndal00 -e MYSQL_PASSWORD=PRICER -e MYSQL_USER=PRICER -e MYSQL_DATABASE=PRICER -p 7799:3306 -d mysql:5.7.32"
 alias mysql_stop="docker stop pricer_mysql"	
 alias mysql_remove="docker rm pricer_mysql"
 

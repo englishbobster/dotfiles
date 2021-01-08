@@ -80,9 +80,6 @@ export PATH=$PATH:$LINKS:$LOCALAPPS
 SRC_HOME=/home/stos/src
 REPOS=$SRC_HOME/repos
 
-#workspace shortcuts
-alias repos="cd $REPOS"
-
 function add_ssh_keys {
     eval "$(ssh-agent -s)"
     for file in `find ~/.ssh -type f -name "id*" -not \( -name "*.pub" \)`
