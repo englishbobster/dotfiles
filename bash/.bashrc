@@ -30,6 +30,14 @@ export HISTFILESIZE=-1
 
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
+#XWIN for WSL2
+if command -v "wsl.exe" &> /dev/null; then
+	echo "setting up xwin env for WSL"
+	export WSL_ip_line=$(ipconfig.exe | grep "WSL" -n | awk -F ":" '{print $1+4}')
+	export DISPLAY=$(ipconfig.exe | awk -v a=$WSL_ip_line '{if (NR==a) print $NF":0.0"}' | tr -d "\r")
+	export LIBGL_ALWAYS_INDIRECT=1
+fi
+
 #history for erlang and elixir shells
 export ERL_AFLAGS="-kernel shell_history enabled"
 
@@ -127,3 +135,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# pricer stuff
+export PRICER_HOME=~/src/repos/pricer/pricer-server-r3server/esl-run-local/target
