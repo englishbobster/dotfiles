@@ -23,7 +23,7 @@ shopt -s checkwinsize
 
 #history options
 shopt -s histappend
-HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth:erasedups
 export HISTTIMEFORMAT="%y%m%d:%T "
 export HISTSIZE=-1
 export HISTFILESIZE=-1
