@@ -137,3 +137,9 @@ fi
 
 # pricer stuff
 export PRICER_HOME=~/src/repos/pricer/pricer-server-r3server/esl-run-local/target
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/stos/src/local_apps/google-cloud-sdk/path.bash.inc' ]; then . '/home/stos/src/local_apps/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/stos/src/local_apps/google-cloud-sdk/completion.bash.inc' ]; then . '/home/stos/src/local_apps/google-cloud-sdk/completion.bash.inc'; fi
