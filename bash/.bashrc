@@ -28,6 +28,11 @@ export HISTTIMEFORMAT="%y%m%d:%T "
 export HISTSIZE=-1
 export HISTFILESIZE=-1
 
+
+#default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 #XWIN for WSL2
@@ -83,6 +88,7 @@ SPRING_HOME=~/src/local_apps/spring
 
 #path
 export PATH=$PATH:$LINKS:$LOCALAPPS
+export PATH=$PATH:/usr/local/go/bin
 
 #some useful paths
 SRC_HOME=/home/stos/src
