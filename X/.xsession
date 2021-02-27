@@ -41,6 +41,4 @@ if [ -x /usr/bin/xscreensaver ]; then
     xscreensaver -no-splash &
 fi
 
-vncserver :1 &
-
 xmonad
