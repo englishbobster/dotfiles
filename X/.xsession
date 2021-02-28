@@ -26,9 +26,9 @@ elif [ -x /usr/bin/volumeicon ]; then
     volumeicon &
 fi
 
-if [ -x /usr/bin/mate-power-manager ] ; then
+if [ -x /usr/bin/xfce4-power-manager ] ; then
    sleep 3
-   mate-power-manager &
+   xfce4-power-manager &
 fi
 
 if [ -x /usr/bin/blueman-applet ] ; then
@@ -41,4 +41,8 @@ if [ -x /usr/bin/xscreensaver ]; then
     xscreensaver -no-splash &
 fi
 
-xmonad
+xrandr --output eDP-1-1 --mode 1920x1080 --pos 3840x0 --rotate normal \
+	--output DP-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal \
+	--output DP-1-2 --mode 1920x1080 --pos 0x0 --rotate normal --primary \
+	--output DP-1-3 --off \
+	& xmonad
