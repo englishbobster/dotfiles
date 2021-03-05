@@ -22,7 +22,7 @@ import XMonad.Util.Run (spawnPipe)
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
-myTerminal      = "mate-terminal --hide-menubar"
+myTerminal      = "gnome-terminal --hide-menubar"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
@@ -135,6 +135,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
     , ((modm .|. shiftMask, xK_slash ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
+
+    -- Lock the screen with xscreensaver
+    , ((modm .|. shiftMask, xK_l), spawn "xscreensaver-command -lock")
     ]
     ++
 

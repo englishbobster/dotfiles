@@ -19,9 +19,9 @@ if [ -x /usr/bin/nm-applet ] ; then
    nm-applet --sm-disable &
 fi
 
-if [ -x /usr/bin/mate-volume-control-applet ] ; then
+if [ -x /usr/bin/pasystray ] ; then
    sleep 3
-   mate-volume-control-applet &
+   pasystray &
 elif [ -x /usr/bin/volumeicon ]; then
     volumeicon &
 fi
