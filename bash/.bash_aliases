@@ -28,3 +28,8 @@ alias build-test='mvn clean install -Dlicense.ignore -Ddependency-check.skip'
 alias build-test-all-p='mvn clean install -Dlicense.ignore -Ddependency-check.skip -T1C'
 alias build-all-p='mvn clean install -T1C'
 alias run-local='mvn clean install -Prun-local -DskipTests -Dlicense.ignore -Ddependency-check.skip -Dcheckstyle.skip -Dspotbugs.skip -Ddb.user=root -Ddb.pwd=pricer -Ddb.port=3306'
+alias format-code='mvn com.theoryinpractise:googleformatter-maven-plugin:format'
+alias next-log='mvn se.pricer:logmess-maven-plugin:4.0.1-9e72458:logmess'
+alias format-xml='mvn au.com.acegi:xml-format-maven-plugin:xml-format'
+
+
