@@ -1,9 +1,8 @@
 Config {
-  font    = "xft:Fixed-10"
-  , position = TopW L 94
+  font   = "xft:Inconsolata Bold:size=14:antialias=true"
+  , position = TopW L 90
   , commands = [
     Run MultiCpu ["-L","3","-H","50","--normal","green","--high","red","-p","3","-t","Cpu: <total0>% <total1>% <total2>% <total3>% <total4>% <total5>% <total6>% <total7>% <total8>% <total9>% <total10>% <total11>%"] 10
-
     , Run Memory ["-t","Mem: <usedratio>%"] 10
     , Run DiskU [("/", "/: <used>"),  ("/home", "/home: <used>")]
                   ["-L", "20", "-H", "50", "-m", "1", "-p", "3",

@@ -12,7 +12,7 @@ alias mysql_client="mysql -h127.0.0.1 -P 7799 -u pricer -p"
 alias mysql_stop="docker stop pricer_mysql"	
 alias mysql_remove="docker rm pricer_mysql"
 
-alias basestation_start="docker run -d --name vbs -p 80:8090 -p 4000-4100:4000-4100 docker.pricer.com/pricer/vbs:3.2.5"
+alias vbs_start="docker run -d --name vbs -p 80:8090 -p 4000-4010:4000-4010 docker.pricer.com/pricer/vbs:latest"
 
 #this will remove all the docker containers that are now defunct
 function kill_docker_ps {
@@ -20,16 +20,16 @@ function kill_docker_ps {
 }
 
 alias clear_containers="kill_docker_ps"
+
 #build tools
-alias build-fast-dep='mvn clean install -Prun-local -DskipTests -Dlicense.ignore -Ddependency-check.skip -Dspotbugs.skip -Ddb.user=root -Ddb.pwd=pricer -Ddb.port=3306'
-alias build-fast-dep='mvn clean install -Prun-local -DskipTests -Dlicense.ignore -Ddependency-check.skip -Dspotbugs.skip -Ddb.user=root -Ddb.pwd=pricer -Ddb.port=3306'
-alias build-fast='mvn clean install -Prun-local -DskipTests -Dlicense.ignore -Ddependency-check.skip -Dcheckstyle.skip -Dspotbugs.skip -Ddb.user=root -Ddb.pwd=pricer -Ddb.port=3306 -T1C'
+alias build-fast-dep='mvn clean install -Prun-local -DskipTests -Dlicense.ignore -Ddependency-check.skip -Dspotbugs.skip -Ddb.user=pricer -Ddb.pwd=pricer -Ddb.port=7799'
+
 alias build-test='mvn clean install -Dlicense.ignore -Ddependency-check.skip'
 alias build-test-all-p='mvn clean install -Dlicense.ignore -Ddependency-check.skip -T1C'
 alias build-all-p='mvn clean install -T1C'
-alias run-local='mvn clean install -Prun-local -DskipTests -Dlicense.ignore -Ddependency-check.skip -Dcheckstyle.skip -Dspotbugs.skip -Ddb.user=root -Ddb.pwd=pricer -Ddb.port=3306'
+alias run-local='mvn clean install -Prun-local -DskipTests -Dlicense.ignore -Ddependency-check.skip -Dcheckstyle.skip -Dspotbugs.skip -Ddb.user=pricer -Ddb.pwd=pricer -Ddb.port=7799 -T1C'
 alias format-code='mvn com.theoryinpractise:googleformatter-maven-plugin:format'
 alias next-log='mvn se.pricer:logmess-maven-plugin:4.0.1-9e72458:logmess'
 alias format-xml='mvn au.com.acegi:xml-format-maven-plugin:xml-format'
-
+alias gradle='gw'
 
