@@ -12,7 +12,7 @@ alias mysql_client="mysql -h127.0.0.1 -P 7799 -u pricer -p"
 alias mysql_stop="docker stop pricer_mysql"	
 alias mysql_remove="docker rm pricer_mysql"
 
-alias vbs_start="docker run -d --name vbs -p 80:8090 -p 4000-4010:4000-4010 docker.pricer.com/pricer/vbs:latest"
+alias vbs_start="docker run -d --name vbs -p 80:8090 -p 4000-4010:4000-4010 docker.pricer.com/pricer/vbs:3.2.5"
 
 #this will remove all the docker containers that are now defunct
 function kill_docker_ps {
