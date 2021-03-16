@@ -6,6 +6,10 @@ alias PSR3="cd $REPOS/pricer/pricer-server-r3server"
 alias lls="ls -altr"
 alias ls_jar="jar -tf"
 
+
+#tools
+alias wacom_main='xsetwacom -v set "Wacom Intuos BT S Pen stylus" MapToOutput HEAD-0'
+
 #docker
 alias mysql_start="docker run --name pricer_mysql -v ~/mysql/config:/etc/mysql/conf.d -v ~/mysql/data:/var/lib/mysql -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=v1ndal00 -e MYSQL_PASSWORD=pricer -e MYSQL_USER=pricer -e MYSQL_DATABASE=PRICER -p 7799:3306 -d mysql:5.7.32"
 alias mysql_client="mysql -h127.0.0.1 -P 7799 -u pricer -p"
