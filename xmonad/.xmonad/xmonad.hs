@@ -224,7 +224,8 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore 
-    , className  =? "jetbrains-toolbox" --> doFloat ]
+    , className  =? "jetbrains-toolbox" --> doFloat
+    , resource =? "gnome-calculator" --> doFloat]
 
 ------------------------------------------------------------------------
 -- Event handling
