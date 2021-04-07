@@ -11,7 +11,7 @@ fi
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
-      *) return;;
+    *) return;;
 esac
 
 # check the window size after each command and, if necessary,
@@ -37,10 +37,10 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 #XWIN for WSL2
 if command -v "wsl.exe" &> /dev/null; then
-	echo "setting up xwin env for WSL"
-	export WSL_ip_line=$(ipconfig.exe | grep "WSL" -n | awk -F ":" '{print $1+4}')
-	export DISPLAY=$(ipconfig.exe | awk -v a=$WSL_ip_line '{if (NR==a) print $NF":0.0"}' | tr -d "\r")
-	export LIBGL_ALWAYS_INDIRECT=1
+    echo "setting up xwin env for WSL"
+    export WSL_ip_line=$(ipconfig.exe | grep "WSL" -n | awk -F ":" '{print $1+4}')
+    export DISPLAY=$(ipconfig.exe | awk -v a=$WSL_ip_line '{if (NR==a) print $NF":0.0"}' | tr -d "\r")
+    export LIBGL_ALWAYS_INDIRECT=1
 fi
 
 #history for erlang and elixir shells
@@ -58,7 +58,7 @@ if [ "$os" == "Ubuntu" ]; then
     if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
         debian_chroot=$(cat /etc/debian_chroot)
     fi
-   # If this is an xterm set the title to user@host:dir
+    # If this is an xterm set the title to user@host:dir
     case "$TERM" in
         xterm*|rxvt*)
             PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
@@ -89,6 +89,7 @@ SPRING_HOME=~/src/local_apps/spring
 #path
 export PATH=$PATH:$LINKS:$LOCALAPPS
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$HOME/.local/bin:$PATH
 
 #some useful paths
 SRC_HOME=/home/stos/src
@@ -101,6 +102,20 @@ function add_ssh_keys {
         ssh-add $file
     done
 }
+
+function fix_intellij {
+    dir=$(pwd)
+    if [ -d ".idea/" ]; then
+	rm -rf .idea/
+	for i in $(find $dir -name "*.iml")
+	do
+	    rm $i
+	done	
+    else
+	echo "not a intellij project"
+    fi
+}
+
 
 alias keyme="add_ssh_keys"
 
@@ -134,11 +149,11 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+	. /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+	. /etc/bash_completion
+    fi
 fi
 
 # pricer stuff
