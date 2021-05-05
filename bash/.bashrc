@@ -33,7 +33,7 @@ export HISTFILESIZE=-1
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+JAVA_HOME=$(update-alternatives --query java | grep Value: | awk -F'Value: ' '{print $2}' | awk -F'/bin/java' '{print $1}')
 
 #XWIN for WSL2
 if command -v "wsl.exe" &> /dev/null; then
