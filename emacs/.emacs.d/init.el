@@ -78,7 +78,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(rainbow-delimiters paredit k8s-mode yaml-mode helm helm-cider helm-cider-history gruvbox-theme projectile better-defaults cider clojure-mode)))
+   '(magit rainbow-delimiters paredit k8s-mode yaml-mode helm helm-cider helm-cider-history gruvbox-theme projectile better-defaults cider clojure-mode)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
