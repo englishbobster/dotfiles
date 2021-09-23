@@ -165,3 +165,5 @@ if [ -f '/home/stos/src/local_apps/google-cloud-sdk/path.bash.inc' ]; then . '/h
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/stos/src/local_apps/google-cloud-sdk/completion.bash.inc' ]; then . '/home/stos/src/local_apps/google-cloud-sdk/completion.bash.inc'; fi
 source <(kubectl completion bash)
+
+complete -C /usr/bin/terraform terraform

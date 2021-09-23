@@ -1,0 +1,29 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/stos/src/" . "docs/")
+ ("/home/stos/" . "src/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/stos/src/docs/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "notes.org"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/stos/src/docs/" (24858 6449 277826 694000) "master_keys/" "4_DM-ESL_Protocol_16.0-r81943.docx" "../" "database_dumps/" "./")
+
+ ("/home/stos/src/" (24858 6405 775710 677000) "qmk/" "repos/" "vpn/" "images/" "books/" "../" "docs/" "local_apps/" "./" "javadoc/")
+
+ ("/home/stos/" (24835 61560 389264 896000) ".atom/" ".bashrc" ".putty/" ".gconf/" ".m2/" ".java/" ".screenlayout/" "Videos/" ".sudo_as_admin_successful" ".ssh/" ".nv/" ".xsessionrc" ".bash_aliases" ".minecraft/" ".dotfiles/" "snap/" ".mysql_history" ".bash_logout" ".android/" ".tekton/" ".stalonetrayrc" ".config/" ".boto" ".vscode/" ".wget-hsts" ".codota-id" ".h2.server.properties" ".clojure/" ".clojure_history" ".xscreensaver" ".jfrog/" ".emacs.d/" "Public/" ".gnome/" ".vim/" "../" ".viminfo" "src/" ".local/" ".haulmont/" "Music/" "Downloads/" "Templates/" ".bash_history" ".docker/" "Pictures/" ".xmonad/" ".minikube/" ".lein/" ".lesshst" ".gitconfig" ".gradle/" ".profile" ".clojure_history-14706.tmp" ".cert/" ".tmp/" "mysql/" "Documents/" ".testcontainers.properties" "./" ".Xdefaults" ".gnupg/" ".kube/" ".gitkraken/" ".pki/" ".mozilla/" ".cache/" ".thunderbird/" ".gsutil/" ".bashrc.backup" ".terraform.d/" "Desktop/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
