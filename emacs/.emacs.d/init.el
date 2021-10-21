@@ -68,6 +68,9 @@
 ;; These customizations make editing a bit nicer.
 (load "editing.el")
 
+;; Org mode stuff
+(load "orgmode.el")
+
 ;; Hard-to-categorize customizations
 (load "misc.el")
 
