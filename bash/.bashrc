@@ -30,7 +30,7 @@ export HISTFILESIZE=-1
 
 
 #default editor
-export VISUAL=vim
+export VISUAL=emacs
 export EDITOR="$VISUAL"
 
 JAVA_HOME=$(update-alternatives --query java | grep Value: | awk -F'Value: ' '{print $2}' | awk -F'/bin/java' '{print $1}')
@@ -143,6 +143,10 @@ PS1=$green'\u@\h:'$blue'\w'$yellow'$(__git_ps1 " (%s)")'$white' :> '
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_alias_work ]; then
+    . ~/.bash_alias_work
 fi
 
 # enable programmable completion features (you don't need to enable
