@@ -93,7 +93,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 #some useful paths
 SRC_HOME=/home/stos/src
-REPOS=$SRC_HOME/repos
+REPOS=$SRC_HOME/dev/repos
 
 function add_ssh_keys {
     eval "$(ssh-agent -s)"
@@ -156,8 +156,6 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# pricer stuff
-export PRICER_HOME=~/src/repos/pricer/pricer-server-r3server/esl-run-local/target
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/stos/src/local_apps/google-cloud-sdk/path.bash.inc' ]; then . '/home/stos/src/local_apps/google-cloud-sdk/path.bash.inc'; fi
