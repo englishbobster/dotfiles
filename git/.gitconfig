@@ -11,8 +11,8 @@ po = remote prune origin
 	
 
 [user]
-	name = Stuart Osborne
-	email = englishbobster@gmail.com
+	name = Stu
+	email = stuart.osborne@nordnet.se
 [core]
 	editor = vi
 	excludesfile = /home/stos/.gitignore

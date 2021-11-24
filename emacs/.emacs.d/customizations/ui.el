@@ -27,3 +27,6 @@
 
 ;; no bell
 (setq ring-bell-function 'ignore)
+
+;;visual line mode so that lines wrap
+(global-visual-line-mode t)

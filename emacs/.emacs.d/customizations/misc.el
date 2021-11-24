@@ -7,3 +7,9 @@
                                                "backups"))))
 (setq auto-save-default nil)
 
+
+;; mac stuff...command key should be meta and option key should do keyboard stuff
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-option-modifier 'none)

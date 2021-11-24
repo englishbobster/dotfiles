@@ -2,6 +2,10 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/stuosb/.emacs.d/" . "customizations/")
+ ("/Users/stuosb/src/dev/" . "org_notes/")
+ ("/Users/stuosb/src/" . "dev/")
+ ("/Users/stuosb/.dotfiles/" . "bash/")
  ("/home/stos/.emacs.d/" . "customizations/")
  ("/home/" . "stos/")
  ("/" . "home/")
@@ -11,6 +15,12 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/stuosb/.emacs.d/customizations/"
+ "/Users/stuosb/.emacs.d/"
+ "/Users/stuosb/src/dev/org_notes/"
+ "/Users/stuosb/"
+ "/Users/stuosb/.dotfiles/bash/"
+ "/Users/stuosb/src/dev/notes/"
  "/home/stos/.dotfiles/emacs/.emacs.d/customizations/"
  "/home/stos/.emacs.d/"
  "/home/stos/.emacs.d/customizations/"
@@ -20,13 +30,35 @@
 ;; ----- ido-work-file-list -----
 (
  "orgmode.el"
- "init.el"
+ "cider-history"
+ "journal.org"
+ ".motd.sh"
+ ".zshrc"
  "misc.el"
- "notes.org"
+ "ui.el"
+ "editing.el"
+ "nordnet.org"
+ ".bashrc"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/stuosb/.emacs.d/customizations/" (24974 37105 967710 943000) "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "../" "./")
+
+ ("/Users/stuosb/.emacs.d/" (24978 12880 208292 317000) "cider-history" "backups/" "elpa/" "init.el" "url/" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
+
+ ("/Users/stuosb/" (24978 12848 923339 778000) "src/" ".zsh_sessions/" ".viminfo" ".gitconfig" "Downloads/" ".oh-my-zsh/" ".m2/" "Documents/" ".Trash/" ".jenv/" "Applications/" "Movies/" ".skaffold/" ".ssh/" ".codota-id" ".kube/" "Public/" ".android/" ".emacs.d/" ".minikube/" ".dotfiles/" ".zcompdump-C02GH46LMD6R-5.8" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".boto" "Pictures/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".CFUserTextEncoding" ".DS_Store" ".motd.sh" ".docker/" "Music/" ".config/" "../" "./")
+
+ ("/Users/stuosb/src/dev/org_notes/" (24974 34481 16880 658000) "nordnet.org" "journal.org" "../" "./")
+
+ ("/Users/stuosb/src/" (24975 55140 903086 636000) "dev/" "books/" "images/" "../" "./")
+
+ ("/Users/stuosb/.dotfiles/bash/" (24972 12160 971342 68000) ".bash_aliases" ".bash_alias_work" ".bashrc" "../" "./")
+
+ ("/Users/stuosb/src/dev/" (24971 38406 916553 66000) ".idea/" "repos/" "org_notes/" "../" "./")
+
+ ("/Users/stuosb/.dotfiles/" (24970 42315 375310 380000) "git/" "X/" ".git/" ".gitignore" "README.md" "bash/" "emacs/" "stalone/" "xmonad/" "../" "./")
+
  ("/home/stos/src/docs/" (24943 53374 41115 86000) "master_keys/" "4_DM-ESL_Protocol_16.0-r81943.docx" "../" "database_dumps/" "CORE-ServiceRulebook-201021-0814.pdf" "./" "AR-ServiceContract-201021-0816.pdf" "notes.org")
 
  ("/home/stos/.emacs.d/customizations/" (24945 20110 328918 20000) "ui.el" "../" "misc.el" "clojure.el" "./" "editing.el")
