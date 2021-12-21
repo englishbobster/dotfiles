@@ -15,10 +15,10 @@
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/stuosb/.emacs.d/customizations/"
- "/Users/stuosb/.emacs.d/"
  "/Users/stuosb/src/dev/org_notes/"
  "/Users/stuosb/"
+ "/Users/stuosb/.emacs.d/customizations/"
+ "/Users/stuosb/.emacs.d/"
  "/Users/stuosb/.dotfiles/bash/"
  "/Users/stuosb/src/dev/notes/"
  "/home/stos/.dotfiles/emacs/.emacs.d/customizations/"
@@ -29,33 +29,33 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "nordnet.org"
+ ".zshrc"
+ "todo.org"
  "orgmode.el"
  "cider-history"
  "journal.org"
  ".motd.sh"
- ".zshrc"
  "misc.el"
  "ui.el"
  "editing.el"
- "nordnet.org"
- ".bashrc"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/stuosb/src/dev/org_notes/" (25006 13970 124278 749000) "nordnet.org" "todo.org" ".#todo.org" "#todo.org#" "../" "./")
+
+ ("/Users/stuosb/" (24992 54984 491514 140000) "src/" ".zsh_sessions/" ".viminfo" ".gitconfig" "Downloads/" ".oh-my-zsh/" ".m2/" ".testcontainers.properties" "Documents/" ".Trash/" ".jenv/" "Applications/" "Movies/" ".skaffold/" ".ssh/" ".codota-id" ".kube/" "postgres_data/" "Public/" ".cups/" ".android/" ".emacs.d/" ".minikube/" ".dotfiles/" ".zcompdump-C02GH46LMD6R-5.8" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".boto" "Pictures/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".CFUserTextEncoding" ".DS_Store" ".motd.sh" ".docker/" "Music/" ".config/" "../" "./")
+
+ ("/Users/stuosb/src/" (24991 38971 83500 746000) "dev/" "books/" "images/" "personal/" "../" "./")
+
+ ("/Users/stuosb/src/dev/" (24977 14164 926618 470000) ".old/" "repos/" "org_notes/" "../" "./")
+
  ("/Users/stuosb/.emacs.d/customizations/" (24974 37105 967710 943000) "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "../" "./")
 
  ("/Users/stuosb/.emacs.d/" (24978 12880 208292 317000) "cider-history" "backups/" "elpa/" "init.el" "url/" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
 
- ("/Users/stuosb/" (24978 12848 923339 778000) "src/" ".zsh_sessions/" ".viminfo" ".gitconfig" "Downloads/" ".oh-my-zsh/" ".m2/" "Documents/" ".Trash/" ".jenv/" "Applications/" "Movies/" ".skaffold/" ".ssh/" ".codota-id" ".kube/" "Public/" ".android/" ".emacs.d/" ".minikube/" ".dotfiles/" ".zcompdump-C02GH46LMD6R-5.8" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".boto" "Pictures/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".CFUserTextEncoding" ".DS_Store" ".motd.sh" ".docker/" "Music/" ".config/" "../" "./")
-
- ("/Users/stuosb/src/dev/org_notes/" (24974 34481 16880 658000) "nordnet.org" "journal.org" "../" "./")
-
- ("/Users/stuosb/src/" (24975 55140 903086 636000) "dev/" "books/" "images/" "../" "./")
-
  ("/Users/stuosb/.dotfiles/bash/" (24972 12160 971342 68000) ".bash_aliases" ".bash_alias_work" ".bashrc" "../" "./")
-
- ("/Users/stuosb/src/dev/" (24971 38406 916553 66000) ".idea/" "repos/" "org_notes/" "../" "./")
 
  ("/Users/stuosb/.dotfiles/" (24970 42315 375310 380000) "git/" "X/" ".git/" ".gitignore" "README.md" "bash/" "emacs/" "stalone/" "xmonad/" "../" "./")
 
