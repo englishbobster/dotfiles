@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+#shopt options
+setopt GLOB_DOTS  #make sure that hidden files are included in glob searches
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/stuosb/.oh-my-zsh"
 
@@ -17,7 +20,7 @@ HISTFILESIZE=999999
 SAVEHIST=$HISTSIZE
 
 # Which plugins would you like to load?
-plugins=(git kubectl gcloud)
+plugins=(git kubectl gcloud zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,7 +77,7 @@ alias lls="ls -altr"
 alias ls_jar="jar -tf"
 
 alias prod_cluster="gcloud config set project prod-cluster-25354 && kubectl config use-context gke_prod-cluster-25354_europe-north1_main"
-alias dev_cluster="gcloud config set project hodor-dev-cluster-22739 && kubectl config use-context gke_hodor-dev-cluster-22739_europe-north1_main"
+alias dev_cluster="gcloud config set project hodor-cluster-30317 && kubectl config use-context gke_hodor-cluster-30317_europe-north1_main"
 alias test_cluster="gcloud config set project test-cluster-29260 && kubectl config use-context gke_test-cluster-29260_europe-north1_main"
 
 alias proxy_transaction_manager="kubectl port-forward svc/cloudsql-proxy-transaction-master -n transaction 5432:5432"

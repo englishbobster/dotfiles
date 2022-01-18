@@ -71,6 +71,9 @@
 ;; Org mode stuff
 (load "orgmode.el")
 
+;; HTML editiing
+(load "html.el")
+
 ;; Hard-to-categorize customizations
 (load "misc.el")
 
