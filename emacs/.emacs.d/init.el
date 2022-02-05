@@ -15,7 +15,11 @@
   (package-refresh-contents))
 
 ;; My required packages to be installed
-(defvar my-packages '(;; makes handling lisp expressions much, much easier
+(defvar my-packages '(
+                      ;;Add markdown mode for jekyll editing
+                      markdown-mode
+                      
+                      ;; makes handling lisp expressions much, much easier
 		      ;; Cheatsheet: http://www.emacswiki.org/emacs/PareditCheatsheet
 		      paredit
 
