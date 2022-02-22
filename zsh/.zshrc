@@ -20,7 +20,7 @@ HISTFILESIZE=999999
 SAVEHIST=$HISTSIZE
 
 # Which plugins would you like to load?
-plugins=(git kubectl gcloud zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git kubectl gcloud zsh-autosuggestions zsh-syntax-highlighting emacs jenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -69,6 +69,17 @@ function fix_intellij {
     fi
 }
 
+# ruby and jekyll settings
+# this export corrects a move of some rubyf files in later Mac OS releases
+export SKDROOT=$(xcrun --show-sdk-path)
+#ruby is already preinstalled on mac but we install with brew for the lates version and put that version first on the path
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+#add gems global location on path
+export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+#add gems local location on path
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+
+
 # some useful aliases
 alias keyme="add_ssh_keys"
 alias repos="cd $REPOS"
@@ -79,13 +90,20 @@ alias ls_jar="jar -tf"
 alias prod_cluster="gcloud config set project prod-cluster-25354 && kubectl config use-context gke_prod-cluster-25354_europe-north1_main"
 alias dev_cluster="gcloud config set project hodor-cluster-30317 && kubectl config use-context gke_hodor-cluster-30317_europe-north1_main"
 alias test_cluster="gcloud config set project test-cluster-29260 && kubectl config use-context gke_test-cluster-29260_europe-north1_main"
+alias local_cluster="kubectl config use-context kind-kind"
 
 alias proxy_transaction_manager="kubectl port-forward svc/cloudsql-proxy-transaction-master -n transaction 5432:5432"
 
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
 
-alias postgres_client_stu="docker run -it --rm postgres psql -h $(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' stus-postgres) -U stuosb"
+function postgres_client_stu  {
+    docker run -it \
+           --rm postgres \
+           psql -h \
+           $(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' stus-postgres) \
+           -U stuosb
+}
 
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT='$(kube_ps1)'$PROMPT
