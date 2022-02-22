@@ -32,5 +32,9 @@
 (setq electric-indent-mode nil)
 
 ;; Spellchecking
+(if (eq system-type 'darwin)
+    (setq ispell-program-name "/usr/local/bin/ispell"))
+
+
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode 1))))

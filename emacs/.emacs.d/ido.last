@@ -2,8 +2,8 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/home/stos/src/repos/blog/" . "englishbobster.github.io/")
- ("/home/stos/src/repos/" . "blog/")
+ ("/Users/stuosb/" . ".emacs.d/")
+ ("/Users/" . "stuosb/")
  ("/Users/stuosb/.emacs.d/" . "customizations/")
  ("/Users/stuosb/src/dev/" . "org_notes/")
  ("/Users/stuosb/src/" . "dev/")
@@ -11,18 +11,17 @@
  ("/home/stos/.emacs.d/" . "customizations/")
  ("/home/" . "stos/")
  ("/" . "home/")
- ("/home/stos/src/" . "repos/")
+ ("/home/stos/src/" . "docs/")
  ("/home/stos/" . ".emacs.d/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
- "/home/stos/src/repos/blog/englishbobster.github.io/"
- "/home/stos/src/repos/blog/englishbobster.github.io/_posts/"
- "/Users/stuosb/src/dev/org_notes/"
- "/Users/stuosb/"
- "/Users/stuosb/.emacs.d/customizations/"
+ "/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/"
  "/Users/stuosb/.emacs.d/"
+ "/Users/stuosb/"
+ "/Users/stuosb/src/dev/org_notes/"
+ "/Users/stuosb/.emacs.d/customizations/"
  "/Users/stuosb/.dotfiles/bash/"
  "/Users/stuosb/src/dev/notes/"
  "/home/stos/.dotfiles/emacs/.emacs.d/customizations/"
@@ -33,41 +32,37 @@
 
 ;; ----- ido-work-file-list -----
 (
- "about.markdown"
- "2022-02-04-welcome-to-jekyll.markdown"
- "_config.yml"
- "nordnet.org"
+ "editing.el"
+ "init.el"
  ".zshrc"
+ "nordnet.org"
  "todo.org"
  "orgmode.el"
  "cider-history"
  "journal.org"
  ".motd.sh"
+ "misc.el"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/stos/src/repos/blog/englishbobster.github.io/_posts/" (25085 41525 194312 355000) "../" "2022-02-04-welcome-to-jekyll.markdown" "./")
+ ("/Users/stuosb/.dotfiles/emacs/.emacs.d/" (25108 61893 576195 898000) "cider-history" "backups/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
 
- ("/home/stos/src/repos/blog/englishbobster.github.io/" (25085 39951 594511 96000) "../" "_posts/" "Gemfile~" ".gitignore" ".git/" "about.markdown" "Gemfile" "404.html" "_site/" "_config.yml" "index.markdown" "Gemfile.lock" ".jekyll-cache/" "./")
+ ("/Users/stuosb/.emacs.d/" (25108 61893 576195 898000) "cider-history" "backups/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
 
- ("/home/stos/src/repos/blog/" (25085 23005 763971 361000) "../" "englishbobster.github.io/" "./")
+ ("/Users/stuosb/" (25108 53095 832076 958000) "src/" ".zsh_sessions/" ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".redhat/" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" ".testcontainers.properties" "Documents/" ".terraform.d/" ".npm/" ".Trash/" ".gradle/" ".jenv/" "Applications/" "Movies/" ".skaffold/" ".ssh/" ".codota-id" ".kube/" "postgres_data/" "Public/" ".lein/" "Google Drive/" ".cups/" ".pgadmin/" ".android/" ".emacs.d/" ".minikube/" ".dotfiles/" ".bridge/" ".zcompdump-C02GH46LMD6R-5.8" ".erlang.cookie" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".boto" ".clojure_history" ".bundle/" "Pictures/" ".psql_history" ".local/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".wget-hsts" ".CFUserTextEncoding" ".yarnrc" ".DS_Store" ".motd.sh" ".docker/" ".clojure/" ".atlassian-companion/" "Music/" ".config/" "../" "./")
 
- ("/home/stos/src/repos/" (25085 22524 477922 30000) "../" "clojure/" "java/" "blog/" "./" "python/")
+ ("/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/" (25108 39133 514013 604000) "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
 
- ("/home/stos/src/" (24896 33042 303899 771000) "../" "personal/" "local_apps/" "repos/" "./" "books/")
+ ("/Users/stuosb/src/dev/org_notes/" (25108 39453 767330 971000) "nordnet.org" "todo.org" ".#todo.org" ".DS_Store" "#todo.org#" "org_images/" "../" "./")
 
- ("/Users/stuosb/src/dev/org_notes/" (25006 13970 124278 749000) "nordnet.org" "todo.org" ".#todo.org" "#todo.org#" "../" "./")
+ ("/Users/stuosb/src/" (25072 64130 994173 431000) "dev/" "docs/" "books/" "images/" ".DS_Store" "localapps/" "personal/" "../" "./")
 
- ("/Users/stuosb/" (24992 54984 491514 140000) "src/" ".zsh_sessions/" ".viminfo" ".gitconfig" "Downloads/" ".oh-my-zsh/" ".m2/" ".testcontainers.properties" "Documents/" ".Trash/" ".jenv/" "Applications/" "Movies/" ".skaffold/" ".ssh/" ".codota-id" ".kube/" "postgres_data/" "Public/" ".cups/" ".android/" ".emacs.d/" ".minikube/" ".dotfiles/" ".zcompdump-C02GH46LMD6R-5.8" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".boto" "Pictures/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".CFUserTextEncoding" ".DS_Store" ".motd.sh" ".docker/" "Music/" ".config/" "../" "./")
+ ("/Users/" (25007 61615 0 0) "ladmin/" "stuosb/" "Shared/" ".localized" "../" "./")
 
- ("/Users/stuosb/src/" (24991 38971 83500 746000) "dev/" "books/" "images/" "personal/" "../" "./")
-
- ("/Users/stuosb/src/dev/" (24977 14164 926618 470000) ".old/" "repos/" "org_notes/" "../" "./")
+ ("/Users/stuosb/src/dev/" (25007 15209 488076 957000) ".DS_Store" "repos/" "org_notes/" "../" "./")
 
  ("/Users/stuosb/.emacs.d/customizations/" (24974 37105 967710 943000) "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "../" "./")
-
- ("/Users/stuosb/.emacs.d/" (24978 12880 208292 317000) "cider-history" "backups/" "elpa/" "init.el" "url/" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
 
  ("/Users/stuosb/.dotfiles/bash/" (24972 12160 971342 68000) ".bash_aliases" ".bash_alias_work" ".bashrc" "../" "./")
 
@@ -87,7 +82,11 @@
 
  ("/home/stos/" (24945 8817 548754 67000) ".atom/" ".bigqueryrc" ".bashrc" ".putty/" ".gconf/" ".python_history" ".m2/" ".java/" ".screenlayout/" "Videos/" ".sudo_as_admin_successful" ".ssh/" ".nv/" ".xsessionrc" ".bash_aliases" ".minecraft/" ".dotfiles/" "snap/" ".mysql_history" ".bash_logout" ".android/" ".tekton/" ".stalonetrayrc" ".config/" ".boto" "java_error_in_idea_.hprof" ".vscode/" ".wget-hsts" ".codota-id" ".h2.server.properties" ".clojure/" ".clojure_history" ".xscreensaver" ".jfrog/" ".ipython/" ".emacs.d/" "Public/" ".gnome/" ".vim/" "../" ".viminfo" "src/" ".local/" ".zoom/" ".haulmont/" "Music/" "Downloads/" "Templates/" ".bash_history" ".docker/" "Pictures/" ".xmonad/" ".minikube/" ".lein/" ".lesshst" ".gitconfig" ".npm/" ".gradle/" ".profile" ".clojure_history-14706.tmp" ".cert/" ".tmp/" "mysql/" "Documents/" ".testcontainers.properties" "./" ".Xdefaults" ".gnupg/" ".kube/" ".gitkraken/" ".pki/" ".mozilla/" ".cache/" ".thunderbird/" ".gsutil/" ".bashrc.backup" ".jupyter/" ".terraform.d/" "Desktop/")
 
+ ("/home/stos/src/repos/" (24889 50048 245642 304000) "clojure/" "java/" "pricer/" "../" "./" "terraform/" "github_misc/" "old/")
+
  ("/home/stos/src/repos/pricer/" (24945 19583 449121 321000) "pricer-server-license-server/" "core-transmission-gcp-docker-deploy/" "core-transmission-api-service/" "cloud-infra-terragrunt-terraform/" "core-transmission-base-station-gateway/" "core-transmission-module/" "timeline-service/" "pricer-server-r3server/" "cas-service/" "pricer-server-adapters-operations/" "../" "cron_start.yaml" "quicksearch-service/" "stuart.osborne-gcb-example/" "demo/" ".#bigquery_sql.org" "bigquery_sql.org" "pricer-server-test/" "pricer-server-poms/" "core-transmission-cas-converter/" "irvis-service/" "core-transmission-gcp-infra-scripts/" "infrastructure-github-validator/" "irps-service/" "./" "core-transmission-infra/" "core-transmission-operations/")
+
+ ("/home/stos/src/" (24858 6405 775710 677000) "qmk/" "repos/" "vpn/" "images/" "books/" "../" "docs/" "local_apps/" "./" "javadoc/")
 )
 
 ;; ----- ido-unc-hosts-cache -----
