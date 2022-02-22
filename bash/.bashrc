@@ -93,7 +93,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 #some useful paths
 SRC_HOME=/home/stos/src
-REPOS=$SRC_HOME/dev/repos
+REPOS=$SRC_HOME/repos
 
 function add_ssh_keys {
     eval "$(ssh-agent -s)"
