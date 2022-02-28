@@ -48,7 +48,12 @@
 		      helm-cider
 
 		      ;; colorful parenthesis matching
-		      rainbow-delimiters))
+		      rainbow-delimiters
+
+                      ;; language server protocol stuff
+                      lsp-mode
+                      lsp-ui
+                      company))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -81,6 +86,8 @@
 ;; Hard-to-categorize customizations
 (load "misc.el")
 
+;; Configuring lsp-mode for different languages
+(load "lsp.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
