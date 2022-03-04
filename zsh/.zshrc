@@ -43,9 +43,11 @@ export PATH="$HOME/.jenv/bin/:$HOME/src/localapps/:$PATH"
 eval "$(jenv init -)"
 
 # some useful paths
-SRC_HOME=/Users/stuosb/src
-REPOS=$SRC_HOME/dev/repos
-NORDNET=$REPOS/nordnet
+export SRC_HOME=/Users/stuosb/src
+export REPOS=$SRC_HOME/dev/repos
+export NORDNET=$REPOS/nordnet
+export HODOR=$NORDNET/hodor
+
 
 # some useful functions
 function add_ssh_keys {
@@ -84,6 +86,7 @@ export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 alias keyme="add_ssh_keys"
 alias repos="cd $REPOS"
 alias nordnet="cd $NORDNET"
+alias hodor="cd $HODOR"
 alias lls="ls -altr"
 alias ls_jar="jar -tf"
 

@@ -16,6 +16,9 @@
 
 ;; My required packages to be installed
 (defvar my-packages '(
+                      ;;Fix PATH compatibility between emacs app and emacs sh on mac
+                      exec-path-from-shell
+
                       ;;Add markdown mode for jekyll editing
                       markdown-mode
                       

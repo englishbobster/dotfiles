@@ -2,10 +2,13 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/Users/stuosb/" . ".emacs.d/")
+ ("/Users/stuosb/src/dev/repos/stos/js/" . "testprj/")
+ ("/Users/stuosb/src/dev/repos/stos/" . "js/")
+ ("/Users/stuosb/src/dev/repos/" . "stos/")
+ ("/Users/stuosb/" . "src/")
  ("/Users/" . "stuosb/")
  ("/Users/stuosb/.emacs.d/" . "customizations/")
- ("/Users/stuosb/src/dev/" . "org_notes/")
+ ("/Users/stuosb/src/dev/" . "repos/")
  ("/Users/stuosb/src/" . "dev/")
  ("/Users/stuosb/.dotfiles/" . "bash/")
  ("/home/stos/.emacs.d/" . "customizations/")
@@ -17,9 +20,12 @@
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/stuosb/.emacs.d/customizations/"
  "/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/"
  "/Users/stuosb/.emacs.d/"
+ "/Users/stuosb/src/dev/repos/stos/js/testprj/"
+ "/Users/stuosb/.emacs.d/customizations/"
+ "/Users/stuosb/src/dev/repos/stos/js/"
+ "/Users/stuosb/src/dev/repos/stos/bash/"
  "/Users/stuosb/"
  "/Users/stuosb/src/dev/org_notes/"
  "/Users/stuosb/.dotfiles/bash/"
@@ -32,35 +38,53 @@
 
 ;; ----- ido-work-file-list -----
 (
- "lsp.el"
- "editing.el"
+ "misc.el"
  "init.el"
+ ".#test.js"
+ "test.js"
+ "lsp.el"
+ "testproj"
+ "clone_hodor.sh"
  ".zshrc"
+ "editing.el"
  "nordnet.org"
- "todo.org"
- "orgmode.el"
- "cider-history"
- "journal.org"
- ".motd.sh"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/" (25120 41959 992547 168000) "lsp.el" "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
+
+ ("/Users/stuosb/.dotfiles/emacs/.emacs.d/" (25121 52299 571755 159000) ".lsp-session-v1" "cider-history" "backups/" ".cache/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
+
+ ("/Users/stuosb/.emacs.d/" (25121 51151 594929 155000) ".lsp-session-v1" "cider-history" "backups/" ".cache/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
+
+ ("/Users/stuosb/" (25121 51885 233914 941000) "src/" ".zsh_sessions/" ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".redhat/" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" ".testcontainers.properties" "Documents/" ".terraform.d/" ".npm/" ".zcompdump" ".Trash/" ".gradle/" ".jenv/" "Applications/" "Movies/" ".skaffold/" ".ssh/" ".codota-id" ".kube/" "postgres_data/" "Public/" ".lein/" "Google Drive/" ".cups/" ".pgadmin/" ".android/" ".node_repl_history" ".emacs.d/" ".minikube/" ".tekton/" ".dotfiles/" ".bridge/" ".zcompdump-C02GH46LMD6R-5.8" ".erlang.cookie" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".boto" ".clojure_history" ".bundle/" ".nvm/" "Pictures/" ".psql_history" ".local/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".wget-hsts" ".CFUserTextEncoding" ".yarnrc" ".DS_Store" ".motd.sh" ".docker/" ".clojure/" ".atlassian-companion/" "Music/" ".config/" "../" "./")
+
+ ("/Users/stuosb/src/dev/org_notes/" (25120 39221 397544 762000) "nordnet.org" "todo.org" ".DS_Store" "org_images/" "../" "./")
+
+ ("/Users/stuosb/.emacs.d/customizations/" (25120 39558 157770 576000) "lsp.el" "clojure.el" "editing.el" ".#lsp.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
+
+ ("/Users/stuosb/src/dev/repos/stos/js/testprj/" (25120 39386 839194 736000) ".#test.js" "../" "./")
+
+ ("/home/" (25120 29971 678587 0) "../" "./")
+
+ ("/usr/" (25088 15363 0 0) "share/" "X11R6" "X11" "lib/" "local/" "sbin/" "libexec/" "standalone/" "bin/" "../" "./")
+
+ ("/usr/local/" (25094 35741 335286 754000) "share/" "Cellar/" "Frameworks/" "opt/" "lib/" "Caskroom/" "var/" "Homebrew/" "etc/" "sbin/" "include/" "jamf/" "bin/" "../" "./")
+
+ ("/usr/local/bin/" (25120 38829 66410 62000) "pnmtojbig" "clj" "bmptoppm" "msguniq" "gettextize" "fc-scan" ".keepme" "pnmscale" "pamtable" "ppmcolormask" "ppmnorm" "pamtopng" "qt-cmake" "gtk-query-immodules-3.0" "gio" "imgtoppm" "ppmtomitsu" "ppmtv" "hb-subset" "certhigh_gtest" "pg_dump" "escript" "xgettext" "ppmtoascii" "csepdjvu" "secmodtest" "pamtowinicon" "pamrubber" "pamtopam" "p7content" "makepqg" "tiff2rgba" "pk11ectest" "crmftest" "pcregrep" "imgcmp" "gvcolor" "msgattrib" "xzdiff" "sdrtest" "affixcompress" "lein" "ppm2tiff" "pgmtoppm" "dbtest" "ppmtoapplevol" "mvnyjp" "msgfmt" "pamtris" "raw2tiff" "validation" "qmake6" "lzegrep" "cpaldjvu" "icontopbm" "ppmbrighten" "rdjpgcom" "gxpsc" "tstclnt" "nss-config" "pnmmontage" "srftopam" "npm" "st4topgm" "qmlpreview" "cryptohi_gtest" "pamfix" "spottopgm" "pbmtoybm" "gemtopnm" "jasper" "modutil" "pamcut" "hmac256" "qmlscene" "gdbm_load" "mpicalc" "qtplugininfo" "lzma" "anthoscli" "svgtopam" "edgepaint" "ppmtompeg" "libgcrypt-config" "pstopnm" "pbmtoln03" "precat" "hb-shape" "pamtotga" "pydoc3" "valac" "pamgauss" "xzgrep" "bzz" "pamenlarge" "yat2m" "yuy2topam" "ppmshift" "transform" "2to3-3.9" "tiffmedian" "cwebp" "ppmquantall" "idn2" "pammosaicknit" "pnmdepth" "hb-view" "mob" "xzmore" "glib-mkenums" "qt-cmake-private" "fc-conflist" "ccomps" "npx" "pamarith" "lzfgrep" "pbmtolj" "pgmnoise" "pbmtoptx" "pamditherbw" "pamtosrf" "winicontopam" "msgfilter" "kubectl" "pbmupc" "pnmquant" "thinkjettopbm" "ppmlabel" "ppmwheel" "pnmpad" "chkstow" "pbmtext" "pbmtomacp" "pnmquantall" "pamchannel" "bcomps" "pnmmargin" "pngtogd" "qtdiag" "kustomize" "pg_resetwal" "pgmtofs" "run_erl" "pamtodjvurle" "makealias" "pgbench" "pamtouil" "pnmnlfilt" "erl" "jq" "pamfile" "run-with-aspell" "xvminitoppm" "lzmore" "vapigen" "signtool" "fdp" "lprsetup.sh" "tiffcp" "pnmsplit" "pamgradient" "pamdeinterlace" "vala-gen-introspect-0.54" "ggrep" "instancer" "pnmtoplainpnm" "msgunfmt" "docker-compose" "gts-config" "epmd" "lzgrep" "eps2eps" "mangle" "infotopam" "pnmgamma" "jenv" "fc-match" "rgb3toppm" "stl2gts" "node" "pnmmercator" "fax2ps" "lzmadec" "ppmmake" "qtdiag6" "ppmrough" "pdf2ps" "gd2copypal" "qdbuscpp2xml" "qmleasing" "qhelpgenerator" "ppmtopcx" "ocspclnt" "pbmto10x" "qdbus" "pixeltool" "rsvg-convert" "pgmtopbm" "pammixmulti" "pnmcolormap" "pnmalias" "vacuumdb" "gspell-app1" "pgmcrater" "ppmtomap" "ppmtoyuv" "xbmtopbm" "dwebp" "pamlookup" "md2html" "pgmmorphconv" "nss-policy-check" "ssltap" "listsuites" "winicontoppm" "prune" "dot_builtins" "pdfdetach" "ppmhist" "nspr-config" "ngettext" "pcre-config" "glib-genmarshal" "pamtotiff" "gvmap.sh" "msgexec" "pg_ctl" "sbigtopgm" "gdbmtool" "c44" "pamvalidate" "pgmedge" "pnmtopnm" "dijkstra" "pgmtost4" "idle3.9" "lzdiff" "vala-0.54" "qscxmlc" "ppmtoleaf" "ppmcolors" "tfenv" "pk11_gtest" "ppmtospu" "pdftoppm" "fc-cat" "pg_upgrade" "dumpsexp" "vapigen-0.54" "docker-credential-gcloud" "cmsutil" "dbus-uuidgen" "zstdmt" "unix-lpr.sh" "gsbj" "djvmcvt" "pcxtoppm" "gdbus" "pnmremap" "dbus-cleanup-sockets" "selfserv" "pampop9" "ppmtopj" "encodeinttest" "analyze" "unlz4" "fc-cache" "nonspr10" "pbmtopsg3" "pammixinterlace" "gdk-pixbuf-thumbnailer" "pgmmedian" "gc" "sfdp" "gsx" "jpgicc" "pbmtoibm23xx" "pamoil" "androiddeployqt" "hub-tool" "pnmtorle" "lzcat" "giftool" "gouldtoppm" "pamtofits" "pdftops" "mvn" "xzcmp" "glib-gettextize" "ps2epsi" "recode-sr-latin" "gslj" "pcretest" "psicc" "dbus-run-session" "ps2ps2" "Designer" "gif2webp" "rawtopgm" "imginfo" "pamendian" "oid2name" "gtscheck" "gpg-error-config" "pgmbentley" "dbus-update-activation-environment" "zstdcat" "gml2gv" "pbmtopk" "gsc" "secret-tool" "acyclic" "msgcat" "ppmtopgm" "vpnkit" "aspell" "printafm" "pnmpsnr" "pamsumm" "gifbuild" "androidtestrunner" "qmllint" "pbmtosunicon" "pamtoavs" "pnmtotiffcmyk" "pbmmake" "pbmtoplot" "lz4c" "rsaperf" "ppmquant" "vacuumlo" "pnmtofiasco" "wrjpgcom" "gtk-launch" "transicc" "pbmtocmuwm" "pdffonts" "gtk-builder-convert" "gxps" "g-ir-scanner" "signver" "jbig2dec" "pamstack" "wx-config" "pamthreshold" "pg_test_timing" "git-credential-gcloud" "gxl2gv" "mrftopbm" "pamhue" "xzcat" "pydoc3.9" "lconvert" "erlc" "ppmtoicr" "gd2topng" "pg_recvlogical" "pcre2-config" "circo" "pnmstitch" "lzcmp" "ct_run" "msgcmp" "gslp" "qtpaths" "pg_controldata" "zstd" "pal2rgb" "xzless" "pamfixtrunc" "gtk-update-icon-cache" "qdistancefieldgenerator" "dropuser" "gettext.sh" "ppmrelief" "glibtoolize" "pbmclean" "ppmtogif" "atktopbm" "create-admin-tool" "pgmabel" "pc1toppm" "nop" "gtester-report" "gvpr" "vala" "pgmminkowski" "pnmcat" "gettext" "chmorph" "ahost" "djvuxmlparser" "ppmtopict" "hipstopgm" "pg_archivecleanup" "com.docker.cli" "glibtool" "jpegtopnm" "pamsummcol" "pamwipeout" "pamtojpeg2k" "idn" "pamtopfm" "pdfimages" "nss_bogo_shim" "psidtopgm" "bioradtopgm" "gresource" "pgmoil" "pnmconvol" "ppmdraw" "cairo-sphinx" "docker-credential-desktop" "tiffinfo" "ppmtoterm" "gtk-builder-tool" "pbmtoatk" "qsb" "gvgen" "icombine" "pamedge" "pk1sign" "cistopbm" "lzless" "pfbtopfa" "pamcomp" "giffix" "httpserv" "ppm3d" "ppmtoarbtxt" "gts2stl" "qrttoppm" "hb-ot-shape-closure" "pango-list" "postgres" "osage" "delaunay" "fipstest" "to_erl" "pamcrater" "enchant-2" "gpdlc" "pf2afm" "pnmtoxwd" "tiff2ps" "ppmtobmp" "pnmnorm" "pbmtoepson" "pi3topbm" "dbus-daemon" "hpcdtoppm" "pamtoxvmini" "ppmpat" "ispellaff2myspell" "multinit" "djvudump" "pango-view" "vala-gen-introspect" "pbmtextps" "giftogd2" "tgatoppm" "avstopam" "pfmtopam" "pamflip" "tiffset" "ps2pdf" "pango-segmentation" "python3-config" "pamstereogram" "pngtopnm" "htop" "chktest" "cmuwmtopbm" "sputoppm" "tiffdither" "ppmglobe" "pdftotext" "qdbusviewer" "pbmmask" "pamstretch-gen" "giftext" "img2webp" "ppmtoxpm" "ppmtolj" "neato" "gtk-encode-symbolic-svg" "pbmtogo" "pamtosvg" "macptopbm" "pamdice" "adig" "clusterdb" "pg_checksums" "pdfseparate" "findaffix" "dbus-send" "emacsclient" "ps2ascii" "emacs" "unmunch" "certutil" "strsclnt" "msginit" "ppmtoacad" "pamtogif" "python3.9" "glib-compile-resources" "ximtoppm" "onig-config" "defmt-sh" "mgrtopbm" "gdparttopng" "pbmtomatrixorbital" "gsdj500" "cairo-trace" "kind" "spctoppm" "evince-previewer" "pampaintspill" "pi1toppm" "pphs" "ppmdither" "xz" "envsubst" "preunzip" "gdcmpgif" "python3.9-config" "yarn" "qtpaths6" "ijoin" "idle3" "gemtopbm" "pnmhisteq" "gts2dxf" "gtk-query-settings" "pnmtorast" "ppmtosixel" "gfgrep" "fribidi" "ppmtoneo" "pcdindex" "pamtohtmltbl" "zstdgrep" "docker-credential-osxkeychain" "gio-querymodules" "pamtooctaveimg" "pnmcomp" "pgmramp" "dbus-test-tool" "rlatopam" "psql" "pamrgbatopng" "gvmap" "qmlformat" "pbmtobbnbg" "sdbthreadtst" "wbmptopbm" "neotoppm" "tiffcrop" "pamlevels" "pamunlookup" "happrox" "enchant-lsmod-2" "pamtopnm" "msgmerge" "annotate" "pdfunite" "dropdb" "pnmtile" "conflict" "pnmshear" "pnmindex" "giftopnm" "picttoppm" "dialyzer" "softoken_gtest" "djpeg" "ppmntsc" "mvnDebug" "ppmtoeyuv" "mdatopbm" "pamshadedrelief" "pnmtotiff" "jpeg2ktopam" "pdbimgtopam" "munch" "pg_amcheck" "symkeyutil" "manweb" "g-ir-inspect" "pambackground" "sccmap" "pnmtosir" "gtk3-demo-application" "evince" "pdftocairo" "stow" "pg_receivewal" "eyuvtoppm" "pg_verifybackup" "pnmflip" "certdb_gtest" "djvm" "prezip" "patchwork" "sldtoppm" "gegrep" "pbmtoepsi" "sgitopnm" "msgen" "reindexdb" "pngtogd2" "evince-thumbnailer" "rletopnm" "createdb" "lz4" "xpmtoppm" "pamundice" "pbmlife" "pg_waldump" "pamsplit" "pnmtopalm" "pnmcrop" "hunspell" "pbmtoascii" "pamgetcolor" "initdb" "g3topbm" "pnminterp" "bmptopnm" "ppmdcfont" "ps2pdf13" "ppmtopi1" "gsnd" "pgmdeshadow" "docker-credential-gcr" "fstopgm" "pnmtopclxl" "brew" "pnmenlarge" "pnmsmooth" "word-list-compress" "djvups" "dbus-launch" "buildhash" "ps2pdf14" "gpgrt-config" "ddjvu" "kubectl.docker" "brushtopbm" "gobject-query" "tsc" "pamtompfont" "graphml2gv" "docker-credential-ecr-login" "pdf2dsc" "pbmtomda" "gdbm_dump" "pnmscalefixed" "pspell-config" "libpng-config" "g-ir-generate" "gdtopng" "pk12util" "shlibsign" "webpinfo" "pg_test_fsync" "gtstemplate" "sirtopnm" "xzfgrep" "baddbdir" "valadoc" "pjtoppm" "pnmarith" "pdfsig" "gsdj" "digest" "qdbusxml2cpp" "pamdepth" "fiascotopnm" "remtest" "gdk-pixbuf-csource" "aspell-import" "pgmtolispm" "lz4cat" "pktopbm" "diffimg" "ppmtowinicon" "pamexec" "hdifftopam" "pbmtopi3" "pbmtomgr" "ybmtopbm" "ppmtopuzz" "pg_dumpall" "pbmpscale" "jamf" "ppmdim" "pbmto4425" "pgmtexture" "unlzma" "pbmtozinc" "twopi" "gpcl6" "pamsistoaglyph" "pg_config" "ppmdist" "pbmreduce" "ebrowse" "pbmtoicon" "tiff2pdf" "pk11mode" "ppmtopjxl" "rasttopnm" "yuvsplittoppm" "pnmtojpeg" "cameratopam" "gtk3-widget-factory" "pnmtopng" "gtk3-demo" "brotli" "tiffcmp" "fc-query" "djvuserve" "bltest" "pgmtopgm" "pamscale" "webpmux" "glib-compile-schemas" "defmt-c" "valac-0.54" "pdfattach" "ps2pdf12" "zeisstopnm" "pngfix" "gv2gxl" "btoa" "djvutxt" "ps2pdfwr" "gsettings" "any2djvu" "rlwrap" "xzegrep" "yuvtoppm" "addbuiltin" "postmaster" "dertimetest" "libpng16-config" "pbmminkowski" "wordforms" "wxrc" "gvpack" "jpegtran" "escp2topbm" "ppmchange" "createuser" "cjpeg" "pamtopdbimg" "fc-validate" "gdbus-codegen" "pcre2test" "sunicontopnm" "docker-compose-v1" "qt-cmake-standalone-test" "crlutil" "gr2fonttest" "pgmnorm" "gpg-error" "pip3" "fbectest" "freetype-config" "pg_isready" "jiv" "balsamui" "pammasksharpen" "tiff2bw" "pbmtolps" "lrelease" "gtk-query-immodules-2.0" "ppmdmkfont" "unxz" "clojure" "gdk-pixbuf-query-loaders" "der_gtest" "ispell" "gtk3-icon-browser" "pg_restore" "assimp" "pnmfile" "pbmtox10bm" "shadergen" "ilbmtoppm" "fc-pattern" "ppmddumpfont" "concurrently" "typer" "ppmspread" "pbmtogem" "p7env" "pamaddnoise" "valadoc-0.54" "freebl_gtest" "tiffdump" "opj_decompress" "bq" "ppmflash" "etags" "zstdless" "pgmtosbig" "qml" "jbigtopnm" "meshdebug" "djvused" "pgmenhance" "pbmtowbmp" "ppmtotga" "gtk3-update-icon-cache" "pamsharpmap" "pkix-errcodes" "pwdecrypt" "pamslice" "dot" "png-fix-itxt" "gs" "pamfind" "pnmtoddif" "python3" "pamperspective" "ppmfade" "atob" "pbmtoxbm" "2to3" "opj_dump" "mm2gv" "411toppm" "qmltime" "gd2togif" "ecperf" "p7verify" "pbmtocis" "pnmtops" "gh" "pbmtopgm" "pdftohtml" "lupdate" "ppmrainbow" "gtester" "lispmtopgm" "pk11gcmtest" "acountry" "rsapoptst" "gtscompare" "qmltestrunner" "balsam" "ppmtoilbm" "cjb2" "opj_compress" "derdump" "unflatten" "gsutil" "pamsharpness" "pnmpaste" "fc-list" "docker" "wordlist2hunspell" "pnmnoraw" "msgcomm" "skaffold" "linkicc" "pcdovtoppm" "pamfunc" "tred" "hunzip" "tsserver" "fax2tiff" "pamstretch" "mtvtoppm" "gts2oogl" "wheel3" "ppmtojpeg" "pnmtosgi" "ppmforge" "gxl2dot" "pambayer" "tiffsplit" "xzdec" "pp" "gv2gml" "pbmtodjvurle" "ps2ps" "pdfinfo" "pamtilt" "munchlist" "pbmtomrf" "dbus-monitor" "vfyserv" "qmlprofiler" "wxrc-3.1" "vfychain" "oidcalc" "cluster" "pbmtog3" "pamaltsat" "pgmmake" "pamrecolor" "pnmtofits" "tificc" "ocspresp" "pg_basebackup" "smime_gtest" "g-ir-annotation-tool" "wget" "ppmmix" "pambrighten" "pzstd" "pngtopam" "pampick" "gifclrmp" "prezip-bin" "fitstopnm" "djvudigital" "macdeployqt" "autopoint" "pcre2grep" "pamseq" "palmtopnm" "canbusutil" "pnmhistmap" "pk11importtest" "djvumake" "pnmcut" "tryaffix" "webpng" "hzip" "util_gtest" "rawtoppm" "pgmhist" "ddbugtopbm" "gdk-pixbuf-pixdata" "ppmcie" "pbmtoescp2" "msggrep" "Linguist" "terraform" "ssl_gtest" "handy-1-demo" "tifftopnm" "pgmkernel" "ppmtoppm" "qmlplugindump" "asciitopgm" "tree" "anytopnm" "ppmshadow" "pgmslice" "wx-config-3.1" "gif2rgb" "bdftogd" "pnmrotate" "pbmpage" "pkg-config" "pnminvert" "gpcl6c" "qmldom" "g-ir-compiler" "dvipdf" "leaftoppm" "djvuextract" "dot2gxl" "pbmtonokia" "msgconv" "djvutoxml" "pip3.9" "gcloud" "qmake" "ppmtoyuvsplit" "Assistant" "gtk-demo" "ecpg" "unzstd" "pbmtoppa" "pamtohdiff" "ppmtorgb3" "xwdtopnm" "p7sign" "yarnpkg" "lzmainfo" "qt-configure-module" "ppmtouil" "pg_rewind" "../" "./")
+
+ ("/Users/stuosb/src/" (25119 24389 463775 560000) "dev/" "docs/" "books/" "images/" ".DS_Store" "localapps/" "personal/" "../" "./")
+
+ ("/Users/stuosb/src/dev/repos/stos/js/" (25119 9293 260958 604000) "node" "testprj/" "../" "./")
+
+ ("/Users/stuosb/src/dev/repos/stos/bash/" (25119 8047 877216 630000) "clone_hodor.sh" "../" "./")
+
+ ("/Users/stuosb/src/dev/repos/" (25118 12058 475081 25000) "stos/" "nordnet/" "misc_github/" ".DS_Store" "../" "./")
+
+ ("/Users/stuosb/src/dev/repos/stos/" (25117 57666 856300 729000) "bash/" "java/" ".old/" "js/" "../" "./")
+
  ("/Users/stuosb/.dotfiles/bash/" (25116 51412 994604 866000) ".bash_aliases" ".bash_alias_work" ".bashrc" "../" "./")
-
- ("/Users/stuosb/src/dev/org_notes/" (25111 32098 850220 88000) "nordnet.org" "todo.org" ".DS_Store" "org_images/" "../" "./")
-
- ("/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/" (25116 51490 31998 967000) "lsp.el" "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
-
- ("/Users/stuosb/.emacs.d/customizations/" (25116 51490 31998 967000) "lsp.el" "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
-
- ("/Users/stuosb/.emacs.d/" (25116 51432 745056 339000) ".lsp-session-v1" "cider-history" "backups/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
-
- ("/Users/stuosb/" (25116 51414 974660 497000) "src/" ".zsh_sessions/" ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".redhat/" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" ".testcontainers.properties" "Documents/" ".terraform.d/" ".npm/" ".Trash/" ".gradle/" ".jenv/" "Applications/" "Movies/" ".skaffold/" ".ssh/" ".codota-id" ".kube/" "postgres_data/" "Public/" ".lein/" "Google Drive/" ".cups/" ".pgadmin/" ".android/" ".emacs.d/" ".minikube/" ".tekton/" ".dotfiles/" ".bridge/" ".zcompdump-C02GH46LMD6R-5.8" ".erlang.cookie" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".boto" ".clojure_history" ".bundle/" "Pictures/" ".psql_history" ".local/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".wget-hsts" ".CFUserTextEncoding" ".yarnrc" ".DS_Store" ".motd.sh" ".docker/" ".clojure/" ".atlassian-companion/" "Music/" ".config/" "../" "./")
-
- ("/Users/stuosb/.dotfiles/emacs/.emacs.d/" (25108 61893 576195 898000) "cider-history" "backups/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
-
- ("/Users/stuosb/src/" (25072 64130 994173 431000) "dev/" "docs/" "books/" "images/" ".DS_Store" "localapps/" "personal/" "../" "./")
 
  ("/Users/" (25007 61615 0 0) "ladmin/" "stuosb/" "Shared/" ".localized" "../" "./")
 
@@ -77,8 +101,6 @@
  ("/home/stos/.dotfiles/emacs/.emacs.d/customizations/" (24945 20110 328918 20000) "ui.el" "../" "misc.el" "clojure.el" "./" "editing.el")
 
  ("/home/stos/.dotfiles/emacs/.emacs.d/" (24945 20712 802077 329000) "elpa/" "customizations/" "auto-save-list/" "cider-history" ".#init.el" "../" "init.el" "ido.last" "url/" "backups/" "./" "transient/")
-
- ("/home/" (24616 59700 681622 733000) "../" "stos/" "./")
 
  ("/home/stos/" (24945 8817 548754 67000) ".atom/" ".bigqueryrc" ".bashrc" ".putty/" ".gconf/" ".python_history" ".m2/" ".java/" ".screenlayout/" "Videos/" ".sudo_as_admin_successful" ".ssh/" ".nv/" ".xsessionrc" ".bash_aliases" ".minecraft/" ".dotfiles/" "snap/" ".mysql_history" ".bash_logout" ".android/" ".tekton/" ".stalonetrayrc" ".config/" ".boto" "java_error_in_idea_.hprof" ".vscode/" ".wget-hsts" ".codota-id" ".h2.server.properties" ".clojure/" ".clojure_history" ".xscreensaver" ".jfrog/" ".ipython/" ".emacs.d/" "Public/" ".gnome/" ".vim/" "../" ".viminfo" "src/" ".local/" ".zoom/" ".haulmont/" "Music/" "Downloads/" "Templates/" ".bash_history" ".docker/" "Pictures/" ".xmonad/" ".minikube/" ".lein/" ".lesshst" ".gitconfig" ".npm/" ".gradle/" ".profile" ".clojure_history-14706.tmp" ".cert/" ".tmp/" "mysql/" "Documents/" ".testcontainers.properties" "./" ".Xdefaults" ".gnupg/" ".kube/" ".gitkraken/" ".pki/" ".mozilla/" ".cache/" ".thunderbird/" ".gsutil/" ".bashrc.backup" ".jupyter/" ".terraform.d/" "Desktop/")
 

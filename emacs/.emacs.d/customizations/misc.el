@@ -7,6 +7,9 @@
                                                "backups"))))
 (setq auto-save-default nil)
 
+;; match paths for emacs sh startup and emacs app startup for mac
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 ;; mac stuff...command key should be meta and option key should do keyboard stuff
 (setq mac-option-key-is-meta nil
