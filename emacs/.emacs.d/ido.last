@@ -5,7 +5,7 @@
  ("/Users/stuosb/src/dev/repos/stos/js/" . "testprj/")
  ("/Users/stuosb/src/dev/repos/stos/" . "js/")
  ("/Users/stuosb/src/dev/repos/" . "stos/")
- ("/Users/stuosb/" . "src/")
+ ("/Users/stuosb/" . ".emacs.d/")
  ("/Users/" . "stuosb/")
  ("/Users/stuosb/.emacs.d/" . "customizations/")
  ("/Users/stuosb/src/dev/" . "repos/")
@@ -20,13 +20,14 @@
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/"
- "/Users/stuosb/.emacs.d/"
  "/Users/stuosb/src/dev/repos/stos/js/testprj/"
  "/Users/stuosb/.emacs.d/customizations/"
+ "/Users/stuosb/.emacs.d/"
+ "/Users/stuosb/.dotfiles/emacs/.emacs.d/"
+ "/Users/stuosb/"
+ "/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/"
  "/Users/stuosb/src/dev/repos/stos/js/"
  "/Users/stuosb/src/dev/repos/stos/bash/"
- "/Users/stuosb/"
  "/Users/stuosb/src/dev/org_notes/"
  "/Users/stuosb/.dotfiles/bash/"
  "/Users/stuosb/src/dev/notes/"
@@ -38,33 +39,37 @@
 
 ;; ----- ido-work-file-list -----
 (
- "misc.el"
- "init.el"
- ".#test.js"
- "test.js"
+ "another.ts"
  "lsp.el"
+ "test.js"
+ "init.el"
+ ".testcontainers.properties"
+ "misc.el"
+ ".#test.js"
  "testproj"
  "clone_hodor.sh"
  ".zshrc"
- "editing.el"
- "nordnet.org"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/" (25120 41959 992547 168000) "lsp.el" "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
+ ("/Users/stuosb/src/dev/repos/stos/js/testprj/" (25124 41628 682956 981000) ".log/" "another.ts" "test.js" "../" "./")
 
- ("/Users/stuosb/.dotfiles/emacs/.emacs.d/" (25121 52299 571755 159000) ".lsp-session-v1" "cider-history" "backups/" ".cache/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
+ ("/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/" (25124 41429 994751 565000) "lsp.el" "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
 
- ("/Users/stuosb/.emacs.d/" (25121 51151 594929 155000) ".lsp-session-v1" "cider-history" "backups/" ".cache/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
+ ("/Users/stuosb/.emacs.d/customizations/" (25124 41429 994751 565000) "lsp.el" "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
 
- ("/Users/stuosb/" (25121 51885 233914 941000) "src/" ".zsh_sessions/" ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".redhat/" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" ".testcontainers.properties" "Documents/" ".terraform.d/" ".npm/" ".zcompdump" ".Trash/" ".gradle/" ".jenv/" "Applications/" "Movies/" ".skaffold/" ".ssh/" ".codota-id" ".kube/" "postgres_data/" "Public/" ".lein/" "Google Drive/" ".cups/" ".pgadmin/" ".android/" ".node_repl_history" ".emacs.d/" ".minikube/" ".tekton/" ".dotfiles/" ".bridge/" ".zcompdump-C02GH46LMD6R-5.8" ".erlang.cookie" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".boto" ".clojure_history" ".bundle/" ".nvm/" "Pictures/" ".psql_history" ".local/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".wget-hsts" ".CFUserTextEncoding" ".yarnrc" ".DS_Store" ".motd.sh" ".docker/" ".clojure/" ".atlassian-companion/" "Music/" ".config/" "../" "./")
+ ("/Users/stuosb/.dotfiles/emacs/.emacs.d/" (25124 41511 684109 429000) ".lsp-session-v1" "cider-history" "backups/" ".cache/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
+
+ ("/Users/stuosb/.emacs.d/" (25124 41511 684109 429000) ".lsp-session-v1" "cider-history" "backups/" ".cache/" "elpa/" "init.el" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
+
+ ("/Users/stuosb/" (25122 15994 336729 378000) "src/" ".zsh_sessions/" ".viminfo" ".bash_history" ".gitconfig" ".cache/" ".redhat/" "Downloads/" ".oh-my-zsh/" ".m2/" ".vscode/" ".testcontainers.properties" "Documents/" ".terraform.d/" ".npm/" ".zcompdump" ".Trash/" ".gradle/" ".jenv/" "Applications/" "Movies/" ".skaffold/" ".ssh/" ".codota-id" ".kube/" "postgres_data/" "Public/" ".lein/" "Google Drive/" ".cups/" ".pgadmin/" ".android/" ".node_repl_history" ".emacs.d/" ".minikube/" ".tekton/" ".dotfiles/" ".bridge/" ".zcompdump-C02GH46LMD6R-5.8" ".erlang.cookie" ".lesshst" "Library/" "Desktop/" ".zsh_history" ".boto" ".clojure_history" ".bundle/" ".nvm/" "Pictures/" ".psql_history" ".local/" ".zshrc" ".zshrc.pre-oh-my-zsh" ".wget-hsts" ".CFUserTextEncoding" ".yarnrc" ".DS_Store" ".motd.sh" ".docker/" ".clojure/" ".atlassian-companion/" "Music/" ".config/" "../" "./")
+
+ ("/Users/stuosb/src/dev/repos/stos/bash/" (25120 60007 767391 122000) "clone_hodor.sh" "../" "./")
+
+ ("/Users/stuosb/src/dev/repos/stos/" (25121 51314 413279 622000) "bash/" "java/" ".old/" "js/" "../" "./")
 
  ("/Users/stuosb/src/dev/org_notes/" (25120 39221 397544 762000) "nordnet.org" "todo.org" ".DS_Store" "org_images/" "../" "./")
-
- ("/Users/stuosb/.emacs.d/customizations/" (25120 39558 157770 576000) "lsp.el" "clojure.el" "editing.el" ".#lsp.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
-
- ("/Users/stuosb/src/dev/repos/stos/js/testprj/" (25120 39386 839194 736000) ".#test.js" "../" "./")
 
  ("/home/" (25120 29971 678587 0) "../" "./")
 
@@ -78,11 +83,7 @@
 
  ("/Users/stuosb/src/dev/repos/stos/js/" (25119 9293 260958 604000) "node" "testprj/" "../" "./")
 
- ("/Users/stuosb/src/dev/repos/stos/bash/" (25119 8047 877216 630000) "clone_hodor.sh" "../" "./")
-
  ("/Users/stuosb/src/dev/repos/" (25118 12058 475081 25000) "stos/" "nordnet/" "misc_github/" ".DS_Store" "../" "./")
-
- ("/Users/stuosb/src/dev/repos/stos/" (25117 57666 856300 729000) "bash/" "java/" ".old/" "js/" "../" "./")
 
  ("/Users/stuosb/.dotfiles/bash/" (25116 51412 994604 866000) ".bash_aliases" ".bash_alias_work" ".bashrc" "../" "./")
 

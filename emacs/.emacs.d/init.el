@@ -53,6 +53,9 @@
 		      ;; colorful parenthesis matching
 		      rainbow-delimiters
 
+                      ;; for javascript
+                      typescript-mode
+
                       ;; language server protocol stuff
                       lsp-mode
                       lsp-ui
