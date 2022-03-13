@@ -14,9 +14,16 @@ po = remote prune origin
 	name = Stu
 	email = stuart.osborne@nordnet.se
 [core]
-	editor = vi
+	editor = emacs
 	excludesfile = /home/stos/.gitignore
+        pager = delta
+[interactive]
+        diffFilter = delta --color-only
+[delta]
+        navigate = true # use n and N to move between diff sections
 [diff]
-	tool = meld
+        colorMoved = default
 [push]
 	default = simple
+[merge]
+        conflictstyle = diff3
