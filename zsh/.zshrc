@@ -100,13 +100,15 @@ alias proxy_transaction_manager="kubectl port-forward svc/cloudsql-proxy-transac
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
 
-function postgres_client_stu  {
+function postgres_client  {
     docker run -it \
            --rm postgres \
            psql -h \
-           $(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' stus-postgres) \
-           -U stuosb
+           $(docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1) \
+           -U $2
 }
+
+alias postgres_client_stu="postgres_client stus-postgres stuosb"
 
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT='$(kube_ps1)'$PROMPT
