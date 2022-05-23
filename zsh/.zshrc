@@ -20,7 +20,7 @@ HISTFILESIZE=999999
 SAVEHIST=$HISTSIZE
 
 # Which plugins would you like to load?
-plugins=(git kubectl gcloud zsh-autosuggestions zsh-syntax-highlighting emacs jenv gh)
+plugins=(git kubectl gcloud zsh-autosuggestions zsh-syntax-highlighting emacs gh jenv)
 
 source $ZSH/oh-my-zsh.sh
 
