@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 #shopt options
 setopt GLOB_DOTS  #make sure that hidden files are included in glob searches
@@ -96,9 +96,11 @@ alias test_cluster="gcloud config set project test-cluster-29260 && kubectl conf
 alias local_cluster="kubectl config use-context kind-kind"
 
 alias proxy_transaction_manager="kubectl port-forward svc/cloudsql-proxy-transaction-master -n transaction 5432:5432"
+alias proxy_realisation="kubectl port-forward svc/cloudsql-proxy-realisation -n tax 5432:5432"
+alias proxy_report9a="kubectl port-forward svc/cloudsql-proxy-report-9a -n tax 5432:5432"
 
 #spin up a local postgres for test
-alias postgres_stu_start="docker run --name stus-postgres -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
+alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
 
 function postgres_client  {
     docker run -it \
@@ -119,3 +121,8 @@ PROMPT='$(kube_ps1)'$PROMPT
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Created by `pipx` on 2022-11-03 17:37:46
+export PATH="$PATH:/Users/stuosb/.local/bin"
+
+source /Users/stuosb/.docker/init-zsh.sh || true # Added by Docker Desktop
