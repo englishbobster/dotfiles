@@ -81,7 +81,6 @@ export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 #add gems local location on path
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
-
 # some useful aliases
 alias keyme="add_ssh_keys"
 alias repos="cd $REPOS"
@@ -98,6 +97,8 @@ alias local_cluster="kubectl config use-context kind-kind"
 alias proxy_transaction_manager="kubectl port-forward svc/cloudsql-proxy-transaction-master -n transaction 5432:5432"
 alias proxy_realisation="kubectl port-forward svc/cloudsql-proxy-realisation -n tax 5432:5432"
 alias proxy_report9a="kubectl port-forward svc/cloudsql-proxy-report-9a -n tax 5432:5432"
+alias proxy_transaction_master="kubectl port-forward svc/cloudsql-proxy-transaction-master-postgres-14 -n transaction 5432:5432"
+alias proxy_position_master="kubectl port-forward svc/cloudsql-proxy-position-master -n holdings 5432:5432"
 
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
@@ -115,8 +116,27 @@ alias postgres_client_stu="postgres_client stus-postgres stuosb"
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT='$(kube_ps1)'$PROMPT
 
+function get_cluster_short() {
+  if [[ "$1" == *"prod-cluster"* ]];then
+    echo "prod"
+  elif [[ "$1" == *"test-cluster"* ]];then
+    echo "test"
+  fi
+}
+
+KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
+
 #run motd file
 ~/.motd.sh
+
+# Colima (docker replacement) environment variables for it to work well with Java Testcontainers
+if colima status 2> /dev/null ; then
+    export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+    export TESTCONTAINERS_HOST_OVERRIDE=$(colima ls -j | jq -r '.address')
+    export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+else
+    echo "Colima is not running -- can not set environment variables"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -124,5 +144,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # Created by `pipx` on 2022-11-03 17:37:46
 export PATH="$PATH:/Users/stuosb/.local/bin"
-
-source /Users/stuosb/.docker/init-zsh.sh || true # Added by Docker Desktop

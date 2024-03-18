@@ -14,7 +14,7 @@ po = remote prune origin
 	name = Stu
 	email = stuart.osborne@nordnet.se
 [core]
-	editor = emacs
+	editor = vi
 	excludesfile = /home/stos/.gitignore
         pager = delta
 [interactive]
@@ -27,3 +27,8 @@ po = remote prune origin
 	default = simple
 [merge]
         conflictstyle = diff3
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

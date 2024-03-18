@@ -20,7 +20,7 @@ echo "    $fg[blue]\\       /    |  |    \\  '-'$fg[red](_ .'$fg[white]"
 echo "     $fg[blue]\`-----'     \`--'     \`-----'$fg[white]   "
 echo $'\n'
 
-echo "$fg[yellow]Remember: \nTake risks,\nMake mistakes, \nRaise problems, \nAsk Questions, \nDisagree, \nand most of all, Be yourself$fg[white]\n\n" 
+echo "$fg[yellow]You never ever know...$fg[white]\n\n"
 
 # Print some info
 logins=("${(@f)$(/usr/bin/last -4 | /usr/bin/tail -3)}")
