@@ -104,6 +104,8 @@ alias proxy_report9a="proxy report-9a report-9a-service tax"
 alias proxy_transaction_master="proxy transaction-master-postgres-14 transaction-master-service transaction"
 alias proxy_position_master="proxy position-master position-master-service holdings"
 alias proxy_aml_holdings="proxy aml-holdings aml-holdings-service holdings"
+alias proxy_balance_master="proxy balance-master balance-master-service holdings"
+
 
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
