@@ -13,7 +13,7 @@ ZSH_THEME="agnoster"
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
-
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HIST_STAMPS="%y%m%d:%T"
 HISTSIZE=99999
 HISTFILESIZE=999999
@@ -89,16 +89,21 @@ alias hodor="cd $HODOR"
 alias lls="ls -altr"
 alias ls_jar="jar -tf"
 
+
+# cluster aliases for proxying and switching between clusters
+function proxy {
+    kubectl port-forward svc/cloudsql-proxy-$1 -n $3 5432:5432 & kubectl port-forward svc/$2 -n $3 8080:8080 8081:8081 && fg
+}
+
 alias prod_cluster="gcloud config set project prod-cluster-25354 && kubectl config use-context gke_prod-cluster-25354_europe-north1_main"
 alias dev_cluster="gcloud config set project hodor-cluster-30317 && kubectl config use-context gke_hodor-cluster-30317_europe-north1_main"
 alias test_cluster="gcloud config set project test-cluster-29260 && kubectl config use-context gke_test-cluster-29260_europe-north1_main"
-alias local_cluster="kubectl config use-context kind-kind"
 
-alias proxy_transaction_manager="kubectl port-forward svc/cloudsql-proxy-transaction-master -n transaction 5432:5432"
-alias proxy_realisation="kubectl port-forward svc/cloudsql-proxy-realisation -n tax 5432:5432"
-alias proxy_report9a="kubectl port-forward svc/cloudsql-proxy-report-9a -n tax 5432:5432"
-alias proxy_transaction_master="kubectl port-forward svc/cloudsql-proxy-transaction-master-postgres-14 -n transaction 5432:5432"
-alias proxy_position_master="kubectl port-forward svc/cloudsql-proxy-position-master -n holdings 5432:5432"
+alias proxy_realisation="proxy realisation realisation-service tax"
+alias proxy_report9a="proxy report-9a report-9a-service tax"
+alias proxy_transaction_master="proxy transaction-master-postgres-14 transaction-master-service transaction"
+alias proxy_position_master="proxy position-master position-master-service holdings"
+alias proxy_aml_holdings="proxy aml-holdings aml-holdings-service holdings"
 
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"

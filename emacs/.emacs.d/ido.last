@@ -2,7 +2,7 @@
 
 ;; ----- ido-last-directory-list -----
 (
- ("/Users/stuosb/src/dev/interviews/" . "fredrik_soderberg/")
+ ("/Users/stuosb/src/dev/interviews/" . "hanna_nyblom/")
  ("/Users/stuosb/src/dev/repos/stos/js/" . "testprj/")
  ("/Users/stuosb/src/dev/repos/stos/" . "bash/")
  ("/Users/stuosb/src/dev/repos/" . "stos/")
@@ -21,9 +21,11 @@
 
 ;; ----- ido-work-directory-list -----
 (
- "/Users/stuosb/src/dev/interviews/fredrik_soderberg/"
  "/Users/stuosb/src/dev/org_notes/"
+ "/Users/stuosb/src/dev/interviews/"
+ "/Users/stuosb/src/dev/interviews/hanna_nyblom/"
  "/Users/stuosb/src/dev/repos/stos/bash/"
+ "/Users/stuosb/src/dev/interviews/fredrik_soderberg/"
  "/Users/stuosb/src/dev/repos/stos/js/testprj/"
  "/Users/stuosb/.emacs.d/customizations/"
  "/Users/stuosb/.emacs.d/"
@@ -41,27 +43,35 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "testing.html"
+ "testing.org"
+ "home_assignment_agenda.org"
+ "hn.org"
+ "find_dups_fifo.sh"
  "fs.org"
  "positions.org"
  "hackathon.org"
- "testing.org"
- "testing.html"
  "lprs_hodor.sh"
  "clone_hodor.sh"
- "another.ts"
- "lsp.el"
- "test.js"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/stuosb/src/dev/repos/nordnet/hodor/aml-holdings/.git/" (25896 62131 465030 163000) "FETCH_HEAD" "COMMIT_EDITMSG" "packed-refs" "MERGE_HEAD" "index" "refs/" "hooks/" "description" "logs/" "info/" "HEAD" "objects/" "config" "MERGE_MSG" "ORIG_HEAD" "MERGE_MODE" "AUTO_MERGE" "../" "./")
+
+ ("/Users/stuosb/src/dev/org_notes/" (25439 32744 852602 998000) "testing.html" "nordnet.org" "todo.org" "positions.org" ".DS_Store" "testing.org" "org_images/" "../" "./")
+
+ ("/Users/stuosb/src/dev/interviews/hanna_nyblom/" (25218 14083 782199 743000) "orderbook/" "hn.org" "Hanna_Nyblom_orderbook.zip" "../" "./")
+
+ ("/Users/stuosb/src/dev/interviews/" (25338 17093 185440 375000) "home_assignment_agenda.org" "johnny_richard/" "joel_falk/" "fredrik_soderberg/" "hanna_nyblom/" "daniel_elfsvik/" ".DS_Store" "../" "./")
+
+ ("/Users/stuosb/src/dev/interviews/johnny_richard/" (25338 17149 548227 667000) "orderbook-service.tgz" "orderbook-service/" "../" "./")
+
+ ("/Users/stuosb/src/dev/repos/stos/bash/" (25215 45091 960002 511000) "clone_hodor.sh" "test.sh" "find_dups_fifo.sh" "lprs_hodor.sh" "../" "./")
+
  ("/Users/stuosb/src/dev/interviews/fredrik_soderberg/" (25190 21782 839118 606000) "order-book/" "order-book.iml" "fs.org" ".DS_Store" "../" "./")
 
- ("/Users/stuosb/src/dev/interviews/" (25190 21617 245084 184000) "fredrik_soderberg/" ".DS_Store" "../" "./")
-
  ("/Users/stuosb/src/dev/" (25190 21537 591094 225000) "interviews/" ".DS_Store" "repos/" "org_notes/" "../" "./")
-
- ("/Users/stuosb/src/dev/org_notes/" (25185 29670 199875 618000) "testing.html" "nordnet.org" "todo.org" "positions.org" ".DS_Store" "testing.org" "org_images/" "../" "./")
 
  ("/Users/stuosb/src/dev/repos/stos/js/" (25177 13704 70432 338000) "node" "testprj/" ".DS_Store" "../" "./")
 
@@ -70,8 +80,6 @@
  ("/Users/stuosb/.dotfiles/emacs/.emacs.d/" (25177 45937 821883 33000) ".lsp-session-v1" "cider-history" "backups/" ".cache/" "elpa/" "init.el" "url/" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
 
  ("/Users/stuosb/.emacs.d/" (25177 45937 821883 33000) ".lsp-session-v1" "cider-history" "backups/" ".cache/" "elpa/" "init.el" "url/" "auto-save-list/" "transient/" "places" "customizations/" "ido.last" "../" "./")
-
- ("/Users/stuosb/src/dev/repos/stos/bash/" (25137 39420 715334 840000) "clone_hodor.sh" "lprs_hodor.sh" "../" "./")
 
  ("/Users/stuosb/.dotfiles/emacs/.emacs.d/customizations/" (25124 41625 143466 84000) "lsp.el" "clojure.el" "editing.el" "orgmode.el" "misc.el" "ui.el" "html.el" "../" "./")
 
