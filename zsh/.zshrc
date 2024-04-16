@@ -20,7 +20,7 @@ HISTFILESIZE=999999
 SAVEHIST=$HISTSIZE
 
 # Which plugins would you like to load?
-plugins=(git kubectl gcloud zsh-autosuggestions zsh-syntax-highlighting emacs gh jenv)
+plugins=(git kubectl gcloud zsh-autosuggestions zsh-syntax-highlighting emacs gh jenv kube-ps1)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -120,7 +120,6 @@ function postgres_client  {
 
 alias postgres_client_stu="postgres_client stus-postgres stuosb"
 
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT='$(kube_ps1)'$PROMPT
 
 function get_cluster_short() {
@@ -151,3 +150,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Created by `pipx` on 2022-11-03 17:37:46
 export PATH="$PATH:/Users/stuosb/.local/bin"
+
