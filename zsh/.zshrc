@@ -47,6 +47,7 @@ export SRC_HOME=/Users/stuosb/src
 export REPOS=$SRC_HOME/dev/repos
 export NORDNET=$REPOS/nordnet
 export HODOR=$NORDNET/hodor
+export CAC=$NORDNET/cac
 
 
 # some useful functions
@@ -86,6 +87,7 @@ alias keyme="add_ssh_keys"
 alias repos="cd $REPOS"
 alias nordnet="cd $NORDNET"
 alias hodor="cd $HODOR"
+alias cac="cd $CAC"
 alias lls="ls -altr"
 alias ls_jar="jar -tf"
 
@@ -96,7 +98,7 @@ function proxy {
 }
 
 alias prod_cluster="gcloud config set project prod-cluster-25354 && kubectl config use-context gke_prod-cluster-25354_europe-north1_main"
-alias dev_cluster="gcloud config set project hodor-cluster-30317 && kubectl config use-context gke_hodor-cluster-30317_europe-north1_main"
+alias dev_cluster="gcloud config set project big-hodor-cluster-31533 && kubectl config use-context gke_big-hodor-cluster-31533_europe-north1_main"
 alias test_cluster="gcloud config set project test-cluster-29260 && kubectl config use-context gke_test-cluster-29260_europe-north1_main"
 
 alias proxy_realisation="proxy realisation realisation-service tax"
@@ -105,7 +107,6 @@ alias proxy_transaction_master="proxy transaction-master-postgres-14 transaction
 alias proxy_position_master="proxy position-master position-master-service holdings"
 alias proxy_aml_holdings="proxy aml-holdings aml-holdings-service holdings"
 alias proxy_balance_master="proxy balance-master balance-master-service holdings"
-
 
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
@@ -127,6 +128,8 @@ function get_cluster_short() {
     echo "prod"
   elif [[ "$1" == *"test-cluster"* ]];then
     echo "test"
+  else
+    echo "dev"
   fi
 }
 
