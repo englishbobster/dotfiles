@@ -90,7 +90,7 @@ alias hodor="cd $HODOR"
 alias cac="cd $CAC"
 alias lls="ls -altr"
 alias ls_jar="jar -tf"
-
+alias update_brew="brew update && brew outdated --greedy && brew upgrade --greedy && brew cleanup"
 
 # cluster aliases for proxying and switching between clusters
 function proxy {
@@ -107,7 +107,7 @@ alias proxy_transaction_master="proxy transaction-master-postgres-14 transaction
 alias proxy_position_master="proxy position-master position-master-service holdings"
 alias proxy_aml_holdings="proxy aml-holdings aml-holdings-service holdings"
 alias proxy_balance_master="proxy balance-master balance-master-service holdings"
-
+alias proxy_sip="proxy sip-fee sip-fee-service fee-and-billing"
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
 
@@ -154,3 +154,4 @@ export NVM_DIR="$HOME/.nvm"
 # Created by `pipx` on 2022-11-03 17:37:46
 export PATH="$PATH:/Users/stuosb/.local/bin"
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
