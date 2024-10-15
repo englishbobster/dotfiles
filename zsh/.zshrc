@@ -47,7 +47,7 @@ export SRC_HOME=/Users/stuosb/src
 export REPOS=$SRC_HOME/dev/repos
 export NORDNET=$REPOS/nordnet
 export HODOR=$NORDNET/hodor
-export CAC=$NORDNET/cac
+export FAB=$NORDNET/fab
 
 
 # some useful functions
@@ -87,7 +87,7 @@ alias keyme="add_ssh_keys"
 alias repos="cd $REPOS"
 alias nordnet="cd $NORDNET"
 alias hodor="cd $HODOR"
-alias cac="cd $CAC"
+alias fab="cd $FAB"
 alias lls="ls -altr"
 alias ls_jar="jar -tf"
 alias update_brew="brew update && brew outdated --greedy && brew upgrade --greedy && brew cleanup"
@@ -108,6 +108,11 @@ alias proxy_position_master="proxy position-master position-master-service holdi
 alias proxy_aml_holdings="proxy aml-holdings aml-holdings-service holdings"
 alias proxy_balance_master="proxy balance-master balance-master-service holdings"
 alias proxy_sip="proxy sip-fee sip-fee-service fee-and-billing"
+alias proxy_fee_decider="proxy fee-decider fee-decider-service fee-and-billing"
+alias proxy_fee_registry="proxy fee-registry fee-registry-service fee-and-billing"
+alias proxy_refunder_holding="proxy refunder-holding refunder-holding-service fee-and-billing"
+alias proxy_refunder_transaction="proxy refunder-transaction refunder-transaction-service fee-and-billing"
+
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
 
