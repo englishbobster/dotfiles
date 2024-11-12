@@ -20,7 +20,7 @@ HISTFILESIZE=999999
 SAVEHIST=$HISTSIZE
 
 # Which plugins would you like to load?
-plugins=(git kubectl gcloud zsh-autosuggestions zsh-syntax-highlighting emacs gh jenv kube-ps1)
+plugins=(git kubectl gcloud zsh-autosuggestions zsh-syntax-highlighting emacs gh kube-ps1)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,10 +37,6 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
    export EDITOR='emacs'
 fi
-
-# jenv settings
-export PATH="$HOME/.jenv/bin/:$HOME/src/localapps/:$PATH"
-eval "$(jenv init -)"
 
 # some useful paths
 export SRC_HOME=/Users/stuosb/src
@@ -91,7 +87,7 @@ alias fab="cd $FAB"
 alias lls="ls -altr"
 alias ls_jar="jar -tf"
 alias update_brew="brew update && brew outdated --greedy && brew upgrade --greedy && brew cleanup"
-
+alias gca="gcloud auth login --update-adc"
 # cluster aliases for proxying and switching between clusters
 function proxy {
     kubectl port-forward svc/cloudsql-proxy-$1 -n $3 5432:5432 & kubectl port-forward svc/$2 -n $3 8080:8080 8081:8081 && fg
@@ -160,3 +156,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:/Users/stuosb/.local/bin"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

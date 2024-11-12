@@ -9,7 +9,6 @@ co = checkout
 unstage = reset HEAD
 po = remote prune origin
 	
-
 [user]
 	name = Stu
 	email = stuart.osborne@nordnet.se
@@ -22,7 +21,10 @@ po = remote prune origin
 [delta]
         navigate = true # use n and N to move between diff sections
 [diff]
-        colorMoved = default
+	external = difft
+[difftool "difft"]
+	cmd = difft --color always
+
 [push]
 	default = simple
 [merge]
