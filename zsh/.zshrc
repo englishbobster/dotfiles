@@ -55,6 +55,17 @@ function add_ssh_keys {
     done
 }
 
+# one ssh_agent to rule them all (all the terminals)
+export SSH_AUTH_SOCK=~/.ssh/auth_sock
+if ! fuser "$SSH_AUTH_SOCK" >/dev/null 2>/dev/null; then
+  # Nothing has the socket open, it means the agent isn't running
+  ssh-agent -a "$SSH_AUTH_SOCK" -s >~/.ssh/agent-info
+  for file in `find ~/.ssh -type f -name "id*" -not \( -name "*.pub" \)`
+  do
+      ssh-add $file
+  done
+fi
+
 function fix_intellij {
     dir=$(pwd)
     if [ -d ".idea/" ]; then
