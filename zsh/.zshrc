@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+PATH_HUGGING=/Library/Frameworks/Python.framework/Versions/3.11/bin
+export PATH=$PATH_HUGGING:$HOME/bin:/usr/local/bin:$PATH
 
 #shopt options
 setopt GLOB_DOTS  #make sure that hidden files are included in glob searches
@@ -63,6 +64,7 @@ if ! fuser "$SSH_AUTH_SOCK" >/dev/null 2>/dev/null; then
   for file in `find ~/.ssh -type f -name "id*" -not \( -name "*.pub" \)`
   do
       ssh-add $file
+      echo "added ${file}"
   done
 fi
 
@@ -90,6 +92,7 @@ export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # some useful aliases
+alias uuid_please="echo ${(L)$(uuidgen)} | pbcopy"
 alias keyme="add_ssh_keys"
 alias repos="cd $REPOS"
 alias nordnet="cd $NORDNET"
@@ -119,6 +122,8 @@ alias proxy_fee_decider="proxy fee-decider fee-decider-service fee-and-billing"
 alias proxy_fee_registry="proxy fee-registry fee-registry-service fee-and-billing"
 alias proxy_refunder_holding="proxy refunder-holding refunder-holding-service fee-and-billing"
 alias proxy_refunder_transaction="proxy refunder-transaction refunder-transaction-service fee-and-billing"
+alias proxy_partner_identity="proxy partner-identity partner-identity-service fee-and-billing"
+alias proxy_fee_machine="proxy fee-machine fee-machine-service fee-and-billing"
 
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
