@@ -10,7 +10,7 @@ unstage = reset HEAD
 po = remote prune origin
 	
 [user]
-	name = Stu
+	name = Stuart Osborne
 	email = stuart.osborne@nordnet.se
 [core]
 	editor = vi
@@ -36,3 +36,5 @@ po = remote prune origin
 	required = true
 [help]
 	autocorrect = 1
+[init]
+	defaultBranch = master

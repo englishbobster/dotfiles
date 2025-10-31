@@ -48,12 +48,31 @@ export FAB=$NORDNET/fab
 
 
 # some useful functions
+
+function pamg {
+  if [ -z "$2" ]; then
+    echo "Error: Justification is missing." >&2
+    return 1
+  fi
+  gcloud alpha pam grants create \
+    --entitlement="$1" \
+    --requested-duration="14400s" \
+    --justification="$2" \
+    --location="global" \
+    --project="prod-cluster-25354"
+}
+
+
 function add_ssh_keys {
     eval "$(ssh-agent -s)"
     for file in `find ~/.ssh -type f -name "id*" -not \( -name "*.pub" \)`
     do
         ssh-add $file
     done
+}
+
+function make_uuid {
+   uuidgen | tr "[:upper:]" "[:lower:]" | tr -d '\n' | pbcopy
 }
 
 # one ssh_agent to rule them all (all the terminals)
@@ -81,6 +100,16 @@ function fix_intellij {
     fi
 }
 
+function gcp_login {
+  if gcloud auth print-access-token &>/dev/null; then
+    echo "Already logged in to gcloud. Just refreshing the access token..."
+    npx --registry=https://registry.npmjs.org google-artifactregistry-auth
+  else
+    echo "Not logged in to gcloud. Running full login process..."
+    gcloud auth login --update-adc && npx --registry=https://registry.npmjs.org google-artifactregistry-auth
+  fi
+}
+
 # ruby and jekyll settings
 # this export corrects a move of some rubyf files in later Mac OS releases
 export SKDROOT=$(xcrun --show-sdk-path)
@@ -92,20 +121,27 @@ export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # some useful aliases
-alias uuid_please="echo ${(L)$(uuidgen)} | pbcopy"
+alias pam_pubsub="pamg pubsub-project-access "
+alias pam_cluster="pamg cluster-access "
+alias master="git checkout master"
+alias uuid_please="make_uuid"
 alias keyme="add_ssh_keys"
 alias repos="cd $REPOS"
 alias nordnet="cd $NORDNET"
-alias hodor="cd $HODOR"
 alias fab="cd $FAB"
 alias lls="ls -altr"
 alias ls_jar="jar -tf"
+alias goog="gcp_login"
 alias update_brew="brew update && brew outdated --greedy && brew upgrade --greedy && brew cleanup"
-alias gca="gcloud auth login --update-adc"
 # cluster aliases for proxying and switching between clusters
 function proxy {
     kubectl port-forward svc/cloudsql-proxy-$1 -n $3 5432:5432 & kubectl port-forward svc/$2 -n $3 8080:8080 8081:8081 && fg
 }
+
+function proxy_new {
+    kubectl port-forward svc/$1-cloudsql-proxy -n $3 5432:5432 & kubectl port-forward svc/$2 -n $3 8080:8080 8081:8081 && fg
+}
+
 
 alias prod_cluster="gcloud config set project prod-cluster-25354 && kubectl config use-context gke_prod-cluster-25354_europe-north1_main"
 alias dev_cluster="gcloud config set project big-hodor-cluster-31533 && kubectl config use-context gke_big-hodor-cluster-31533_europe-north1_main"
@@ -123,7 +159,8 @@ alias proxy_fee_registry="proxy fee-registry fee-registry-service fee-and-billin
 alias proxy_refunder_holding="proxy refunder-holding refunder-holding-service fee-and-billing"
 alias proxy_refunder_transaction="proxy refunder-transaction refunder-transaction-service fee-and-billing"
 alias proxy_partner_identity="proxy partner-identity partner-identity-service fee-and-billing"
-alias proxy_fee_machine="proxy fee-machine fee-machine-service fee-and-billing"
+alias proxy_fee_machine="proxy_new fee-machine fee-machine-service fee-and-billing"
+alias proxy_subscription_master="proxy subscription-master subscription-master-service subscription"
 
 #spin up a local postgres for test
 alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
