@@ -121,8 +121,12 @@ export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # some useful aliases
+# dont forget to end in single space on pamg aliases
 alias pam_pubsub="pamg pubsub-project-access "
 alias pam_cluster="pamg cluster-access "
+alias pam_bigtable_admin="pamg bigtable-admin "
+alias pam_bigtable_user="pamg bigtable-user "
+alias pam_bucket="pamg bucket-project-access "
 alias master="git checkout master"
 alias uuid_please="make_uuid"
 alias keyme="add_ssh_keys"
