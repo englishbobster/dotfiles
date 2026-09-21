@@ -23,7 +23,7 @@ po = remote prune origin
 [diff]
 	external = difft
 [difftool "difft"]
-	cmd = difft --color always
+	cmd = difft --color always 
 
 [push]
 	default = simple

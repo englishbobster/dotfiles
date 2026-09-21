@@ -47,6 +47,13 @@ export HODOR=$NORDNET/hodor
 export FAB=$NORDNET/fab
 
 
+export ANTHROPIC_BASE_URL=https://llm-gateway.productivity.nordnettech.se
+export ANTHROPIC_AUTH_TOKEN=***REMOVED***
+export CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1
+export CLAUDE_CODE_USE_VERTEX=0
+
+
+
 # some useful functions
 
 function pamg {
@@ -61,7 +68,6 @@ function pamg {
     --location="global" \
     --project="prod-cluster-25354"
 }
-
 
 function add_ssh_keys {
     eval "$(ssh-agent -s)"
@@ -127,6 +133,7 @@ alias pam_cluster="pamg cluster-access "
 alias pam_bigtable_admin="pamg bigtable-admin "
 alias pam_bigtable_user="pamg bigtable-user "
 alias pam_bucket="pamg bucket-project-access "
+alias restart_feemachine="kubectl rollout restart deployment fee-machine-deployment -n fee-and-billing"
 alias master="git checkout master"
 alias uuid_please="make_uuid"
 alias keyme="add_ssh_keys"
@@ -137,6 +144,7 @@ alias lls="ls -altr"
 alias ls_jar="jar -tf"
 alias goog="gcp_login"
 alias update_brew="brew update && brew outdated --greedy && brew upgrade --greedy && brew cleanup"
+
 # cluster aliases for proxying and switching between clusters
 function proxy {
     kubectl port-forward svc/cloudsql-proxy-$1 -n $3 5432:5432 & kubectl port-forward svc/$2 -n $3 8080:8080 8081:8081 && fg
@@ -151,23 +159,17 @@ alias prod_cluster="gcloud config set project prod-cluster-25354 && kubectl conf
 alias dev_cluster="gcloud config set project big-hodor-cluster-31533 && kubectl config use-context gke_big-hodor-cluster-31533_europe-north1_main"
 alias test_cluster="gcloud config set project test-cluster-29260 && kubectl config use-context gke_test-cluster-29260_europe-north1_main"
 
-alias proxy_realisation="proxy realisation realisation-service tax"
-alias proxy_report9a="proxy report-9a report-9a-service tax"
-alias proxy_transaction_master="proxy transaction-master-postgres-14 transaction-master-service transaction"
-alias proxy_position_master="proxy position-master position-master-service holdings"
-alias proxy_aml_holdings="proxy aml-holdings aml-holdings-service holdings"
-alias proxy_balance_master="proxy balance-master balance-master-service holdings"
 alias proxy_sip="proxy sip-fee sip-fee-service fee-and-billing"
-alias proxy_fee_decider="proxy fee-decider fee-decider-service fee-and-billing"
-alias proxy_fee_registry="proxy fee-registry fee-registry-service fee-and-billing"
-alias proxy_refunder_holding="proxy refunder-holding refunder-holding-service fee-and-billing"
-alias proxy_refunder_transaction="proxy refunder-transaction refunder-transaction-service fee-and-billing"
-alias proxy_partner_identity="proxy partner-identity partner-identity-service fee-and-billing"
+alias proxy_fee_decider="proxy_new fee-decider fee-decider-service fee-and-billing"
+alias proxy_refunder_holding="proxy_new refunder-holding refunder-holding-service fee-and-billing"
+alias proxy_refunder_transaction="proxy_new refunder-transaction refunder-transaction-service fee-and-billing"
+alias proxy_partner_identity="proxy_new partner-identity partner-identity-service fee-and-billing"
 alias proxy_fee_machine="proxy_new fee-machine fee-machine-service fee-and-billing"
-alias proxy_subscription_master="proxy subscription-master subscription-master-service subscription"
-
+alias proxy_subscription_master="proxy_new subscription-master subscription-master-service subscription"
+alias proxy_fin_ex="proxy_new finansportalen-exporter finansportalen-exporter fee-and-billing"
+alias proxy_sectras="proxy_new sectras-statement-orders sectras-statement-orders-service tax"
 #spin up a local postgres for test
-alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql/data -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
+alias postgres_stu_start="docker run --name stus-postgres -p 5432:5432 -v ~/postgres_data:/var/lib/postgresql -e POSTGRES_USER=stuosb -e POSTGRES_PASSWORD=stuosb -e POSTGRES_DB=stuosb postgres:latest &> /dev/null &"
 
 function postgres_client  {
     docker run -it \
@@ -199,8 +201,16 @@ KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
 # Colima (docker replacement) environment variables for it to work well with Java Testcontainers
 if colima status 2> /dev/null ; then
     export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
-    export TESTCONTAINERS_HOST_OVERRIDE=$(colima ls -j | jq -r '.address')
     export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+    # Only trust the VM address if it is actually routable. GlobalProtect blackholes
+    # the vmnet subnet, and colima's ssh portForwarder publishes ports on localhost anyway.
+    colima_address=$(colima ls -j | jq -r '.address')
+    if [ -n "$colima_address" ] && nc -z -G 1 "$colima_address" 22 2> /dev/null ; then
+        export TESTCONTAINERS_HOST_OVERRIDE=$colima_address
+    else
+        unset TESTCONTAINERS_HOST_OVERRIDE
+    fi
+    unset colima_address
 else
     echo "Colima is not running -- can not set environment variables"
 fi
@@ -213,6 +223,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:/Users/stuosb/.local/bin"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export DOCKER_API_VERSION=1.43
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
