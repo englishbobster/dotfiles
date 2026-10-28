@@ -186,7 +186,6 @@ alias proxy_refunder_holding="proxy_new refunder-holding refunder-holding-servic
 alias proxy_refunder_transaction="proxy_new refunder-transaction refunder-transaction-service fee-and-billing"
 alias proxy_partner_identity="proxy_new partner-identity partner-identity-service fee-and-billing"
 alias proxy_fee_machine="proxy_new fee-machine fee-machine-service fee-and-billing"
-alias proxy_subscription_master="proxy_new subscription-master subscription-master-service subscription"
 alias proxy_fin_ex="proxy_new finansportalen-exporter finansportalen-exporter fee-and-billing"
 alias proxy_sectras="proxy_new sectras-statement-orders sectras-statement-orders-service tax"
 #spin up a local postgres for test
