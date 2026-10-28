@@ -63,17 +63,25 @@ export CLAUDE_CODE_USE_VERTEX=0
 
 # some useful functions
 
+# requests PAM on the active cluster's project (choose it first with prod_cluster/test_cluster)
 function pamg {
   if [ -z "$2" ]; then
     echo "Error: Justification is missing." >&2
     return 1
   fi
+  local project=$(gcloud config get-value project 2>/dev/null)
+  case "$project" in
+    prod-cluster-25354|test-cluster-29260) ;;
+    *) echo "Error: active project '$project' is not prod or test. Run prod_cluster or test_cluster first." >&2
+       return 1 ;;
+  esac
+  echo "Requesting '$1' on $project"
   gcloud alpha pam grants create \
     --entitlement="$1" \
     --requested-duration="14400s" \
     --justification="$2" \
     --location="global" \
-    --project="prod-cluster-25354"
+    --project="$project"
 }
 
 function add_ssh_keys {
@@ -170,7 +178,6 @@ function proxy_new {
 
 
 alias prod_cluster="gcloud config set project prod-cluster-25354 && kubectl config use-context gke_prod-cluster-25354_europe-north1_main"
-alias dev_cluster="gcloud config set project big-hodor-cluster-31533 && kubectl config use-context gke_big-hodor-cluster-31533_europe-north1_main"
 alias test_cluster="gcloud config set project test-cluster-29260 && kubectl config use-context gke_test-cluster-29260_europe-north1_main"
 
 alias proxy_sip="proxy sip-fee sip-fee-service fee-and-billing"
@@ -203,7 +210,7 @@ function get_cluster_short() {
   elif [[ "$1" == *"test-cluster"* ]];then
     echo "test"
   else
-    echo "dev"
+    echo "other"
   fi
 }
 
