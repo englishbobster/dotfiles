@@ -43,12 +43,19 @@ fi
 export SRC_HOME=/Users/stuosb/src
 export REPOS=$SRC_HOME/dev/repos
 export NORDNET=$REPOS/nordnet
-export HODOR=$NORDNET/hodor
 export FAB=$NORDNET/fab
+export FAB_NNX=$FAB/nnx
+export FAB_ONPREM=$FAB/on-prem
+export FAB_SHARED=$FAB/shared
+export OTHER=$NORDNET/other
+export OTHER_NNX=$OTHER/nnx
+export OTHER_ONPREM=$OTHER/on-prem
+export OTHER_SHARED=$OTHER/shared
 
 
 export ANTHROPIC_BASE_URL=https://llm-gateway.productivity.nordnettech.se
-export ANTHROPIC_AUTH_TOKEN=***REMOVED***
+# secrets (e.g. ANTHROPIC_AUTH_TOKEN) live in ~/.zshrc.local, outside this repo
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 export CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1
 export CLAUDE_CODE_USE_VERTEX=0
 
@@ -140,6 +147,13 @@ alias keyme="add_ssh_keys"
 alias repos="cd $REPOS"
 alias nordnet="cd $NORDNET"
 alias fab="cd $FAB"
+alias fab_nnx="cd $FAB_NNX"
+alias fab_onprem="cd $FAB_ONPREM"
+alias fab_shared="cd $FAB_SHARED"
+alias other="cd $OTHER"
+alias other_nnx="cd $OTHER_NNX"
+alias other_onprem="cd $OTHER_ONPREM"
+alias other_shared="cd $OTHER_SHARED"
 alias lls="ls -altr"
 alias ls_jar="jar -tf"
 alias goog="gcp_login"
@@ -224,6 +238,15 @@ export PATH="$PATH:/Users/stuosb/.local/bin"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export DOCKER_API_VERSION=1.43
+
+# Tint Ghostty background dark brown while claude is running
+claude() {
+  printf '\e]11;#1f1812\a'
+  command claude "$@"
+  local ret=$?
+  printf '\e]111\a'
+  return $ret
+}
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
