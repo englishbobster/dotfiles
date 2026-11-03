@@ -148,6 +148,82 @@ alias pam_cluster="pamg cluster-access "
 alias pam_bigtable_admin="pamg bigtable-admin "
 alias pam_bigtable_user="pamg bigtable-user "
 alias pam_bucket="pamg bucket-project-access "
+
+# PAM approvals: since 2026-11-02 every grant needs a colleague's approval (test and prod).
+# pam_pending lists requests you can approve; pam_approve lets you pick one and approve or deny it.
+PAM_ENTITLEMENTS=(cluster-access pubsub-project-access bucket-project-access bigtable-user bigtable-admin)
+PAM_PROJECTS=(test-cluster-29260 prod-cluster-25354)
+
+# one line per waiting request: project|entitlement|requester|justification|created|grant id
+function _pam_awaiting {
+  local project entitlement
+  for project in $PAM_PROJECTS; do
+    for entitlement in $PAM_ENTITLEMENTS; do
+      gcloud alpha pam grants search \
+        --entitlement="$entitlement" --location=global --project="$project" \
+        --caller-relationship=can-approve --filter="state=APPROVAL_AWAITED" \
+        --format="value[separator='|'](name.segment(1),name.segment(5),requester,justification.unstructuredJustification,createTime.date('%m-%d %H:%M', tz=LOCAL),name.basename())" \
+        2>/dev/null
+    done
+  done
+}
+
+function pam_pending {
+  echo "Searching ${#PAM_PROJECTS} projects x ${#PAM_ENTITLEMENTS} entitlements..." >&2
+  local rows=$(_pam_awaiting)
+  if [ -z "$rows" ]; then
+    echo "No PAM requests waiting for your approval."
+    return 0
+  fi
+  { echo "PROJECT|ENTITLEMENT|REQUESTER|JUSTIFICATION|CREATED|GRANT"; echo "$rows"; } | column -t -s '|'
+}
+
+function pam_approve {
+  echo "Searching ${#PAM_PROJECTS} projects x ${#PAM_ENTITLEMENTS} entitlements..." >&2
+  local -a rows labels
+  rows=("${(@f)$(_pam_awaiting)}")
+  if [ -z "${rows[1]}" ]; then
+    echo "No PAM requests waiting for your approval."
+    return 0
+  fi
+  local row project entitlement requester justification created grant
+  for row in "${rows[@]}"; do
+    IFS='|' read -r project entitlement requester justification created grant <<< "$row"
+    labels+=("${project%%-*} ${entitlement}: ${requester%%@*} \"${justification}\" (${created})")
+  done
+
+  local PS3="Which request? (number, Ctrl-C to quit): " choice
+  select choice in "${labels[@]}"; do
+    [ -n "$choice" ] && break
+  done
+  [ -z "$choice" ] && return 1
+  IFS='|' read -r project entitlement requester justification created grant <<< "${rows[$REPLY]}"
+
+  echo
+  echo "  Project:       $project"
+  echo "  Entitlement:   $entitlement"
+  echo "  Requester:     $requester"
+  echo "  Justification: $justification"
+  echo "  Created:       $created"
+  echo "  Grant:         $grant"
+  echo
+
+  local action reason
+  read "action?Approve, deny or cancel? [a/d/C] "
+  case "$action" in
+    a|A) action=approve ;;
+    d|D) action=deny ;;
+    *) echo "Cancelled."; return 0 ;;
+  esac
+  read "reason?Reason: "
+  if [ -z "$reason" ]; then
+    echo "Error: a reason is required." >&2
+    return 1
+  fi
+  gcloud alpha pam grants "$action" "$grant" \
+    --entitlement="$entitlement" --location=global --project="$project" \
+    --reason="$reason"
+}
 alias restart_feemachine="kubectl rollout restart deployment fee-machine-deployment -n fee-and-billing"
 alias master="git checkout master"
 alias uuid_please="make_uuid"
@@ -180,7 +256,6 @@ function proxy_new {
 alias prod_cluster="gcloud config set project prod-cluster-25354 && kubectl config use-context gke_prod-cluster-25354_europe-north1_main"
 alias test_cluster="gcloud config set project test-cluster-29260 && kubectl config use-context gke_test-cluster-29260_europe-north1_main"
 
-alias proxy_sip="proxy sip-fee sip-fee-service fee-and-billing"
 alias proxy_fee_decider="proxy_new fee-decider fee-decider-service fee-and-billing"
 alias proxy_refunder_holding="proxy_new refunder-holding refunder-holding-service fee-and-billing"
 alias proxy_refunder_transaction="proxy_new refunder-transaction refunder-transaction-service fee-and-billing"
