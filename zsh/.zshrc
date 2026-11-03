@@ -143,22 +143,26 @@ export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # some useful aliases
 # dont forget to end in single space on pamg aliases
-alias pam_pubsub="pamg pubsub-project-access "
-alias pam_cluster="pamg cluster-access "
+# entitlement names changed 2026-11-03 when approvals came in (cluster-access -> cluster-access-approved, ...)
+alias pam_pubsub="pamg pubsub-project-access-approved "
+alias pam_cluster="pamg cluster-access-approved "
+alias pam_exec="pamg cluster-exec "
+alias pam_port_forward="pamg cluster-port-forward "
 alias pam_bigtable_admin="pamg bigtable-admin "
 alias pam_bigtable_user="pamg bigtable-user "
 alias pam_bucket="pamg bucket-project-access "
 
 # PAM approvals: since 2026-11-02 every grant needs a colleague's approval (test and prod).
 # pam_pending lists requests you can approve; pam_approve lets you pick one and approve or deny it.
-PAM_ENTITLEMENTS=(cluster-access pubsub-project-access bucket-project-access bigtable-user bigtable-admin)
 PAM_PROJECTS=(test-cluster-29260 prod-cluster-25354)
 
 # one line per waiting request: project|entitlement|requester|justification|created|grant id
 function _pam_awaiting {
   local project entitlement
   for project in $PAM_PROJECTS; do
-    for entitlement in $PAM_ENTITLEMENTS; do
+    # ask PAM which entitlements we may approve, so renamed entitlements are picked up
+    for entitlement in $(gcloud alpha pam entitlements search --caller-access-type=grant-approver \
+        --location=global --project="$project" --format="value(name.basename())" 2>/dev/null); do
       gcloud alpha pam grants search \
         --entitlement="$entitlement" --location=global --project="$project" \
         --caller-relationship=can-approve --filter="state=APPROVAL_AWAITED" \
@@ -169,7 +173,7 @@ function _pam_awaiting {
 }
 
 function pam_pending {
-  echo "Searching ${#PAM_PROJECTS} projects x ${#PAM_ENTITLEMENTS} entitlements..." >&2
+  echo "Searching the entitlements you can approve in ${#PAM_PROJECTS} projects..." >&2
   local rows=$(_pam_awaiting)
   if [ -z "$rows" ]; then
     echo "No PAM requests waiting for your approval."
@@ -179,7 +183,7 @@ function pam_pending {
 }
 
 function pam_approve {
-  echo "Searching ${#PAM_PROJECTS} projects x ${#PAM_ENTITLEMENTS} entitlements..." >&2
+  echo "Searching the entitlements you can approve in ${#PAM_PROJECTS} projects..." >&2
   local -a rows labels
   rows=("${(@f)$(_pam_awaiting)}")
   if [ -z "${rows[1]}" ]; then
